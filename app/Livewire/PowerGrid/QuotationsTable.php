@@ -83,13 +83,13 @@ final class QuotationsTable extends PowerGridComponent
                 ->bodyAttribute('align-middle text-center')
                 ->sortable(),
 
-            Column::make('Customer name', 'customer_name')
+            Column::make('Nombre del Cliente', 'customer_name')
                 ->headerAttribute('align-middle text-center')
                 ->bodyAttribute('align-middle text-center')
                 ->sortable()
                 ->searchable(),
 
-            Column::make('Total amount', 'total_amount')
+            Column::make('Monto Total', 'total_amount')
                 ->headerAttribute('text-center align-middle')
                 ->bodyAttribute('text-center align-middle'),
 

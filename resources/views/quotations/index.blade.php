@@ -5,7 +5,7 @@
         @if(!$quotations)
             <x-empty
                 title="No quotations found"
-                button_label="{{ __('Add your first Quotation') }}"
+                button_label="{{ __('Adicione su primera cotización') }}"
                 button_route="{{ route('quotations.create') }}"
             />
         @else

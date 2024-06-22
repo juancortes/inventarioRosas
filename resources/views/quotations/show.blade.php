@@ -189,7 +189,7 @@
                                     @csrf
                                     <button type="submit" class="btn btn-success">
                                         <i class="bi bi-check-circle"></i>
-                                        Complete Quotation
+                                        Cotización Completada
                                     </button>
                                 </form>
                             </div>

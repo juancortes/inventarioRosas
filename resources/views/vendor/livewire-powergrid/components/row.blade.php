@@ -44,7 +44,7 @@
         wire:key="row-{{ $column->field }}"
     >
         <div class="pg-actions d-flex d-grid gap-2 d-md-flex justify-content-between">
-            <!-- Render Action -->
+            <!-- Render Accion -->
             @if (filled(data_get($row, 'actions')) && $column->isAction)
                 @foreach (data_get($row, 'actions') as $key => $action)
                     <div class="" wire:key="action-{{ $row->id }}-{{ $key }}">

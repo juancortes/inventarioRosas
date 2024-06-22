@@ -81,7 +81,7 @@
                                 label="Customers"
                                 id="customer"
                                 name="customer"
-                                placeholder="Select Customer"
+                                placeholder="Seleccione un cliente"
                                 :value="$order->customer->id"
                                 :data="$customers"
                             /> --}}

@@ -63,7 +63,7 @@
                 </th>
                 <th scope="col" class="align-middle text-center">
                     <a wire:click.prevent="sortBy('total_amount')" href="#" role="button">
-                        {{ __('Total amount') }}
+                        {{ __('Monto Total') }}
                         @include('inclues._sort-icon', ['field' => 'total_amount'])
                     </a>
                 </th>

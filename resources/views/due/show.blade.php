@@ -82,7 +82,7 @@
                                     <th scope="col" class="align-middle text-center">Nombre del Producto</th>
                                     <th scope="col" class="align-middle text-center">Código del Producto</th>
                                     <th scope="col" class="align-middle text-center">Cantidad</th>
-                                    <th scope="col" class="align-middle text-center">Price</th>
+                                    <th scope="col" class="align-middle text-center">Precio</th>
                                     <th scope="col" class="align-middle text-center">Total</th>
                                 </tr>
                                 </thead>

@@ -45,10 +45,10 @@
                 entradas
             </div>
             <div class="ms-auto text-secondary">
-                Search:
+                Buscar:
                 <div class="ms-2 d-inline-block">
                     <input type="text" wire:model.live="search" class="form-control form-control-sm"
-                        aria-label="Search invoice">
+                        aria-label="Buscar invoice">
                 </div>
             </div>
         </div>

@@ -153,7 +153,7 @@
                                 <div class="col-md-12 mt-4">
                                     <div class="d-flex flex-wrap">
                                         <button type="submit" class="btn btn-success add-list mx-1">
-                                            {{ __('Create Quotation') }}
+                                            {{ __('Crear Cotización') }}
                                         </button>
                                     </div>
                                 </div>

@@ -28,7 +28,7 @@
             <div class="ms-auto text-secondary">
                 Busacar:
                 <div class="ms-2 d-inline-block">
-                    <input type="text" wire:model.live="search" class="form-control form-control-sm" aria-label="Search invoice">
+                    <input type="text" wire:model.live="search" class="form-control form-control-sm" aria-label="Buscar invoice">
                 </div>
             </div>
         </div>

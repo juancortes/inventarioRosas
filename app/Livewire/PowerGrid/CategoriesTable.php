@@ -65,12 +65,12 @@ final class CategoriesTable extends PowerGridComponent
                 ->bodyAttribute('align-middle text-center')
                 ->searchable(),
 
-            Column::make('Created at', 'created_at')
+            Column::make('Creado', 'created_at')
                 ->headerAttribute('align-middle text-center')
                 ->bodyAttribute('align-middle text-center')
                 ->hidden(),
 
-            Column::make('Created at', 'created_at_formatted', 'created_at')
+            Column::make('Creado', 'created_at_formatted', 'created_at')
                 ->headerAttribute('align-middle text-center')
                 ->bodyAttribute('align-middle text-center')
                 ->searchable(),

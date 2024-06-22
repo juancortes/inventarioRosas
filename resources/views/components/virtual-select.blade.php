@@ -9,7 +9,7 @@
             options: options,
             search: true,
             placeholder: 'Select',
-            noOptionsText: 'No results found',
+            noOptionsText: 'No hay resultados',
             maxWidth: '100%'
         })
 

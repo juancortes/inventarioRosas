@@ -83,7 +83,7 @@ final class UserTable extends PowerGridComponent
                 ->sortable()
                 ->searchable(),
 
-            Column::make('Created at', 'created_at_formatted', 'created_at')
+            Column::make('Creado', 'created_at_formatted', 'created_at')
                 ->headerAttribute('align-middle text-center')
                 ->bodyAttribute('align-middle text-center')
                 ->sortable(),

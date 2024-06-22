@@ -109,7 +109,7 @@ final class CustomersTable extends PowerGridComponent
                 ->class('btn btn-outline-warning btn-icon w-100')
                 ->route('customers.edit', ['customer' => $row])
                 ->method('get')
-                ->tooltip('Edit Customer'),
+                ->tooltip('Editar Cliente'),
 
             Button::add('delete')
                 ->slot(file_get_contents('assets/svg/trash.svg'))

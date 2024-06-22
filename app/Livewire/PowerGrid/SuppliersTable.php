@@ -65,12 +65,12 @@ final class SuppliersTable extends PowerGridComponent
                 ->searchable()
                 ->sortable(),
 
-            Column::make('Created at', 'created_at')
+            Column::make('Creado', 'created_at')
                 ->headerAttribute('text-center')
                 ->bodyAttribute('text-center')
                 ->hidden(),
 
-            Column::make('Created at', 'created_at_formatted', 'created_at')
+            Column::make('Creado', 'created_at_formatted', 'created_at')
                 ->headerAttribute('text-center')
                 ->bodyAttribute('text-center')
                 ->searchable(),

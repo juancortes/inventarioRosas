@@ -60,10 +60,10 @@ final class OrderTable extends PowerGridComponent
                 ->searchable()
                 ->sortable(),
 
-            Column::make('Created at', 'created_at')
+            Column::make('Creado', 'created_at')
                 ->hidden(),
 
-            Column::make('Created at', 'created_at_formatted', 'created_at')
+            Column::make('Creado', 'created_at_formatted', 'created_at')
                 ->searchable(),
 
             Column::action('Action')

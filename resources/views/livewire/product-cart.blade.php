@@ -120,7 +120,7 @@
                         <td>(+) {{ format_currency($shipping) }}</td>
                     </tr>
                     <tr>
-                        <th>Grand Total</th>
+                        <th>Gran Total</th>
                         @php
                             $total_with_shipping = Cart::instance($cart_instance)->total() + (float) $shipping
                         @endphp

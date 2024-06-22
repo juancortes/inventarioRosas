@@ -65,7 +65,7 @@
 
                                     <div class="col-sm-6 col-md-6">
                                         <label for="type" class="form-label required">
-                                            Type of supplier
+                                            Tipo de Proveedor
                                         </label>
 
                                         <select class="form-select @error('type') is-invalid @enderror" id="type" name="type">

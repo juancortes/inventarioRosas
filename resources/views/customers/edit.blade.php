@@ -59,12 +59,12 @@
                                         <div class="col-md-12">
                                             <x-input name="name" :value="old('name', $customer->name)" :required="true" />
 
-                                            <x-input label="Email address" name="email" :value="old('email', $customer->email)"
+                                            <x-input label="Email" name="email" :value="old('email', $customer->email)"
                                                 :required="true" />
                                         </div>
 
                                         <div class="col-sm-6 col-md-6">
-                                            <x-input label="Phone number" name="phone" :value="old('phone', $customer->phone)"
+                                            <x-input label="Teléfono" name="phone" :value="old('phone', $customer->phone)"
                                                 :required="true" />
                                         </div>
 

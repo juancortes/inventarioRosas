@@ -121,7 +121,7 @@
             </tr>
             <tr>
                 <th colspan="4" class="align-middle text-end">
-                    Taxes
+                    Impuestos
                 </th>
                 <td width="150" class="align-middle text-center">
                     <input wire:model.blur="taxes" type="number" id="taxes" class="form-control w-75 d-inline" min="0" max="100">

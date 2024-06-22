@@ -79,7 +79,7 @@
                                 <table class="default-table invoice-table">
                                     <thead>
                                         <tr>
-                                            <th class="align-middle">Item</th>
+                                            <th class="align-middle">Artículo</th>
                                             <th class="align-middle text-center">Precio</th>
                                             <th class="align-middle text-center">Cantidad</th>
                                             <th class="align-middle text-center">Subtotal</th>

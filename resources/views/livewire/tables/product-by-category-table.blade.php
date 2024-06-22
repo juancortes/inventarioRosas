@@ -41,9 +41,9 @@
                     entradas
                 </div>
                 <div class="ms-auto text-secondary">
-                    Search:
+                    Buscar:
                     <div class="ms-2 d-inline-block">
-                        <input type="text" wire:model.live="search" class="form-control form-control-sm" aria-label="Search invoice">
+                        <input type="text" wire:model.live="search" class="form-control form-control-sm" aria-label="Buscar invoice">
                     </div>
                 </div>
             </div>
@@ -72,7 +72,7 @@
                     </th>
                     <th scope="col" class="align-middle text-center d-none d-sm-table-cell">
                         <a wire:click.prevent="sortBy('quantity')" href="#" role="button">
-                            {{ __('Product Quantity') }}
+                            {{ __('Product Cantidad') }}
                             @include('inclues._sort-icon', ['field' => 'quantity'])
                         </a>
                     </th>

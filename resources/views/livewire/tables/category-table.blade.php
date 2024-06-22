@@ -29,7 +29,7 @@
                 Buscar:
                 <div class="ms-2 d-inline-block">
                     <input type="text" wire:model.live="search" class="form-control form-control-sm"
-                        aria-label="Search invoice">
+                        aria-label="Buscar invoice">
                 </div>
             </div>
         </div>
@@ -95,7 +95,7 @@
                             <x-button.show class="btn-icon" route="{{ route('categories.show', $category) }}" />
                             <x-button.edit class="btn-icon" route="{{ route('categories.edit', $category) }}" />
                             <x-button.delete class="btn-icon" route="{{ route('categories.destroy', $category) }}"
-                                onclick="return confirm('Are you sure to remove category {{ $category->name }} ?!')" />
+                                onclick="return confirm('Realmente quiere eliminar category {{ $category->name }} ?!')" />
                         </td>
                     </tr>
                 @empty
