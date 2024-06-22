@@ -8,7 +8,7 @@
                     <div class="card-header">
                         <div>
                             <h3 class="card-title">
-                                {{ __('Quotation Details') }}
+                                {{ __('Detalle de la cotización') }}
                             </h3>
                         </div>
 
@@ -20,7 +20,7 @@
                         <div class="row row-cards mb-3">
                             <div class="col-3">
                                 <label for="date" class="small mb-1">
-                                    {{ __('Date') }}
+                                    {{ __('Fecha') }}
                                 </label>
 
                                 <input type="text" id="date" class="form-control"
@@ -29,7 +29,7 @@
 
                             <div class="col-3">
                                 <label for="purchase_no" class="small mb-1">
-                                    {{ __('Reference ID') }}
+                                    {{ __('Referencia ID') }}
                                 </label>
                                 <input type="text" id="purchase_no" class="form-control"
                                     value="{{ $quotation->reference }}" disabled>
@@ -37,7 +37,7 @@
 
                             <div class="col-3">
                                 <label for="supplier" class="small mb-1">
-                                    {{ __('Customer Name') }}
+                                    {{ __('Nombre del Cliente') }}
                                 </label>
                                 <input type="text" id="supplier" class="form-control"
                                     value="{{ $quotation->customer_name }}" disabled>
@@ -54,7 +54,7 @@
 
                             <div class="col-12">
                                 <label for="create_by" class="small mb-1">
-                                    {{ __('Note') }}
+                                    {{ __('Nota') }}
                                 </label>
                                 <textarea name="note" id="note" cols="30" rows="2" class="form-control" disabled>{{ $quotation->note }}</textarea>
                             </div>
@@ -159,12 +159,12 @@
 
                                         <tr>
                                             <td class="align-middle text-end" colspan="7">
-                                                Status
+                                                Estado
                                             </td>
                                             <td class="align-middle text-center">
                                                 @if ($quotation->status->value == 1)
                                                     <span class="badge bg-success-lt">
-                                                        Completed
+                                                        Completado
                                                     </span>
                                                 @elseif ($quotation->status->value == 0)
                                                     <span class="badge bg-warning-lt">
@@ -172,7 +172,7 @@
                                                     </span>
                                                 @else
                                                     <span class="badge bg-danger-lt">
-                                                        Cancel
+                                                        Cancelar
                                                     </span>
                                                 @endif
                                             </td>

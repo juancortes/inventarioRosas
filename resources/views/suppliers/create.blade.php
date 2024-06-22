@@ -6,7 +6,7 @@
         <div class="row g-2 align-items-center mb-3">
             <div class="col">
                 <h2 class="page-title">
-                    {{ __('Create Supplier') }}
+                    {{ __('Crear Proveedor') }}
                 </h2>
             </div>
         </div>
@@ -26,12 +26,12 @@
                         <div class="card">
                             <div class="card-body">
                                 <h3 class="card-title">
-                                    {{ __('Profile Image') }}
+                                    {{ __('Imagen de Perfil') }}
                                 </h3>
 
                                 <img class="img-account-profile rounded-circle mb-2" src="{{ asset('assets/img/demo/user-placeholder.svg') }}" alt="" id="image-preview" />
 
-                                <div class="small font-italic text-muted mb-2">JPG or PNG no larger than 1 MB</div>
+                                <div class="small font-italic text-muted mb-2">JPG or PNG no mas largo que 1 MB</div>
 
                                 <input class="form-control @error('photo') is-invalid @enderror" type="file"  id="image" name="photo" accept="image/*" onchange="previewImage();">
 
@@ -48,18 +48,18 @@
                         <div class="card">
                             <div class="card-body">
                                 <h3 class="card-title">
-                                    {{ __('Supplier Details') }}
+                                    {{ __('Detalldese del Proveedor') }}
                                 </h3>
 
                                 <div class="row row-cards">
                                     <div class="col-md-12">
-                                        <x-input name="name" :required="true" />
+                                        <x-input name="name" label="Nonbre" :required="true" />
 
-                                        <x-input name="email" label="Email address" :required="true" />
+                                        <x-input name="email" label="Email" :required="true" />
 
-                                        <x-input name="shopname" label="Shop name" :required="true" />
+                                        <x-input name="shopname" label="Nombre de la Tienda" :required="true" />
 
-                                        <x-input name="phone" label="Phone number" :required="true" />
+                                        <x-input name="phone" label="Teléfono" :required="true" />
                                     </div>
 
 
@@ -91,7 +91,7 @@
                                         </label>
 
                                         <select class="form-select @error('bank_name') is-invalid @enderror" id="bank_name" name="bank_name">
-                                            <option selected="" disabled="">Select a bank:</option>
+                                            <option selected="" disabled="">Seleccione un Banco:</option>
                                             <option value="BRI" @if(old('bank_name') == 'BRI')selected="selected"@endif>BRI</option>
                                             <option value="BNI" @if(old('bank_name') == 'BNI')selected="selected"@endif>BNI</option>
                                             <option value="BCA" @if(old('bank_name') == 'BCA')selected="selected"@endif>BCA</option>
@@ -106,11 +106,11 @@
                                     </div>
 
                                     <div class="col-sm-6 col-md-6">
-                                        <x-input name="account_holder" label="Account holder"/>
+                                        <x-input name="account_holder" label="Cuenta del Titular"/>
                                     </div>
 
                                     <div class="col-sm-6 col-md-6">
-                                        <x-input name="account_number" label="Account number"/>
+                                        <x-input name="account_number" label="Número de Cuenta"/>
                                     </div>
 
                                     <div class="col-md-12">

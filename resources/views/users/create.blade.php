@@ -6,7 +6,7 @@
         <div class="row g-2 align-items-center mb-3">
             <div class="col">
                 <h2 class="page-title">
-                    {{ __('Create User') }}
+                    {{ __('Crear Usuario') }}
                 </h2>
             </div>
         </div>
@@ -26,7 +26,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <h3 class="card-title">
-                                    {{ __('User Image') }}
+                                    {{ __('Imagen de Usuario') }}
                                 </h3>
 
                                 <div class="card-body text-center">
@@ -36,7 +36,7 @@
                                          id="image-preview"
                                     >
                                     <div class="small font-italic text-muted mb-2">
-                                        JPG or PNG no larger than 1 MB
+                                        JPG or PNG no mas largo que 1 MB
                                     </div>
 
                                     <input type="file"
@@ -61,14 +61,14 @@
                         <div class="card">
                             <div class="card-body">
                                 <h3 class="card-title">
-                                    {{ __('User Details') }}
+                                    {{ __('Detalles de Usuario') }}
                                 </h3>
 
                                 <div class="row row-cards">
                                     <div class="col-md-12">
                                         <div class="mb-3">
                                             <label for="name" class="form-label">
-                                                {{ __('Name') }}
+                                                {{ __('Nombre') }}
                                                 <span class="text-danger">*</span>
                                             </label>
 
@@ -89,7 +89,7 @@
 
                                         <div class="mb-3">
                                             <label for="email" class="form-label">
-                                                {{ __('Email address') }}
+                                                {{ __('Email') }}
                                                 <span class="text-danger">*</span>
                                             </label>
 
@@ -133,7 +133,7 @@
 
                                     <div class="col-sm-6 col-md-6">
                                         <label for="password" class="form-label">
-                                            {{ __('Password') }}
+                                            {{ __('Clave') }}
                                             <span class="text-danger">*</span>
                                         </label>
 
@@ -153,7 +153,7 @@
 
                                     <div class="col-sm-6 col-md-6">
                                         <label for="password_confirmation" class="form-label">
-                                            {{ __('Password confirmation') }}
+                                            {{ __('Confirmar Clave') }}
                                             <span class="text-danger">*</span>
                                         </label>
 
@@ -174,11 +174,11 @@
 
                             <div class="card-footer text-end">
                                 <button class="btn btn-primary" type="submit">
-                                    {{ __('Create') }}
+                                    {{ __('Crear') }}
                                 </button>
 
                                 <a class="btn btn-outline-warning" href="{{ route('users.index') }}">
-                                    {{ __('Cancel') }}
+                                    {{ __('Cancelar') }}
                                 </a>
                             </div>
                         </div>
