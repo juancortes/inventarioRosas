@@ -101,7 +101,7 @@ final class CustomersTable extends PowerGridComponent
         return [
             Button::make('show', file_get_contents('assets/svg/eye.svg'))
                 ->class('btn btn-outline-info btn-icon w-100')
-                ->tooltip('Show Customer Details')
+                ->tooltip('Mostrar Detalles del cliente')
                 ->route('customers.show', ['customer' => $row])
                 ->method('get'),
 

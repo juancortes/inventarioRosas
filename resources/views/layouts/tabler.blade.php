@@ -265,7 +265,7 @@
                                         </svg>
                                     </span>
                                     <span class="nav-link-title">
-                                        {{ __('Products') }}
+                                        {{ __('Productos') }}
                                     </span>
                                 </a>
                             </li>
@@ -290,23 +290,23 @@
                                         </svg>
                                     </span>
                                     <span class="nav-link-title">
-                                        {{ __('Orders') }}
+                                        {{ __('Ordenes') }}
                                     </span>
                                 </a>
                                 <div class="dropdown-menu">
                                     <div class="dropdown-menu-columns">
                                         <div class="dropdown-menu-column">
                                             <a class="dropdown-item" href="{{ route('orders.index') }}">
-                                                {{ __('All') }}
+                                                {{ __('Todas') }}
                                             </a>
                                             <a class="dropdown-item" href="{{ route('orders.complete') }}">
-                                                {{ __('Completed') }}
+                                                {{ __('Completadas') }}
                                             </a>
                                             <a class="dropdown-item" href="{{ route('orders.pending') }}">
-                                                {{ __('Pending') }}
+                                                {{ __('Pendientes') }}
                                             </a>
                                             <a class="dropdown-item" href="{{ route('due.index') }}">
-                                                {{ __('Due') }}
+                                                {{ __('Vencidas') }}
                                             </a>
                                         </div>
                                     </div>
@@ -333,22 +333,22 @@
                                         </svg>
                                     </span>
                                     <span class="nav-link-title">
-                                        {{ __('Purchases') }}
+                                        {{ __('Compras') }}
                                     </span>
                                 </a>
                                 <div class="dropdown-menu">
                                     <div class="dropdown-menu-columns">
                                         <div class="dropdown-menu-column">
                                             <a class="dropdown-item" href="{{ route('purchases.index') }}">
-                                                {{ __('All') }}
+                                                {{ __('Todas') }}
                                             </a>
                                             <a class="dropdown-item"
                                                 href="{{ route('purchases.approvedPurchases') }}">
-                                                {{ __('Approval') }}
+                                                {{ __('Aprovadas') }}
                                             </a>
                                             <a class="dropdown-item"
                                                 href="{{ route('purchases.purchaseReport') }}">
-                                                {{ __('Daily Purchase Report') }}
+                                                {{ __('Informe diario de compras') }}
                                             </a>
                                         </div>
                                     </div>
@@ -372,7 +372,7 @@
                                         </svg>
                                     </span>
                                     <span class="nav-link-title">
-                                        {{ __('Quotations') }}
+                                        {{ __('Cotizaciones') }}
                                     </span>
                                 </a>
                             </li>
@@ -403,10 +403,10 @@
                                     <div class="dropdown-menu-columns">
                                         <div class="dropdown-menu-column">
                                             <a class="dropdown-item" href="{{ route('suppliers.index') }}">
-                                                {{ __('Suppliers') }}
+                                                {{ __('Proveedores') }}
                                             </a>
                                             <a class="dropdown-item" href="{{ route('customers.index') }}">
-                                                {{ __('Customers') }}
+                                                {{ __('Clientes') }}
                                             </a>
                                         </div>
                                     </div>
@@ -431,20 +431,20 @@
                                         </svg>
                                     </span>
                                     <span class="nav-link-title">
-                                        {{ __('Settings') }}
+                                        {{ __('Configuraciones') }}
                                     </span>
                                 </a>
                                 <div class="dropdown-menu">
                                     <div class="dropdown-menu-columns">
                                         <div class="dropdown-menu-column">
-                                            {{-- <a class="dropdown-item" href="{{ route('users.index') }}">
-                                                    {{ __('Users') }}
-                                                </a> --}}
+                                            <a class="dropdown-item" href="{{ route('users.index') }}">
+                                                    {{ __('Usuarios') }}
+                                                </a> 
                                             <a class="dropdown-item" href="{{ route('categories.index') }}">
-                                                {{ __('Categories') }}
+                                                {{ __('Categorias') }}
                                             </a>
                                             <a class="dropdown-item" href="{{ route('units.index') }}">
-                                                {{ __('Units') }}
+                                                {{ __('Unidades') }}
                                             </a>
                                         </div>
                                     </div>
@@ -484,42 +484,15 @@
             <footer class="footer footer-transparent d-print-none">
                 <div class="container-xl">
                     <div class="row text-center align-items-center flex-row-reverse">
-                        <div class="col-lg-auto ms-lg-auto">
-                            <ul class="list-inline list-inline-dots mb-0">
-                                <li class="list-inline-item"><a href="https://tabler.io/docs" target="_blank"
-                                        class="link-secondary" rel="noopener">Documentation</a></li>
-                                <li class="list-inline-item"><a href="" class="link-secondary">License</a>
-                                </li>
-                                <li class="list-inline-item"><a href="https://github.com/tabler/tabler"
-                                        target="_blank" class="link-secondary" rel="noopener">Source code</a></li>
-                                <li class="list-inline-item">
-                                    <a href="https://github.com/sponsors/codecalm" target="_blank"
-                                        class="link-secondary" rel="noopener">
-                                        <!-- Download SVG icon from http://tabler-icons.io/i/heart -->
-                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                            class="icon text-pink icon-filled icon-inline" width="24"
-                                            height="24" viewBox="0 0 24 24" stroke-width="2"
-                                            stroke="currentColor" fill="none" stroke-linecap="round"
-                                            stroke-linejoin="round">
-                                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                            <path
-                                                d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
-                                        </svg>
-                                        Sponsor
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
                         <div class="col-12 col-lg-auto mt-3 mt-lg-0">
                             <ul class="list-inline list-inline-dots mb-0">
                                 <li class="list-inline-item">
-                                    Copyright &copy; {{ now()->year }}
+                                     {{ now()->year }}
                                     <a href="." class="link-secondary">Tabler</a>.
-                                    All rights reserved.
                                 </li>
                                 <li class="list-inline-item">
-                                    <a href="./changelog.html" class="link-secondary" rel="noopener">
-                                        v1.0.0-beta19
+                                    <a href="#" class="link-secondary" rel="noopener">
+                                        v1.0.0
                                     </a>
                                 </li>
                             </ul>

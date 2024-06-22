@@ -2,7 +2,7 @@
     <div class="card-header">
         <div>
             <h3 class="card-title">
-                {{ __('Customers') }}
+                {{ __('Clientes') }}
             </h3>
         </div>
 
@@ -14,7 +14,7 @@
     <div class="card-body border-bottom py-3">
         <div class="d-flex">
             <div class="text-secondary">
-                Show
+                Mostrar
                 <div class="mx-2 d-inline-block">
                     <select wire:model.live="perPage" class="form-select form-select-sm" aria-label="result per page">
                         <option value="5">5</option>
@@ -23,10 +23,10 @@
                         <option value="25">25</option>
                     </select>
                 </div>
-                entries
+                Entradas
             </div>
             <div class="ms-auto text-secondary">
-                Search:
+                Busacar:
                 <div class="ms-2 d-inline-block">
                     <input type="text" wire:model.live="search" class="form-control form-control-sm" aria-label="Search invoice">
                 </div>
@@ -48,7 +48,7 @@
                 </th>
                 <th scope="col" class="align-middle text-center">
                     <a wire:click.prevent="sortBy('name')" href="#" role="button">
-                        {{ __('Name') }}
+                        {{ __('Nombre') }}
                         @include('inclues._sort-icon', ['field' => 'name'])
                     </a>
                 </th>
@@ -60,12 +60,12 @@
                 </th>
                 <th scope="col" class="align-middle text-center">
                     <a wire:click.prevent="sortBy('created_at')" href="#" role="button">
-                        {{ __('Created at') }}
+                        {{ __('Creado') }}
                         @include('inclues._sort-icon', ['field' => 'Created_at'])
                     </a>
                 </th>
                 <th scope="col" class="align-middle text-center">
-                    {{ __('Action') }}
+                    {{ __('Accion') }}
                 </th>
             </tr>
             </thead>
@@ -90,14 +90,14 @@
                         <x-button.delete 
                             class="btn-icon" 
                             route="{{ route('customers.destroy', $customer->uuid) }}" 
-                            onclick="return confirm('Are you sure to remove {{ $customer->name }} ?')"
+                            onclick="return confirm('Realmente quiere eliminar {{ $customer->name }} ?')"
                         />
                     </td>
                 </tr>
             @empty
                 <tr>
                     <td class="align-middle text-center" colspan="8">
-                        No results found
+                        No hay resultados
                     </td>
                 </tr>
             @endforelse
@@ -107,7 +107,7 @@
 
     <div class="card-footer d-flex align-items-center">
         <p class="m-0 text-secondary">
-            Showing <span>{{ $customers->firstItem() }}</span> to <span>{{ $customers->lastItem() }}</span> of <span>{{ $customers->total() }}</span> entries
+            Mostrando <span>{{ $customers->firstItem() }}</span> de <span>{{ $customers->lastItem() }}</span> de <span>{{ $customers->total() }}</span> Entradas
         </p>
 
         <ul class="pagination m-0 ms-auto">

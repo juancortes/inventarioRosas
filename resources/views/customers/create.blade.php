@@ -6,7 +6,7 @@
         <div class="row g-2 align-items-center mb-3">
             <div class="col">
                 <h2 class="page-title">
-                    {{ __('Create Customer') }}
+                    {{ __('Crear Cliente') }}
                 </h2>
             </div>
         </div>
@@ -26,12 +26,12 @@
                         <div class="card">
                             <div class="card-body">
                                 <h3 class="card-title">
-                                    {{ __('Customer Image') }}
+                                    {{ __('Imagen del cliente') }}
                                 </h3>
 
                                 <img class="img-account-profile rounded-circle mb-2" src="{{ asset('assets/img/demo/user-placeholder.svg') }}" alt="" id="image-preview" />
 
-                                <div class="small font-italic text-muted mb-2">JPG or PNG no larger than 2 MB</div>
+                                <div class="small font-italic text-muted mb-2">JPG or PNG no mas largo que 2 MB</div>
 
                                 <input class="form-control @error('photo') is-invalid @enderror" type="file"  id="image" name="photo" accept="image/*" onchange="previewImage();">
 
@@ -48,7 +48,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <h3 class="card-title">
-                                    {{ __('Customer Details') }}
+                                    {{ __('Detalles del cliente') }}
                                 </h3>
 
                                 <div class="row row-cards">
@@ -64,11 +64,11 @@
 
                                     <div class="col-sm-6 col-md-6">
                                         <label for="bank_name" class="form-label">
-                                            Bank Name
+                                            Nombre del Banco
                                         </label>
 
                                         <select class="form-select form-control-solid @error('bank_name') is-invalid @enderror" id="bank_name" name="bank_name">
-                                            <option selected="" disabled="">Select a bank:</option>
+                                            <option selected="" disabled="">Seleccione un Banco:</option>
                                             <option value="BRI" @if(old('bank_name') == 'BRI')selected="selected"@endif>BRI</option>
                                             <option value="BNI" @if(old('bank_name') == 'BNI')selected="selected"@endif>BNI</option>
                                             <option value="BCA" @if(old('bank_name') == 'BCA')selected="selected"@endif>BCA</option>
@@ -85,16 +85,16 @@
 
 
                                     <div class="col-sm-6 col-md-6">
-                                        <x-input label="Account holder" name="account_holder" />
+                                        <x-input label="Cuenta del Titular" name="account_holder" />
                                     </div>
 
                                     <div class="col-sm-6 col-md-6">
-                                        <x-input label="Account number" name="account_number" />
+                                        <x-input label="Número de Cuenta" name="account_number" />
                                     </div>
 
                                     <div class="mb-3">
                                         <label for="address" class="form-label required">
-                                            Address
+                                            Dirección
                                         </label>
 
                                         <textarea name="address"
@@ -113,11 +113,11 @@
                             </div>
                             <div class="card-footer text-end">
                                 <button class="btn btn-primary" type="submit">
-                                    {{ __('Save') }}
+                                    {{ __('Guardar') }}
                                 </button>
 
                                 <a class="btn btn-outline-warning" href="{{ route('customers.index') }}">
-                                    {{ __('Cancel') }}
+                                    {{ __('Cancelar') }}
                                 </a>
                             </div>
                         </div>

@@ -17,7 +17,7 @@
                     <div class="card-header">
                         <div>
                             <h3 class="card-title">
-                                {{ __('Due Order Details') }}
+                                {{ __('Detallde del pedido pendiente') }}
                             </h3>
                         </div>
 
@@ -29,7 +29,7 @@
                                 <div class="dropdown-menu dropdown-menu-end" style="">
                                     <a href="{{ route('due.edit', $order) }}" class="dropdown-item text-warning">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-pencil" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" /><path d="M13.5 6.5l4 4" /></svg>
-                                        {{ __('Edit Order') }}
+                                        {{ __('Editar Orden') }}
                                     </a>
                                 </div>
                             </div>
@@ -43,7 +43,7 @@
                         <div class="row row-cards mb-3">
                             <div class="col">
                                 <label for="order_date" class="form-label required">
-                                    {{ __('Order Date') }}
+                                    {{ __('Fecha de Orden') }}
                                 </label>
                                 <input type="text"
                                        id="order_date"
@@ -55,7 +55,7 @@
 
                             <div class="col">
                                 <label for="invoice_no" class="form-label required">
-                                    {{ __('Invoice No.') }}
+                                    {{ __('Factura No.') }}
                                 </label>
                                 <input type="text"
                                        id="invoice_no"
@@ -67,7 +67,7 @@
 
                             <div class="col">
                                 <label for="customer" class="form-label required">
-                                    {{ __('Customer') }}
+                                    {{ __('Cliente') }}
                                 </label>
                                 <input type="text"
                                        id="customer"
@@ -88,7 +88,7 @@
 
                             <div class="col">
                                 <label for="payment_type" class="form-label required">
-                                    {{ __('Payment Type') }}
+                                    {{ __('Tipo de Pago') }}
                                 </label>
                                 <input type="text" id="payment_type" class="form-control" value="{{ $order->payment_type }}" disabled>
                             </div>
@@ -99,11 +99,11 @@
                                 <thead class="thead-light">
                                 <tr>
                                     <th scope="col" class="align-middle text-center">No.</th>
-                                    <th scope="col" class="align-middle text-center">Photo</th>
-                                    <th scope="col" class="align-middle text-center">Product Name</th>
-                                    <th scope="col" class="align-middle text-center">Product Code</th>
-                                    <th scope="col" class="align-middle text-center">Quantity</th>
-                                    <th scope="col" class="align-middle text-center">Price</th>
+                                    <th scope="col" class="align-middle text-center">Foto</th>
+                                    <th scope="col" class="align-middle text-center">Nombre del Producto</th>
+                                    <th scope="col" class="align-middle text-center">Código del Producto</th>
+                                    <th scope="col" class="align-middle text-center">Cantidad</th>
+                                    <th scope="col" class="align-middle text-center">Precio</th>
                                     <th scope="col" class="align-middle text-center">Total</th>
                                 </tr>
                                 </thead>
@@ -137,7 +137,7 @@
                                 @endforeach
                                 <tr>
                                     <td colspan="6" class="text-end">
-                                        Payed amount
+                                        Monto de Pago
                                     </td>
                                     <td class="text-center">{{ number_format($order->pay, 2) }}</td>
                                 </tr>
@@ -159,7 +159,7 @@
                     </div>
                     <div class="card-footer text-end">
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-due">
-                            {{ __('Pay Due') }}
+                            {{ __('Pagar Pendiente') }}
                         </button>
                     </div>
                 </div>

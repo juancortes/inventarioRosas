@@ -2,7 +2,7 @@
     <div class="card-header">
         <div>
             <h3 class="card-title">
-                {{ __('Suppliers') }}
+                {{ __('Proveedores') }}
             </h3>
         </div>
 
@@ -14,7 +14,7 @@
     <div class="card-body border-bottom py-3">
         <div class="d-flex">
             <div class="text-secondary">
-                Show
+                Mostrar
                 <div class="mx-2 d-inline-block">
                     <select wire:model.live="perPage" class="form-select form-select-sm" aria-label="result per page">
                         <option value="5">5</option>
@@ -23,12 +23,12 @@
                         <option value="25">25</option>
                     </select>
                 </div>
-                entries
+                entradas
             </div>
             <div class="ms-auto text-secondary">
-                Search:
+                Buscar:
                 <div class="ms-2 d-inline-block">
-                    <input type="text" wire:model.live="search" class="form-control form-control-sm" aria-label="Search invoice">
+                    <input type="text" wire:model.live="search" class="form-control form-control-sm" aria-label="Buscar invoice">
                 </div>
             </div>
         </div>
@@ -45,36 +45,36 @@
                 </th>
                 <th scope="col" class="align-middle text-center">
                     <a wire:click.prevent="sortBy('name')" href="#" role="button">
-                        {{ __('Name') }}
+                        {{ __('Nombre') }}
                         @include('inclues._sort-icon', ['field' => 'name'])
                     </a>
                 </th>
                 <th scope="col" class="align-middle text-center">
                     <a wire:click.prevent="sortBy('email')" href="#" role="button">
-                        {{ __('Email address') }}
+                        {{ __('Email') }}
                         @include('inclues._sort-icon', ['field' => 'email'])
                     </a>
                 </th>
                 <th scope="col" class="align-middle text-center">
                     <a wire:click.prevent="sortBy('shopname')" href="#" role="button">
-                        {{ __('Shop name') }}
+                        {{ __('Nombre de la Tienda') }}
                         @include('inclues._sort-icon', ['field' => 'shopname'])
                     </a>
                 </th>
                 <th scope="col" class="align-middle text-center">
                     <a wire:click.prevent="sortBy('type')" href="#" role="button">
-                        {{ __('Type') }}
+                        {{ __('Tipo') }}
                         @include('inclues._sort-icon', ['field' => 'type'])
                     </a>
                 </th>
                 <th scope="col" class="align-middle text-center">
                     <a wire:click.prevent="sortBy('created_at')" href="#" role="button">
-                        {{ __('Created at') }}
+                        {{ __('Creado') }}
                         @include('inclues._sort-icon', ['field' => 'created_at'])
                     </a>
                 </th>
                 <th scope="col" class="align-middle text-center">
-                    {{ __('Action') }}
+                    {{ __('Accion') }}
                 </th>
             </tr>
             </thead>
@@ -109,14 +109,14 @@
                         <x-button.delete 
                             class="btn-icon" 
                             route="{{ route('suppliers.destroy', $supplier->uuid) }}" 
-                            onclick="return confirm('Are you sure to remove supplier {{ $supplier->name }} ?!')"
+                            onclick="return confirm('Realmente quiere eliminar supplier {{ $supplier->name }} ?!')"
                         />
                     </td>
                 </tr>
             @empty
                 <tr>
                     <td class="align-middle text-center" colspan="8">
-                        No results found
+                        No hay resultados
                     </td>
                 </tr>
             @endforelse
@@ -126,7 +126,7 @@
 
     <div class="card-footer d-flex align-items-center">
         <p class="m-0 text-secondary">
-            Showing <span>{{ $suppliers->firstItem() }}</span> to <span>{{ $suppliers->lastItem() }}</span> of <span>{{ $suppliers->total() }}</span> entries
+            Mostrando <span>{{ $suppliers->firstItem() }}</span> de <span>{{ $suppliers->lastItem() }}</span> de <span>{{ $suppliers->total() }}</span> entradas
         </p>
 
         <ul class="pagination m-0 ms-auto">

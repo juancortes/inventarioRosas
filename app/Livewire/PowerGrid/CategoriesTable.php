@@ -103,12 +103,12 @@ final class CategoriesTable extends PowerGridComponent
                 ->class('btn btn-outline-warning btn-icon w-100')
                 ->route('categories.edit', ['category' => $row])
                 ->method('get')
-                ->tooltip('Edit Category'),
+                ->tooltip('Editar Categoria'),
 
             Button::add('delete')
                 ->slot(file_get_contents('assets/svg/trash.svg'))
                 ->class('btn btn-outline-danger btn-icon w-100')
-                ->tooltip('Delete Category')
+                ->tooltip('Borrar Categoria')
                 ->route('categories.destroy', ['category' => $row])
                 ->method('delete'),
         ];

@@ -20,14 +20,14 @@
             <table class="table table-bordered">
                 <thead class="thead-dark">
                 <tr>
-                    <th class="align-middle">Product</th>
-                    <th class="align-middle text-center">Net Unit Price</th>
-                    <th class="align-middle text-center">Stock</th>
-                    <th class="align-middle text-center">Quantity</th>
-                    <th class="align-middle text-center">Discount</th>
-                    <th class="align-middle text-center">Tax</th>
+                    <th class="align-middle">Producto</th>
+                    <th class="align-middle text-center">Precio unitario neto</th>
+                    <th class="align-middle text-center">Existencia</th>
+                    <th class="align-middle text-center">Cantidad</th>
+                    <th class="align-middle text-center">Descuento</th>
+                    <th class="align-middle text-center">Impuesto</th>
                     <th class="align-middle text-center">Sub Total</th>
-                    <th class="align-middle text-center">Action</th>
+                    <th class="align-middle text-center">Accion</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -107,11 +107,11 @@
             <div class="table-responsive">
                 <table class="table table-striped">
                     <tr>
-                        <th>Tax ({{ $global_tax }}%)</th>
+                        <th>Impuesto ({{ $global_tax }}%)</th>
                         <td>(+) {{ format_currency(Cart::instance($cart_instance)->tax()) }}</td>
                     </tr>
                     <tr>
-                        <th>Discount ({{ $global_discount }}%)</th>
+                        <th>Descuento ({{ $global_discount }}%)</th>
                         <td>(-) {{ format_currency(Cart::instance($cart_instance)->discount()) }}</td>
                     </tr>
                     <tr>
@@ -138,7 +138,7 @@
     <div class="row gx-3 mb-3">
         <div class="col">
             <label for="tax_percentage" class="small mb-1">
-                Tax (%)
+                Impuesto (%)
             </label>
 
             <input type="number"
@@ -152,7 +152,7 @@
         </div>
 
         <div class="col">
-            <label for="discount_percentage" class="small mb-1">Discount (%)</label>
+            <label for="discount_percentage" class="small mb-1">Descuento (%)</label>
             <input wire:model.blur="global_discount" type="number" class="form-control" name="discount_percentage" id="discount_percentage" min="0" max="100" value="{{ $global_discount }}" required>
         </div>
 

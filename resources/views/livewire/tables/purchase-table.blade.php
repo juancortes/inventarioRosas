@@ -2,7 +2,7 @@
     <div class="card-header">
         <div>
             <h3 class="card-title">
-                {{ __('Purchases') }}
+                {{ __('Compras') }}
             </h3>
         </div>
 
@@ -14,7 +14,7 @@
     <div class="card-body border-bottom py-3">
         <div class="d-flex">
             <div class="text-secondary">
-                Show
+                Mostrar
                 <div class="mx-2 d-inline-block">
                     <select wire:model.live="perPage" class="form-select form-select-sm" aria-label="result per page">
                         <option value="5">5</option>
@@ -23,12 +23,12 @@
                         <option value="25">25</option>
                     </select>
                 </div>
-                entries
+                entradas
             </div>
             <div class="ms-auto text-secondary">
-                Search:
+                Buscar:
                 <div class="ms-2 d-inline-block">
-                    <input type="text" wire:model.live="search" class="form-control form-control-sm" aria-label="Search invoice">
+                    <input type="text" wire:model.live="search" class="form-control form-control-sm" aria-label="Buscar invoice">
                 </div>
             </div>
         </div>
@@ -45,19 +45,19 @@
                     </th>
                     <th scope="col" class="align-middle text-center">
                         <a wire:click.prevent="sortBy('purchase_no')" href="#" role="button">
-                            {{ __('Purchase No.') }}
+                            {{ __('Compra No.') }}
                             @include('inclues._sort-icon', ['field' => 'purchase_no'])
                         </a>
                     </th>
                     <th scope="col" class="align-middle text-center">
                         <a wire:click.prevent="sortBy('supplier_id')" href="#" role="button">
-                            {{ __('Supplier') }}
+                            {{ __('Proveedor') }}
                             @include('inclues._sort-icon', ['field' => 'supplier_id'])
                         </a>
                     </th>
                     <th scope="col" class="align-middle text-center">
                         <a wire:click.prevent="sortBy('date')" href="#" role="button">
-                            {{ __('Date') }}
+                            {{ __('Fecha') }}
                             @include('inclues._sort-icon', ['field' => 'date'])
                         </a>
                     </th>
@@ -69,12 +69,12 @@
                     </th>
                     <th scope="col" class="align-middle text-center">
                         <a wire:click.prevent="sortBy('status')" href="#" role="button">
-                            {{ __('Status') }}
+                            {{ __('Estado') }}
                             @include('inclues._sort-icon', ['field' => 'status'])
                         </a>
                     </th>
                     <th scope="col" class="align-middle text-center">
-                        {{ __('Action') }}
+                        {{ __('Accion') }}
                     </th>
                 </tr>
             </thead>
@@ -123,7 +123,7 @@
                 @empty
                 <tr>
                     <td class="align-middle text-center" colspan="7">
-                        No results found
+                        No hay resultados
                     </td>
                 </tr>
             @endforelse
@@ -133,8 +133,8 @@
 
     <div class="card-footer d-flex align-items-center">
         <p class="m-0 text-secondary">
-            Showing <span>{{ $purchases->firstItem() }}</span>
-            to <span>{{ $purchases->lastItem() }}</span> of <span>{{ $purchases->total() }}</span> entries
+            Mostrando <span>{{ $purchases->firstItem() }}</span>
+            de <span>{{ $purchases->lastItem() }}</span> de <span>{{ $purchases->total() }}</span> entradas
         </p>
 
         <ul class="pagination m-0 ms-auto">

@@ -2,7 +2,7 @@
     <div class="card-header">
         <div>
             <h3 class="card-title">
-                {{ __('Units') }}
+                {{ __('Unidades') }}
             </h3>
         </div>
 
@@ -14,7 +14,7 @@
     <div class="card-body border-bottom py-3">
         <div class="d-flex">
             <div class="text-secondary">
-                Show
+                Mostrar
                 <div class="mx-2 d-inline-block">
                     <select wire:model.live="perPage" class="form-select form-select-sm" aria-label="result per page">
                         <option value="5">5</option>
@@ -23,12 +23,12 @@
                         <option value="25">25</option>
                     </select>
                 </div>
-                entries
+                entradas
             </div>
             <div class="ms-auto text-secondary">
-                Search:
+                Buscar:
                 <div class="ms-2 d-inline-block">
-                    <input type="text" wire:model.live="search" class="form-control form-control-sm" aria-label="Search invoice">
+                    <input type="text" wire:model.live="search" class="form-control form-control-sm" aria-label="Buscar invoice">
                 </div>
             </div>
         </div>
@@ -45,7 +45,7 @@
                 </th>
                 <th scope="col" class="align-middle text-center">
                     <a wire:click.prevent="sortBy('name')" href="#" role="button">
-                        {{ __('Name') }}
+                        {{ __('Nombre') }}
                         @include('inclues._sort-icon', ['field' => 'name'])
                     </a>
                 </th>
@@ -57,12 +57,12 @@
                 </th>
                 <th scope="col" class="align-middle text-center">
                     <a wire:click.prevent="sortBy('short_code')" href="#" role="button">
-                        {{ __('Short Code') }}
+                        {{ __('Código corto') }}
                         @include('inclues._sort-icon', ['field' => 'short_code'])
                     </a>
                 </th>
                 <th scope="col" class="align-middle text-center">
-                    {{ __('Action') }}
+                    {{ __('Accion') }}
                 </th>
             </tr>
             </thead>
@@ -90,7 +90,7 @@
             @empty
                 <tr>
                     <td class="align-middle text-center" colspan="8">
-                        No results found
+                        No hay resultados
                     </td>
                 </tr>
             @endforelse
@@ -100,7 +100,7 @@
 
     <div class="card-footer d-flex align-items-center">
         <p class="m-0 text-secondary d-none d-sm-block">
-            Showing <span>{{ $units->firstItem() }}</span> to <span>{{ $units->lastItem() }}</span> of <span>{{ $units->total() }}</span> entries
+            Mostrando <span>{{ $units->firstItem() }}</span> de <span>{{ $units->lastItem() }}</span> de <span>{{ $units->total() }}</span> entradas
         </p>
 
         <ul class="pagination m-0 ms-auto">

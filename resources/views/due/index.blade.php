@@ -4,16 +4,15 @@
 <div class="page-body">
     @if($orders->isEmpty())
     {{-- <x-empty
-        title="No orders found"
-        message="Try adjusting your search or filter to find what you're looking for."
-        button_label="{{ __('Add your first Order') }}"
+        title="No hay ordenes"
+        button_label="{{ __('Adicionar su primera orden') }}"
         button_route="{{ route('orders.create') }}"
     /> --}}
     <div class="empty">
         <div class="empty-icon">
             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-mood-happy" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /><path d="M9 9l.01 0" /><path d="M15 9l.01 0" /><path d="M8 13a4 4 0 1 0 8 0h-8" /></svg>
         </div>
-        <p class="empty-title">No due orders found</p>
+        <p class="empty-title">No se encontraron pedidos vencidos</p>
     </div>
     @else
     <div class="container-xl">
@@ -21,7 +20,7 @@
             <div class="card-header">
                 <div>
                     <h3 class="card-title">
-                        {{ __('Due Order List') }}
+                        {{ __('Lista de pedidos vencidos') }}
                     </h3>
                 </div>
                 <div class="card-actions">
@@ -33,13 +32,13 @@
                     <thead class="thead-light">
                         <tr>
                             <th scope="col" class="text-center">No.</th>
-                            <th scope="col" class="text-center">Invoice No.</th>
-                            <th scope="col" class="text-center">Customer</th>
-                            <th scope="col" class="text-center">Date</th>
-                            <th scope="col" class="text-center">Payment</th>
-                            <th scope="col" class="text-center">Pay</th>
-                            <th scope="col" class="text-center">Due</th>
-                            <th scope="col" class="text-center">Action</th>
+                            <th scope="col" class="text-center">Factura No.</th>
+                            <th scope="col" class="text-center">Cliente</th>
+                            <th scope="col" class="text-center">Fecha</th>
+                            <th scope="col" class="text-center">Pago</th>
+                            <th scope="col" class="text-center">Pagar</th>
+                            <th scope="col" class="text-center">Pendiente</th>
+                            <th scope="col" class="text-center">Accion</th>
                         </tr>
                     </thead>
                     <tbody>

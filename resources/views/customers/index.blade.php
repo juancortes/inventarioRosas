@@ -4,8 +4,7 @@
 <div class="page-body">
     @if(!$customers)
         <x-empty
-            title="No customers found"
-            message="Try adjusting your search or filter to find what you're looking for."
+            title="No hay Clientes"
             button_label="{{ __('Add your first Customer') }}"
             button_route="{{ route('customers.create') }}"
         />

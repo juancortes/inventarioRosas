@@ -2,7 +2,7 @@
     <div class="card-header">
         <div>
             <h3 class="card-title">
-                {{ __('Products') }}
+                {{ __('Productos') }}
             </h3>
         </div>
 
@@ -15,15 +15,15 @@
                 <div class="dropdown-menu dropdown-menu-end" style="">
                     <a href="{{ route('products.create') }}" class="dropdown-item">
                         <x-icon.plus />
-                        {{ __('Create Product') }}
+                        {{ __('Crear Producto') }}
                     </a>
                     <a href="{{ route('products.import.view') }}" class="dropdown-item">
                         <x-icon.plus />
-                        {{ __('Import Products') }}
+                        {{ __('Importar Producto') }}
                     </a>
                     <a href="{{ route('products.export.store') }}" class="dropdown-item">
                         <x-icon.plus />
-                        {{ __('Export Products') }}
+                        {{ __('Exportar Producto') }}
                     </a>
                 </div>
             </div>
@@ -33,7 +33,7 @@
     <div class="card-body border-bottom py-3">
         <div class="d-flex">
             <div class="text-secondary">
-                Show
+                Mostrar
                 <div class="mx-2 d-inline-block">
                     <select wire:model.live="perPage" class="form-select form-select-sm" aria-label="result per page">
                         <option value="5">5</option>
@@ -42,7 +42,7 @@
                         <option value="25">25</option>
                     </select>
                 </div>
-                entries
+                entradas
             </div>
             <div class="ms-auto text-secondary">
                 Search:
@@ -64,34 +64,34 @@
                         {{ __('No.') }}
                     </th>
                     <th scope="col" class="align-middle text-center">
-                        {{ __('Image') }}
+                        {{ __('Imagen') }}
                     </th>
                     <th scope="col" class="align-middle text-center">
                         <a wire:click.prevent="sortBy('name')" href="#" role="button">
-                            {{ __('Name') }}
+                            {{ __('Nombre') }}
                             @include('inclues._sort-icon', ['field' => 'name'])
                         </a>
                     </th>
                     <th scope="col" class="align-middle text-center">
                         <a wire:click.prevent="sortBy('code')" href="#" role="button">
-                            {{ __('Code') }}
+                            {{ __('Código') }}
                             @include('inclues._sort-icon', ['field' => 'code'])
                         </a>
                     </th>
                     <th scope="col" class="align-middle text-center">
                         <a wire:click.prevent="sortBy('category_id')" href="#" role="button">
-                            {{ __('Category') }}
+                            {{ __('Categoría') }}
                             @include('inclues._sort-icon', ['field' => 'category_id'])
                         </a>
                     </th>
                     <th scope="col" class="align-middle text-center">
                         <a wire:click.prevent="sortBy('quantity')" href="#" role="button">
-                            {{ __('Quantity') }}
+                            {{ __('Cantidad') }}
                             @include('inclues._sort-icon', ['field' => 'quantity'])
                         </a>
                     </th>
                     <th scope="col" class="align-middle text-center">
-                        {{ __('Action') }}
+                        {{ __('Accion') }}
                     </th>
                 </tr>
             </thead>
@@ -128,7 +128,7 @@
                 @empty
                     <tr>
                         <td class="align-middle text-center" colspan="7">
-                            No results found
+                            No hay resultados
                         </td>
                     </tr>
                 @endforelse
@@ -138,8 +138,8 @@
 
     <div class="card-footer d-flex align-items-center">
         <p class="m-0 text-secondary">
-            Showing <span>{{ $products->firstItem() }}</span>
-            to <span>{{ $products->lastItem() }}</span> of <span>{{ $products->total() }}</span> entries
+            Mostrando <span>{{ $products->firstItem() }}</span>
+            de <span>{{ $products->lastItem() }}</span> de <span>{{ $products->total() }}</span> entradas
         </p>
 
         <ul class="pagination m-0 ms-auto">
