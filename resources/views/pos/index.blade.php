@@ -8,7 +8,7 @@
                 <div class="col-auto mb-3">
                     <h1 class="page-header-title">
                         <div class="page-header-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline></svg></div>
-                        Point of Sale  - PosController -> Index
+                        Punto de venta  - PosController -> Index
                     </h1>
                 </div>
             </div>
@@ -30,11 +30,11 @@
                         <table class="table table-striped align-middle">
                             <thead class="thead-light">
                                 <tr>
-                                    <th scope="col">Name</th>
+                                    <th scope="col">Nombre</th>
                                     <th scope="col">QTY</th>
-                                    <th scope="col">Price</th>
+                                    <th scope="col">Precio</th>
                                     <th scope="col">SubTotal</th>
-                                    <th scope="col">Action</th>
+                                    <th scope="col">Accion</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -89,7 +89,7 @@
                     <div class="row gx-3 mb-3">
                         <!-- Form Group (tax) -->
                         <div class="col-md-6">
-                            <label class="small mb-1">Tax</label>
+                            <label class="small mb-1">Impuesto</label>
                             <div class="form-control form-control-solid fw-bold text-red">{{ Cart::tax() }}</div>
                         </div>
                         <!-- Form Group (total) -->
@@ -105,13 +105,13 @@
                         <div class="row mb-3">
                             <div class="col-md-12">
                                 <label class="small mb-1" for="customer_id">
-                                    Customer
+                                    Cliente
                                     <span class="text-danger">*</span>
                                 </label>
 
                                 <select class="form-select form-control-solid @error('customer_id') is-invalid @enderror" id="customer_id" name="customer_id">
                                     <option selected="" disabled="">
-                                        Select a customer:
+                                        Seleccione un Cliente:
                                     </option>
 {{--                                    @foreach ($customers as $customer)--}}
 {{--                                        <option value="{{ $customer->id }}" @if(old('customer_id') === $customer->id) selected="selected" @endif>--}}
@@ -140,7 +140,7 @@
                                     </a>
 
                                     <button type="submit" class="btn btn-success add-list mx-1">
-                                        Create Invoice
+                                        Crear Factura
                                     </button>
                                 </div>
                             </div>
@@ -158,7 +158,7 @@
             <!-- Product image card-->
             <div class="card mb-4 mb-xl-0">
                 <div class="card-header">
-                    List Product
+                    Listar Producto
                 </div>
                 <div class="card-body">
                     <div class="col-lg-12">
@@ -170,8 +170,8 @@
                                         <th scope="col">@sortablelink('product_name', 'Name')</th>
                                         <th scope="col">@sortablelink('stock')</th>
                                         <th scope="col">@sortablelink('unit.name', 'unit')</th>
-                                        <th scope="col">@sortablelink('selling_price', 'Price')</th>
-                                        <th scope="col">Action</th>
+                                        <th scope="col">@sortablelink('selling_price', 'Precio')</th>
+                                        <th scope="col">Accion</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -209,7 +209,7 @@
                                     @empty
                                     <tr>
                                         <th colspan="6" class="text-center" >
-                                            Data not found!
+                                            No hay datos!
                                         </th>
                                     </tr>
                                     @endforelse

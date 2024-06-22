@@ -8,7 +8,7 @@
                     <div class="col-auto mb-3">
                         <h1 class="page-header-title">
                             <div class="page-header-icon"><i data-feather="user"></i></div>
-                            Account Settings - Profile
+                            Configuración de Cuenta - Perfil
                         </h1>
                     </div>
                 </div>
@@ -30,14 +30,14 @@
                 <div class="col-xl-4">
                     <!-- Profile picture card -->
                     <div class="card mb-4 mb-xl-0">
-                        <div class="card-header">Profile Picture</div>
+                        <div class="card-header">Imagen del Perfil</div>
                         <div class="card-body text-center">
                             <!-- Profile picture image -->
                             <img class="img-account-profile rounded-circle mb-2"
                                 src="{{ $user->photo ? asset('storage/profile//' . $user->photo) : asset('assets/img/illustrations/profiles/profile-1.png') }}"
                                 alt="" id="image-preview" />
                             <!-- Profile picture help block -->
-                            <div class="small font-italic text-muted mb-2">JPG or PNG no larger than 1 MB</div>
+                            <div class="small font-italic text-muted mb-2">JPG or PNG no mas largo que 1 MB</div>
                             <!-- Profile picture input -->
                             <input class="form-control form-control-solid mb-2 @error('photo') is-invalid @enderror"
                                 type="file" id="image" name="photo" accept="image/*" onchange="previewImage();">
@@ -54,7 +54,7 @@
                     <!-- Account details card -->
                     <div class="card mb-4">
                         <div class="card-header">
-                            Account Details
+                            Detalles de la Cuenta
                         </div>
                         <div class="card-body">
                             <!-- Form Group (username) -->
@@ -83,7 +83,7 @@
                             </div>
                             <div class="mb-3">
                                 <label class="small mb-1" for="email">
-                                    Email address
+                                    Email
                                 </label>
 
                                 <input class="form-control form-control-solid @error('photo') is-invalid @enderror"
@@ -97,7 +97,7 @@
                             </div>
 
                             <button class="btn btn-primary" type="submit">
-                                {{ __('Update') }}
+                                {{ __('Actualizar') }}
                             </button>
                         </div>
                     </div>

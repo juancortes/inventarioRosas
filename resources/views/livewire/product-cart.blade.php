@@ -92,7 +92,7 @@
                         <tr>
                             <td colspan="8" class="text-center">
                         <span class="text-danger">
-                            Please search & select products!
+                            Porfavor buscar y seleccionar productos!
                         </span>
                             </td>
                         </tr>
@@ -115,7 +115,7 @@
                         <td>(-) {{ format_currency(Cart::instance($cart_instance)->discount()) }}</td>
                     </tr>
                     <tr>
-                        <th>Shipping</th>
+                        <th>Envio</th>
                         <input type="hidden" value="{{ $shipping }}" name="shipping_amount">
                         <td>(+) {{ format_currency($shipping) }}</td>
                     </tr>
@@ -157,7 +157,7 @@
         </div>
 
         <div class="col">
-            <label for="shipping_amount" class="small mb-1">Shipping</label>
+            <label for="shipping_amount" class="small mb-1">Envio</label>
             <input wire:model.blur="shipping" type="number" class="form-control" name="shipping_amount" id="shipping_amount" min="0" value="0" required step="0.01">
         </div>
     </div>

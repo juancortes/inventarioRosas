@@ -7,7 +7,7 @@
                 <div class="card-header">
                     <div>
                         <h3 class="card-title">
-                            {{ __('Order Details') }}
+                            {{ __('Detalles del pedido') }}
                         </h3>
                     </div>
 
@@ -42,7 +42,7 @@
                                                 <path d="M5 12l5 5l10 -10" />
                                             </svg>
 
-                                            {{ __('Approve Order') }}
+                                            {{ __('Aprobar Pedido') }}
                                         </button>
                                     </form>
                                 </div>
@@ -57,7 +57,7 @@
                     <div class="row row-cards mb-3">
                         <div class="col">
                             <label for="order_date" class="form-label required">
-                                {{ __('Order Date') }}
+                                {{ __('Fecha de Orden') }}
                             </label>
                             <input type="text" id="order_date" class="form-control"
                                 value="{{ $order->order_date->format('d-m-Y') }}" disabled>
@@ -65,7 +65,7 @@
 
                         <div class="col">
                             <label for="invoice_no" class="form-label required">
-                                {{ __('Invoice No.') }}
+                                {{ __('Factura No.') }}
                             </label>
                             <input type="text" id="invoice_no" class="form-control" value="{{ $order->invoice_no }}"
                                 disabled>
@@ -73,7 +73,7 @@
 
                         <div class="col">
                             <label for="customer" class="form-label required">
-                                {{ __('Customer') }}
+                                {{ __('Cliente') }}
                             </label>
                             <input type="text" id="customer" class="form-control" value="{{ $order->customer->name }}"
                                 disabled>
@@ -81,7 +81,7 @@
 
                         <div class="col">
                             <label for="payment_type" class="form-label required">
-                                {{ __('Payment Type') }}
+                                {{ __('Tipo de Pago') }}
                             </label>
 
                             <input type="text" id="payment_type" class="form-control" value="{{ $order->payment_type }}"
@@ -94,11 +94,11 @@
                             <thead class="thead-light">
                                 <tr>
                                     <th scope="col" class="align-middle text-center">No.</th>
-                                    <th scope="col" class="align-middle text-center">Photo</th>
-                                    <th scope="col" class="align-middle text-center">Product Name</th>
-                                    <th scope="col" class="align-middle text-center">Product Code</th>
-                                    <th scope="col" class="align-middle text-center">Quantity</th>
-                                    <th scope="col" class="align-middle text-center">Price</th>
+                                    <th scope="col" class="align-middle text-center">Foto</th>
+                                    <th scope="col" class="align-middle text-center">Nombre del Producto</th>
+                                    <th scope="col" class="align-middle text-center">Código del Producto</th>
+                                    <th scope="col" class="align-middle text-center">Cantidad</th>
+                                    <th scope="col" class="align-middle text-center">Precio</th>
                                     <th scope="col" class="align-middle text-center">Sub Total</th>
                                 </tr>
                             </thead>
@@ -133,7 +133,7 @@
                                 @endforeach
                                 <tr>
                                     <td colspan="6" class="text-end">
-                                        Payed amount
+                                        Monto de Pago
                                     </td>
                                     <td class="text-center">{{ number_format($order->pay, 2) }}</td>
                                 </tr>
@@ -172,7 +172,7 @@
 
                             <button type="submit" class="btn btn-success"
                                 onclick="return confirm('Are you sure you want to complete this order?')">
-                                {{ __('Complete Order') }}
+                                {{ __('Orden completa') }}
                             </button>
                         </form>
                     @endif

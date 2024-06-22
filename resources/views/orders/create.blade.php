@@ -9,7 +9,7 @@
                     <div class="card-header">
                         <div>
                             <h3 class="card-title">
-                                {{ __('New Order') }}
+                                {{ __('Nueva Orden') }}
                             </h3>
                         </div>
                         <div class="card-actions btn-actions">
@@ -23,7 +23,7 @@
                                 @include('partials.session')
                                 <div class="col-md-4">
                                     <label for="purchase_date" class="small my-1">
-                                        {{ __('Date') }}
+                                        {{ __('Fecha') }}
                                         <span class="text-danger">*</span>
                                     </label>
 
@@ -42,13 +42,13 @@
 
                                 <div class="col-md-4">
                                     <label class="small mb-1" for="customer_id">
-                                        {{ __('Customer') }}
+                                        {{ __('Cliente') }}
                                         <span class="text-danger">*</span>
                                     </label>
 
                                     <select class="form-select form-control-solid @error('customer_id') is-invalid @enderror" id="customer_id" name="customer_id">
                                         <option selected="" disabled="">
-                                            Select a customer:
+                                            Seleccione un Cliente:
                                         </option>
 
                                         @foreach ($customers as $customer)
@@ -67,7 +67,7 @@
 
                                 <div class="col-md-4">
                                     <label class="small mb-1" for="reference">
-                                        {{ __('Reference') }}
+                                        {{ __('Referencias') }}
                                     </label>
 
                                     <input type="text" class="form-control"
@@ -89,12 +89,12 @@
                                 <table class="table table-striped table-bordered align-middle">
                                     <thead class="thead-light">
                                         <tr>
-                                            <th scope="col">{{ __('Product') }}</th>
-                                            <th scope="col" class="text-center">{{ __('Quantity') }}</th>
-                                            <th scope="col" class="text-center">{{ __('Price') }}</th>
+                                            <th scope="col">{{ __('Producto') }}</th>
+                                            <th scope="col" class="text-center">{{ __('Cantidad') }}</th>
+                                            <th scope="col" class="text-center">{{ __('Precio') }}</th>
                                             <th scope="col" class="text-center">{{ __('SubTotal') }}</th>
                                             <th scope="col" class="text-center">
-                                                {{ __('Action') }}
+                                                {{ __('Accion') }}
                                             </th>
                                         </tr>
                                     </thead>
@@ -138,13 +138,13 @@
                                         </tr>
                                         @empty
                                         <td colspan="5" class="text-center">
-                                            {{ __('Add Products') }}
+                                            {{ __('Adicionar Productos') }}
                                         </td>
                                         @endforelse
 
                                         <tr>
                                             <td colspan="4" class="text-end">
-                                                Total Product
+                                                Total Producto
                                             </td>
                                             <td class="text-center">
                                                 {{ Cart::count() }}
@@ -157,7 +157,7 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td colspan="4" class="text-end">Tax</td>
+                                            <td colspan="4" class="text-end">Impuesto</td>
                                             <td class="text-center">
                                                 {{ Cart::tax() }}
                                             </td>
@@ -175,7 +175,7 @@
                         </div>
                         <div class="card-footer text-end">
                             <button type="submit" class="btn btn-success add-list mx-1 {{ Cart::count() > 0 ? '' : 'disabled' }}">
-                                {{ __('Create Invoice') }}
+                                {{ __('Crear Factura') }}
                             </button>
                         </div>
                     </form>
@@ -186,7 +186,7 @@
             <div class="col-lg-5">
                 <div class="card mb-4 mb-xl-0">
                     <div class="card-header">
-                        List Product
+                        Listar Producto
                     </div>
                     <div class="card-body">
                         <div class="col-lg-12">
@@ -195,11 +195,11 @@
                                     <thead class="thead-light">
                                         <tr>
                                             {{--- <th scope="col">No.</th> ---}}
-                                            <th scope="col">Name</th>
-                                            <th scope="col">Quantity</th>
-                                            <th scope="col">Unit</th>
-                                            <th scope="col">Price</th>
-                                            <th scope="col">Action</th>
+                                            <th scope="col">Nombre</th>
+                                            <th scope="col">Cantidad</th>
+                                            <th scope="col">Unidad</th>
+                                            <th scope="col">Precio</th>
+                                            <th scope="col">Accion</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -242,7 +242,7 @@
                                         @empty
                                         <tr>
                                             <th colspan="6" class="text-center" >
-                                                Data not found!
+                                                No hay datos!
                                             </th>
                                         </tr>
                                         @endforelse

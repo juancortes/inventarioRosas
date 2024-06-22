@@ -9,7 +9,7 @@
             <div style="text-center" style="padding-top:-25px">
                 <center>
                     <a href="{{ route('products.import.view') }}" class="">
-                        {{ __('Import Products') }}
+                        {{ __('Importar Producto') }}
                     </a>
                 </center>
             </div>

@@ -15,8 +15,8 @@
                 <div class="card-header">
                     <div>
                         <h3 class="card-title">
-                            {{ __('Purchases: ') }}
-                            <span class="btn btn-success btn-sm text-uppercase">{{ __('Approved') }}</span>
+                            {{ __('Compras : ') }}
+                            <span class="btn btn-success btn-sm text-uppercase">{{ __('Aprovadas') }}</span>
                         </h3>
                     </div>
 
@@ -31,11 +31,11 @@
                         <thead class="thead-light">
                             <tr>
                                 <th scope="col" class="text-center">No.</th>
-                                <th scope="col" class="text-center">Purchase</th>
-                                <th scope="col" class="text-center">Supplier</th>
-                                <th scope="col" class="text-center">Date</th>
+                                <th scope="col" class="text-center">Compra</th>
+                                <th scope="col" class="text-center">Proveedor</th>
+                                <th scope="col" class="text-center">Fecha</th>
                                 <th scope="col" class="text-center">Total</th>
-                                <th scope="col" class="text-center">Action</th>
+                                <th scope="col" class="text-center">Accion</th>
                             </tr>
                         </thead>
                         <tbody>

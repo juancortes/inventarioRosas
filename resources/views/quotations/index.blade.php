@@ -5,7 +5,6 @@
         @if(!$quotations)
             <x-empty
                 title="No quotations found"
-                message="Try adjusting your search or filter to find what you're looking for."
                 button_label="{{ __('Add your first Quotation') }}"
                 button_route="{{ route('quotations.create') }}"
             />

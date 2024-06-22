@@ -45,7 +45,7 @@
 
                             <div class="col-3">
                                 <label for="create_by" class="small mb-1">
-                                    {{ __('Tax %') }}
+                                    {{ __('Impuesto %') }}
                                 </label>
                                 <input type="text" id="create_by" class="form-control"
                                     value="{{ $quotation->tax_percentage ?? null }}" disabled>
@@ -67,12 +67,12 @@
                                     <thead class="thead-light">
                                         <tr>
                                             <th scope="col" class="align-middle text-center">No.</th>
-                                            <th scope="col" class="align-middle text-center">Photo</th>
-                                            <th scope="col" class="align-middle text-center">Product Name</th>
-                                            <th scope="col" class="align-middle text-center">Product Code</th>
-                                            <th scope="col" class="align-middle text-center">Current Stock</th>
-                                            <th scope="col" class="align-middle text-center">Quantity</th>
-                                            <th scope="col" class="align-middle text-center">Price</th>
+                                            <th scope="col" class="align-middle text-center">Foto</th>
+                                            <th scope="col" class="align-middle text-center">Nombre del Producto</th>
+                                            <th scope="col" class="align-middle text-center">Código del Producto</th>
+                                            <th scope="col" class="align-middle text-center">Existencias actuales</th>
+                                            <th scope="col" class="align-middle text-center">Cantidad</th>
+                                            <th scope="col" class="align-middle text-center">Precio</th>
                                             <th scope="col" class="align-middle text-center">Sub Total</th>
                                         </tr>
                                     </thead>
@@ -115,7 +115,7 @@
                                         {{-- created by --}}
                                         <tr>
                                             <td class="align-middle text-end" colspan="7">
-                                                Created By
+                                                Creado Por
                                             </td>
                                             <td class="align-middle text-center">
                                                 {{ $quotation->user->name }}
@@ -132,7 +132,7 @@
 
                                         <tr>
                                             <td class="align-middle text-end" colspan="7">
-                                                Tax
+                                                Impuesto
                                             </td>
                                             <td class="align-middle text-center">
                                                 {{ number_format($quotation->tax_amount, 2) }}
@@ -141,7 +141,7 @@
 
                                         <tr>
                                             <td class="align-middle text-end" colspan="7">
-                                                Shipping
+                                                Envio
                                             </td>
                                             <td class="align-middle text-center">
                                                 {{ number_format($quotation->shipping_amount, 2) }}
@@ -150,7 +150,7 @@
 
                                         <tr>
                                             <td class="align-middle text-end" colspan="7">
-                                                Discount
+                                                Descuento
                                             </td>
                                             <td class="align-middle text-center">
                                                 {{ number_format($quotation->discount_amount, 2) }}
@@ -168,7 +168,7 @@
                                                     </span>
                                                 @elseif ($quotation->status->value == 0)
                                                     <span class="badge bg-warning-lt">
-                                                        Pending
+                                                        Pendientes
                                                     </span>
                                                 @else
                                                     <span class="badge bg-danger-lt">

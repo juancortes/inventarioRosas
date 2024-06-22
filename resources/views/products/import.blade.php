@@ -9,7 +9,7 @@
             <x-card>
                 <x-slot:header>
                     <x-slot:title>
-                        {{ __('Import Products') }}
+                        {{ __('Importar Producto') }}
                     </x-slot:title>
 
                     <x-slot:actions>
@@ -34,7 +34,7 @@
 
                 <x-slot:footer class="text-end">
                     <x-button type="submit">
-                        {{ __('Import') }}
+                        {{ __('Importar') }}
                     </x-button>
                 </x-slot:footer>
             </x-card>

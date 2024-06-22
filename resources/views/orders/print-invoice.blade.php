@@ -35,7 +35,7 @@
                                 <div class="col-lg-6 col-sm-6">
                                     <div class="invoice">
                                         <h1>
-                                            Invoice # <span>{{ $order->invoice_no }}</span>
+                                            Factura # <span>{{ $order->invoice_no }}</span>
                                         </h1>
                                     </div>
                                 </div>
@@ -46,7 +46,7 @@
                                 <div class="col-sm-6 mb-50">
                                     <div class="invoice-number">
                                         <h4 class="inv-title-1">
-                                            Invoice date:
+                                            Fecha de Factura:
                                         </h4>
                                         <p class="invo-addr-1">
                                             {{ $order->order_date }}
@@ -56,7 +56,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-sm-6 mb-50">
-                                    <h4 class="inv-title-1">Customer</h4>
+                                    <h4 class="inv-title-1">Cliente</h4>
                                     <p class="inv-from-1">{{ $order->customer->name }}</p>
                                     <p class="inv-from-1">{{ $order->customer->phone }}</p>
                                     <p class="inv-from-1">{{ $order->customer->email }}</p>
@@ -66,7 +66,7 @@
                                     $user = auth()->user();
                                 @endphp
                                 <div class="col-sm-6 text-end mb-50">
-                                    <h4 class="inv-title-1">Store</h4>
+                                    <h4 class="inv-title-1">Tienda</h4>
                                     <p class="inv-from-1">{{ Str::title($user->store_name) }}</p>
                                     <p class="inv-from-1">{{ $user->store_phone }}</p>
                                     <p class="inv-from-1">{{ $user->store_email }}</p>
@@ -80,8 +80,8 @@
                                     <thead>
                                         <tr>
                                             <th class="align-middle">Item</th>
-                                            <th class="align-middle text-center">Price</th>
-                                            <th class="align-middle text-center">Quantity</th>
+                                            <th class="align-middle text-center">Precio</th>
+                                            <th class="align-middle text-center">Cantidad</th>
                                             <th class="align-middle text-center">Subtotal</th>
                                         </tr>
                                     </thead>
@@ -119,7 +119,7 @@
                                         </tr>
                                         <tr>
                                             <td colspan="3" class="text-end">
-                                                <strong>Tax</strong>
+                                                <strong>Impuesto</strong>
                                             </td>
                                             <td class="align-middle text-center">
                                                 <strong>
@@ -152,11 +152,11 @@
                     <div class="invoice-btn-section clearfix d-print-none">
                         <a href="javascript:window.print()" class="btn btn-lg btn-print">
                             <i class="fa fa-print"></i>
-                            Print Invoice
+                            Imprimir Factura
                         </a>
                         <a id="invoice_download_btn" class="btn btn-lg btn-download">
                             <i class="fa fa-download"></i>
-                            Download Invoice
+                            Descargar Factura
                         </a>
                     </div>
 
@@ -164,7 +164,7 @@
                     <div class="invoice-btn-section clearfix d-print-none">
                         <a href="{{ route('orders.index') }}" class="btn btn-lg btn-print">
                             <i class="fa fa-arrow-left"></i>
-                            Back
+                            Volver
                         </a>
                     </div>
                 </div>

@@ -3,14 +3,14 @@
 @section('content')
     <div class="page-body">
         @if (!$orders)
-            <x-empty title="No orders found" message="Try adjusting your search or filter to find what you're looking for."
-                button_label="{{ __('Add your first Order') }}" button_route="{{ route('orders.create') }}" />
+            <x-empty title="No hay ordenes" message="Try adjusting your search or filter to find what you're looking for."
+                button_label="{{ __('Adicionar su primera orden') }}" button_route="{{ route('orders.create') }}" />
         @else
             <div class="container-xl">
                 {{--        <x-card> --}}
                 {{--            <x-slot:header> --}}
                 {{--                <x-slot:title> --}}
-                {{--                    {{ __('Orders') }} --}}
+                {{--                    {{ __('Ordenes') }} --}}
                 {{--                </x-slot:title> --}}
 
                 {{--                <x-slot:actions> --}}
@@ -22,13 +22,13 @@
             <x-table.index>
                 <x-slot:th>
                     <x-table.th>{{ __('No.') }}</x-table.th>
-                    <x-table.th>{{ __('Invoice No.') }}</x-table.th>
-                    <x-table.th>{{ __('Customer') }}</x-table.th>
-                    <x-table.th>{{ __('Date') }}</x-table.th>
-                    <x-table.th>{{ __('Payment') }}</x-table.th>
+                    <x-table.th>{{ __('Factura No.') }}</x-table.th>
+                    <x-table.th>{{ __('Clientes') }}</x-table.th>
+                    <x-table.th>{{ __('Fecha') }}</x-table.th>
+                    <x-table.th>{{ __('Pago') }}</x-table.th>
                     <x-table.th>{{ __('Total') }}</x-table.th>
-                    <x-table.th>{{ __('Status') }}</x-table.th>
-                    <x-table.th>{{ __('Actions') }}</x-table.th>
+                    <x-table.th>{{ __('Estado') }}</x-table.th>
+                    <x-table.th>{{ __('Acciones') }}</x-table.th>
                 </x-slot:th>
                 <x-slot:tbody>
                     @foreach ($orders as $order)

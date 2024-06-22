@@ -23,7 +23,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <h3 class="card-title">
-                                    {{ __('Product Image') }}
+                                    {{ __('Imagen del Producto') }}
                                 </h3>
 
                                 <img style="width: 90px;" id="image-preview"
@@ -37,7 +37,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="card-title">
-                                    Product Code
+                                    Código del Producto
                                 </div>
                                 <div class="row row-cards">
                                     <div class="col-md-6">
@@ -69,14 +69,14 @@
                         <div class="card">
                             <div class="card-header">
                                 <h3 class="card-title">
-                                    {{ __('Product Details') }}
+                                    {{ __('Detalles del Producto') }}
                                 </h3>
                             </div>
                             <div class="table-responsive">
                                 <table class="table table-bordered card-table table-vcenter text-nowrap datatable">
                                     <tbody>
                                         <tr>
-                                            <td>Name</td>
+                                            <td>Nombre</td>
                                             <td>{{ $product->name }}</td>
                                         </tr>
                                         <tr>
@@ -84,15 +84,15 @@
                                             <td>{{ $product->slug }}</td>
                                         </tr>
                                         <tr>
-                                            <td><span class="text-secondary">Code</span></td>
+                                            <td><span class="text-secondary">Código</span></td>
                                             <td>{{ $product->code }}</td>
                                         </tr>
                                         <tr>
-                                            <td>Barcode</td>
+                                            <td>Código de Barras</td>
                                             <td>{!! $barcode !!}</td>
                                         </tr>
                                         <tr>
-                                            <td>Category</td>
+                                            <td>Categoría</td>
                                             <td>
                                                 <a href="{{ route('categories.show', $product->category) }}"
                                                     class="badge bg-blue-lt">
@@ -101,7 +101,7 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>Unit</td>
+                                            <td>Unidad</td>
                                             <td>
                                                 <a href="{{ route('units.show', $product->unit) }}"
                                                     class="badge bg-blue-lt">
@@ -111,11 +111,11 @@
                                         </tr>
 
                                         <tr>
-                                            <td>Quantity</td>
+                                            <td>Cantidad</td>
                                             <td>{{ $product->quantity }}</td>
                                         </tr>
                                         <tr>
-                                            <td>Quantity Alert</td>
+                                            <td>Alerta de Cantidad</td>
                                             <td>
                                                 <span class="badge bg-red-lt">
                                                     {{ $product->quantity_alert }}
@@ -124,15 +124,15 @@
                                         </tr>
 
                                         <tr>
-                                            <td>Buying Price</td>
+                                            <td>Precio de Compra</td>
                                             <td>{{ $product->buying_price }}</td>
                                         </tr>
                                         <tr>
-                                            <td>Selling Price</td>
+                                            <td>Precio de Venta</td>
                                             <td>{{ $product->selling_price }}</td>
                                         </tr>
                                         <tr>
-                                            <td>Tax</td>
+                                            <td>Impuesto</td>
                                             <td>
                                                 <span class="badge bg-red-lt">
                                                     {{ $product->tax }} %
@@ -140,11 +140,11 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>Tax Type</td>
+                                            <td>Tipo de Impuesto</td>
                                             <td>{{ $product->tax_type->label() }}</td>
                                         </tr>
                                         <tr>
-                                            <td>{{ __('Notes') }}</td>
+                                            <td>{{ __('Notas') }}</td>
                                             <td>{{ $product->notes }}</td>
                                         </tr>
                                     </tbody>
@@ -160,7 +160,7 @@
                                         <path d="M5 12l6 6" />
                                         <path d="M5 12l6 -6" />
                                     </svg>
-                                    {{ __('Back') }}
+                                    {{ __('Volver') }}
                                 </a>
                                 <a class="btn btn-warning" href="{{ route('products.edit', $product->uuid) }}">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-pencil"
@@ -170,7 +170,7 @@
                                         <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
                                         <path d="M13.5 6.5l4 4" />
                                     </svg>
-                                    {{ __('Edit') }}
+                                    {{ __('Editar') }}
                                 </a>
                             </div>
                         </div>

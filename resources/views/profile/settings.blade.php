@@ -8,7 +8,7 @@
                     <div class="col-auto mb-3">
                         <h1 class="page-header-title">
                             <div class="page-header-icon"><i data-feather="user"></i></div>
-                            Account Settings - Settings
+                            Configuración de Cuenta - Configuraciones
                         </h1>
                     </div>
                 </div>
@@ -30,20 +30,20 @@
                     <div class="card-header">
                         <div>
                             <h3 class="card-title">
-                                {{ __('Change Password') }}
+                                {{ __('Cambiar Clave') }}
                             </h3>
                         </div>
                     </div>
 
                     <x-form action="{{ route('password.update') }}" method="PUT">
                         <div class="card-body">
-                            <x-input type="password" name="current_password" label="Current Password" required />
-                            <x-input type="password" name="password" label="New Password" required />
-                            <x-input type="password" name="password_confirmation" label="Confirm Password" required />
+                            <x-input type="password" name="current_password" label="Clave Actual" required />
+                            <x-input type="password" name="password" label="Nueva Clave" required />
+                            <x-input type="password" name="password_confirmation" label="Confirmar Clave" required />
                         </div>
 
                         <div class="card-footer text-end">
-                            <x-button type="submit">{{ __('Save') }}</x-button>
+                            <x-button type="submit">{{ __('Guardar') }}</x-button>
                         </div>
                     </x-form>
                 </div>
@@ -76,7 +76,7 @@
 
                 <div class="card mb-4">
                     <div class="card-header">
-                        Delete Account
+                        Borrar Cuenta
                     </div>
                     <div class="card-body">
                         <p>

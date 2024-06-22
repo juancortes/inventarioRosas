@@ -2,11 +2,11 @@
     <table class="table table-bordered" id="products_table">
         <thead class="thead-dark">
             <tr>
-                <th class="align-middle">Product</th>
-                <th class="align-middle text-center">Quantity</th>
-                <th class="align-middle text-center">Price</th>
+                <th class="align-middle">Producto</th>
+                <th class="align-middle text-center">Cantidad</th>
+                <th class="align-middle text-center">Precio</th>
                 <th class="align-middle text-center">Total</th>
-                <th class="align-middle text-center">Action</th>
+                <th class="align-middle text-center">Accion</th>
             </tr>
         </thead>
 
@@ -26,10 +26,10 @@
                                 class="form-control text-center @error('invoiceProducts.' . $index . '.product_id') is-invalid @enderror"
                         >
 
-                            <option value="" class="text-center">-- choose product --</option>
+                          <option value="" class="text-center">-- Escoger producto --</option>
 
                             @foreach ($allProducts as $product)
-                                <option value="{{ $product->id }}" class="text-center">
+                              <option value="{{ $product->id }}" class="text-center">
                                     {{ $product->name }}
 {{--                                    (${{ number_format($product->buying_price, 2) }})--}}
                                 </option>
@@ -61,7 +61,7 @@
                     @endif
                 </td>
 
-                {{--- Unit Price ---}}
+                {{--- Unit Precio ---}}
                 <td class="align-middle text-center">
                     @if($invoiceProduct['is_saved'])
                         {{ $unit_cost = number_format($invoiceProduct['product_price'], 2) }}
