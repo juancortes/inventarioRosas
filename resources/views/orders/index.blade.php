@@ -3,7 +3,9 @@
 @section('content')
     <div class="page-body">
         @if (!$orders)
-            <x-empty title="No hay ordenes" message="Try adjusting your search or filter to find what you're looking for."
+            <x-empty 
+                title="No hay ordenes" 
+                message="."
                 button_label="{{ __('Adicionar su primera orden') }}" button_route="{{ route('orders.create') }}" />
         @else
             <div class="container-xl">

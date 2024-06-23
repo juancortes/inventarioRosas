@@ -55,9 +55,9 @@ class OrderController extends Controller
             'order_date' => Carbon::now()->format('Y-m-d'),
             'order_status' => OrderStatus::PENDING->value,
             'total_products' => Cart::count(),
-            'sub_total' => Cart::subtotal(),
-            'vat' => Cart::tax(),
-            'total' => Cart::total(),
+            'sub_total' => (int)Cart::subtotal(),
+            'vat' => (int)Cart::tax(),
+            'total' => (int)Cart::total(),
             'invoice_no' => IdGenerator::generate([
                 'table' => 'orders',
                 'field' => 'invoice_no',
@@ -89,7 +89,7 @@ class OrderController extends Controller
 
         return redirect()
             ->route('orders.index')
-            ->with('success', 'Order has been created!');
+            ->with('success', '¡Se ha creado el orden!');
     }
 
     public function show($uuid)
@@ -135,7 +135,7 @@ class OrderController extends Controller
 
         return redirect()
             ->route('orders.complete')
-            ->with('success', 'Order has been completed!');
+            ->with('success', 'Se ha actualizado la orden!');
     }
 
     public function destroy($uuid)
@@ -171,6 +171,6 @@ class OrderController extends Controller
             ->route('orders.index', [
                 'orders' => $orders
             ])
-            ->with('success', 'Order has been canceled!');
+            ->with('success', 'Se ha cancelado la orden!');
     }
 }

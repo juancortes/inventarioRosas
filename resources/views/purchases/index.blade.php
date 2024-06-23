@@ -5,6 +5,7 @@
     @if(!$purchases)
     <x-empty
         title="No hay compras"
+        message="."
         button_label="{{ __('Adicionar su primera compra') }}"
         button_route="{{ route('purchases.create') }}"
     />

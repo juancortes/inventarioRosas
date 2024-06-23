@@ -42,7 +42,7 @@ class QuotationController extends Controller
     public function store(StoreQuotationRequest $request)
     {
         if (count(Cart::instance('quotation')->content()) === 0) {
-            return redirect()->back()->with('message', 'Please search & select products!');
+            return redirect()->back()->with('message', 'Porfavo buscar y seleccionar productos');
         }
         DB::transaction(function () use ($request) {
             $quotation = Quotation::create([
@@ -50,16 +50,16 @@ class QuotationController extends Controller
                 'reference' => $request->reference,
                 'customer_id' => $request->customer_id,
                 'customer_name' => Customer::findOrFail($request->customer_id)->name,
-                'tax_percentage' => $request->tax_percentage,
-                'discount_percentage' => $request->discount_percentage,
+                'tax_percentage' => (int)$request->tax_percentage,
+                'discount_percentage' => (int)$request->discount_percentage,
                 'shipping_amount' => $request->shipping_amount, //* 100,
-                'total_amount' => $request->total_amount, //* 100,
+                'total_amount' => (int)$request->total_amount, //* 100,
                 'status' => $request->status,
                 'note' => $request->note,
                 "uuid" => Str::uuid(),
                 "user_id" => auth()->id(),
-                'tax_amount' => Cart::instance('quotation')->tax(), //* 100,
-                'discount_amount' => Cart::instance('quotation')->discount(), //* 100,
+                'tax_amount' => (int)Cart::instance('quotation')->tax(), //* 100,
+                'discount_amount' => (int)Cart::instance('quotation')->discount(), //* 100,
             ]);
 
             foreach (Cart::instance('quotation')->content() as $cart_item) {

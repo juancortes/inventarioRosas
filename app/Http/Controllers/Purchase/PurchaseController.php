@@ -195,15 +195,15 @@ class PurchaseController extends Controller
             ->get();
 
         $purchase_array [] = array(
-            'Date',
-            'No Purchase',
-            'Supplier',
+            'Fecha',
+            'No Compra',
+            'Proveedor',
             'Código del Producto',
-            'Product',
-            'Quantity',
-            'Unitcost',
+            'Producto',
+            'Cantidad',
+            'Costo unitario',
             'Total',
-            'Created By'
+            'Creado Por'
         );
 
         foreach($purchases as $purchase)

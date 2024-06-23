@@ -134,7 +134,7 @@
                               </tr>
                               <tr>
                                   <td class="align-middle text-end" colspan="7">
-                                      Impuesto Amount
+                                    Monto Impuesto 
                                   </td>
                                   <td class="align-middle text-center">
                                       {{ number_format($purchase->tax_amount, 2) }}
@@ -148,11 +148,11 @@
                                   <td class="align-middle text-center">
                                       @if ($purchase->status->value == 1)
                                           <span class="badge bg-success-lt">
-                                              Approve
+                                              Aprovada
                                           </span>
                                       @elseif ($purchase->status->value == 0)
                                           <span class="badge bg-warning-lt">
-                                              Pendientes
+                                              Pendiente
                                           </span>
                                       @endif
                                   </td>

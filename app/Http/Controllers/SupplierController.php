@@ -47,7 +47,7 @@ class SupplierController extends Controller
 
         return redirect()
             ->route('suppliers.index')
-            ->with('success', 'New supplier has been created!');
+            ->with('success', 'Nuevo proveedor a sido creado!');
     }
 
     public function show($uuid)
@@ -101,7 +101,7 @@ class SupplierController extends Controller
 
         return redirect()
             ->route('suppliers.index')
-            ->with('success', 'Supplier has been updated!');
+            ->with('success', 'Proveedor a sido actualizado!');
     }
 
     public function destroy($uuid)
@@ -118,6 +118,6 @@ class SupplierController extends Controller
 
         return redirect()
             ->route('suppliers.index')
-            ->with('success', 'Supplier has been deleted!');
+            ->with('success', 'Proveedor a sido eliminado!');
     }
 }
