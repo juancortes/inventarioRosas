@@ -2,12 +2,12 @@
 
 @section('content')
 <div class="page-body">
-    @if($units->isEmpty())
+    @if($lands->isEmpty())
         <x-empty
-            title="No hay Unidades"
+            title="No hay Fincas"
             message="."
-            button_label="{{ __('Adicione su primera unidad') }}"
-            button_route="{{ route('units.create') }}"
+            button_label="{{ __('Adicione su primera finca') }}"
+            button_route="{{ route('lands.create') }}"
         />
     @else
         <div class="container-xl">
@@ -19,7 +19,7 @@
                     <a class="btn-close" data-bs-dismiss="alert" aria-label="close"></a>
                 </div>
             @endif
-            @livewire('tables.unit-table')
+            @livewire('tables.lands-table')
         </div>
     @endif
 </div>

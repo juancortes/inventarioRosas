@@ -31,13 +31,20 @@ class Product extends Model
         'created_at',
         'updated_at',
         "user_id",
-        "uuid"
+        "uuid",
+        "lands_id",
+        "branch_stem_id",
+        "type_branche_id",
+        "table_id",
+        "varietie_id",
+        "grades"
     ];
 
     protected $casts = [
         'created_at' => 'datetime',
         'updated_at' => 'datetime',
-        'tax_type' => TaxType::class
+        'tax_type' => TaxType::class,
+        'grades' => Grades::class
     ];
 
     public function getRouteKeyName(): string
@@ -53,6 +60,26 @@ class Product extends Model
     public function unit(): BelongsTo
     {
         return $this->belongsTo(Unit::class);
+    }
+
+    public function branch_stem(): BelongsTo
+    {
+        return $this->belongsTo(BranchStems::class);
+    }
+
+    public function type_branche(): BelongsTo
+    {
+        return $this->belongsTo(TypeBranches::class);
+    }
+
+    public function table(): BelongsTo
+    {
+        return $this->belongsTo(Tables::class);
+    }
+
+    public function land(): BelongsTo
+    {
+        return $this->belongsTo(Lands::class);
     }
 
     protected function buyingPrice(): Attribute

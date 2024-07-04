@@ -45,6 +45,9 @@ class CategoryController extends Controller
 
     public function edit(Category $category)
     {
+        echo "<pre>";
+        print_r($category);
+        exit();
         return view('categories.edit', [
             'category' => $category
         ]);

@@ -184,7 +184,7 @@
                                         </div>
                                         <div class="col">
                                             <div class="font-weight-medium">
-                                                {{ $products }} Products
+                                                {{ $products }} Flores
                                             </div>
                                             <div class="text-muted">
                                                 {{ $categories }} categories

@@ -265,7 +265,7 @@
                                         </svg>
                                     </span>
                                     <span class="nav-link-title">
-                                        {{ __('Productos') }}
+                                        {{ __('Ramos') }}
                                     </span>
                                 </a>
                             </li>
@@ -443,8 +443,8 @@
                                             <a class="dropdown-item" href="{{ route('categories.index') }}">
                                                 {{ __('Categorias') }}
                                             </a>
-                                            <a class="dropdown-item" href="{{ route('units.index') }}">
-                                                {{ __('Unidades') }}
+                                            <a class="dropdown-item" href="{{ route('lands.index') }}">
+                                                {{ __('Fincas') }}
                                             </a>
                                         </div>
                                     </div>

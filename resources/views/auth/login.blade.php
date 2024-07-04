@@ -38,7 +38,7 @@
                            name="password"
                            id="password"
                            class="form-control @error('password') is-invalid @enderror"
-                           placeholder="Your password"
+                           placeholder="Tu clave"
                            autocomplete="off"
                     >
 
