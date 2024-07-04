@@ -16,8 +16,6 @@
                     <x-action.close route="{{ route('lands.index') }}" />
                 </div>
             </div>
-{{ $lands }}
-<?php exit ?>
             <form action="{{ route('lands.update', $lands->id) }}" method="POST">
                 @csrf
                 @method('put')

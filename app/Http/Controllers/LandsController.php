@@ -57,11 +57,9 @@ class LandsController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Lands $lands)
+    public function edit($lands_id)
     {
-        echo "<pre>";
-        print_r($lands);
-        exit("die");
+        $lands = Lands::find( $lands_id);
         return view('lands.edit', [
             'lands' => $lands
         ]);
@@ -70,16 +68,28 @@ class LandsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateLandsRequest $request, Lands $lands)
+    public function update(UpdateLandsRequest $request,  $lands_id)
     {
-        //
+        $lands = Lands::find( $lands_id);
+        $lands->update([
+            "name" => $request->name,
+        ]);
+
+        return redirect()
+            ->route('lands.index')
+            ->with('success', 'Finca fue actualizada!');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Lands $lands)
+    public function destroy($lands_id)
     {
-        //
+        $lands = Lands::find( $lands_id);
+        $lands->delete();
+
+        return redirect()
+            ->route('lands.index')
+            ->with('success', 'Finca fue eliminada!');
     }
 }

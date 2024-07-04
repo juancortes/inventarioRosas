@@ -65,7 +65,7 @@
                     </td>
                     <td class="align-middle text-center" style="width: 15%">
                         <x-button.show class="btn-icon" route="{{ route('lands.show', $land) }}"/>
-                        <x-button.edit class="btn-icon" route="{{ route('lands.edit', $land) }}"/>
+                        <x-button.edit class="btn-icon" route="{{ route('lands.edit', $land->id) }}"/>
                         <x-button.delete class="btn-icon" route="{{ route('lands.destroy', $land) }}"/>
                     </td>
                 </tr>
