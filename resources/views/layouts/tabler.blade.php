@@ -446,6 +446,9 @@
                                             <a class="dropdown-item" href="{{ route('lands.index') }}">
                                                 {{ __('Fincas') }}
                                             </a>
+                                            <a class="dropdown-item" href="{{ route('varieties.index') }}">
+                                                {{ __('Variedades') }}
+                                            </a>
                                         </div>
                                     </div>
                                 </div>

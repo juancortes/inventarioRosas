@@ -13,7 +13,12 @@ class VarietiesController extends Controller
      */
     public function index()
     {
-        //
+        $varieties = Varieties::select(['id', 'name'])
+            ->get();
+
+        return view('varieties.index', [
+            'varieties' => $varieties,
+        ]);
     }
 
     /**
@@ -21,7 +26,7 @@ class VarietiesController extends Controller
      */
     public function create()
     {
-        //
+        return view('varieties.create');
     }
 
     /**
@@ -29,7 +34,13 @@ class VarietiesController extends Controller
      */
     public function store(StoreVarietiesRequest $request)
     {
-        //
+        Varieties::create([
+            'name' => $request->name,
+        ]);
+
+        return redirect()
+            ->route('varieties.index')
+            ->with('success', 'Variedad a sido creada!');
     }
 
     /**

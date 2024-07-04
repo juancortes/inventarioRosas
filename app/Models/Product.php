@@ -82,6 +82,11 @@ class Product extends Model
         return $this->belongsTo(Lands::class);
     }
 
+    public function Variety(): BelongsTo
+    {
+        return $this->belongsTo(Varieties::class);
+    }
+
     protected function buyingPrice(): Attribute
     {
         return Attribute::make(
