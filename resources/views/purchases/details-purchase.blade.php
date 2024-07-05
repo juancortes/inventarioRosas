@@ -96,7 +96,7 @@
         <div class="col-xl-12">
             <div class="card mb-4 mb-xl-0">
                 <div class="card-header">
-                    Listar Producto
+                    Listar Ramo
                 </div>
 
                 <div class="card-body">
@@ -107,8 +107,8 @@
                                     <tr>
                                         <th scope="col">No.</th>
                                         <th scope="col">Foto</th>
-                                        <th scope="col">Nombre del Producto</th>
-                                        <th scope="col">Código del Producto</th>
+                                        <th scope="col">Nombre del Ramo</th>
+                                        <th scope="col">Código del Ramo</th>
                                         <th scope="col">Existencias actuales</th>
                                         <th scope="col">Cantidad</th>
                                         <th scope="col">Precio</th>

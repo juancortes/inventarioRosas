@@ -6,7 +6,7 @@
             <div class="row g-2 align-items-center mb-3">
                 <div class="col">
                     <h2 class="page-title">
-                        {{ __('Editar Producto') }}
+                        {{ __('Editar Ramo') }}
                     </h2>
                 </div>
             </div>
@@ -28,7 +28,7 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h3 class="card-title">
-                                        {{ __('Imagen del Producto') }}
+                                        {{ __('Imagen del Ramo') }}
                                     </h3>
 
                                     <img class="img-account-profile mb-2"
@@ -57,7 +57,7 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h3 class="card-title">
-                                        {{ __('Detalles del Producto') }}
+                                        {{ __('Detalles del Ramo') }}
                                     </h3>
 
                                     <div class="row row-cards">
@@ -70,7 +70,7 @@
 
                                                 <input type="text" id="name" name="name"
                                                     class="form-control @error('name') is-invalid @enderror"
-                                                    placeholder="Nombre del Producto" value="{{ old('name', $product->name) }}">
+                                                    placeholder="Nombre del Ramo" value="{{ old('name', $product->name) }}">
 
                                                 @error('name')
                                                     <div class="invalid-feedback">
@@ -83,7 +83,7 @@
                                         <div class="col-sm-6 col-md-6">
                                             <div class="mb-3">
                                                 <label for="category_id" class="form-label">
-                                                    Categoria del Producto
+                                                    Categoria del Ramo
                                                     <span class="text-danger">*</span>
                                                 </label>
 

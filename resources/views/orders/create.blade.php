@@ -89,7 +89,7 @@
                                 <table class="table table-striped table-bordered align-middle">
                                     <thead class="thead-light">
                                         <tr>
-                                            <th scope="col">{{ __('Producto') }}</th>
+                                            <th scope="col">{{ __('Ramo') }}</th>
                                             <th scope="col" class="text-center">{{ __('Cantidad') }}</th>
                                             <th scope="col" class="text-center">{{ __('Precio') }}</th>
                                             <th scope="col" class="text-center">{{ __('SubTotal') }}</th>
@@ -138,13 +138,13 @@
                                         </tr>
                                         @empty
                                         <td colspan="5" class="text-center">
-                                            {{ __('Adicionar Productos') }}
+                                            {{ __('Adicionar Ramos') }}
                                         </td>
                                         @endforelse
 
                                         <tr>
                                             <td colspan="4" class="text-end">
-                                                Total Producto
+                                                Total Ramo
                                             </td>
                                             <td class="text-center">
                                                 {{ Cart::count() }}
@@ -186,7 +186,7 @@
             <div class="col-lg-5">
                 <div class="card mb-4 mb-xl-0">
                     <div class="card-header">
-                        Listar Producto
+                        Listar Ramo
                     </div>
                     <div class="card-body">
                         <div class="col-lg-12">

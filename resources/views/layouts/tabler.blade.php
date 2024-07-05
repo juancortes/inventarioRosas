@@ -470,7 +470,7 @@
                                         </svg>
                                     </span>
                                     <input type="text" name="search" id="search" value=""
-                                        class="form-control" placeholder="Search…" aria-label="Search in website">
+                                        class="form-control" placeholder="Buscar…" aria-label="Search in website">
                                 </div>
                             </form>
                         </div>

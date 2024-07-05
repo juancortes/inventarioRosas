@@ -2,7 +2,7 @@
     <table class="table table-bordered" id="products_table">
         <thead class="thead-dark">
             <tr>
-                <th class="align-middle">Producto</th>
+                <th class="align-middle">Ramo</th>
                 <th class="align-middle text-center">Cantidad</th>
                 <th class="align-middle text-center">Precio</th>
                 <th class="align-middle text-center">Total</th>
@@ -26,7 +26,7 @@
                                 class="form-control text-center @error('invoiceProducts.' . $index . '.product_id') is-invalid @enderror"
                         >
 
-                          <option value="" class="text-center">-- Escoger producto --</option>
+                          <option value="" class="text-center">-- Escoger Ramo --</option>
 
                             @foreach ($allProducts as $product)
                               <option value="{{ $product->id }}" class="text-center">

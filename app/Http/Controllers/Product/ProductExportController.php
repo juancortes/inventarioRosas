@@ -15,11 +15,11 @@ class ProductExportController extends Controller
         $products = Product::all()->sortBy('product_name');
 
         $product_array[] = array(
-            'Nombre del Producto',
+            'Nombre del Ramo',
             'Product Slug',
             'Category Id',
             'Unit Id',
-            'Código del Producto',
+            'Código del Ramo',
             'Stock',
             "Stock Alert",
             'Buying Price',
@@ -30,11 +30,11 @@ class ProductExportController extends Controller
 
         foreach ($products as $product) {
             $product_array[] = array(
-                'Nombre del Producto' => $product->name,
+                'Nombre del Ramo' => $product->name,
                 'Product Slug' => $product->slug,
                 'Category Id' => $product->category_id,
                 'Unit Id' => $product->unit_id,
-                'Código del Producto' => $product->code,
+                'Código del Ramo' => $product->code,
                 'Stock' => $product->quantity,
                 "Stock Alert" => $product->quantity_alert,
                 'Buying Price' => $product->buying_price,

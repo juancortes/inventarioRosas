@@ -14,7 +14,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <h3 class="card-title">
-                                    {{ __('Imagen del Producto') }}
+                                    {{ __('Imagen del Ramo') }}
                                 </h3>
 
                                 <img class="img-account-profile mb-2" src="{{ asset('assets/img/products/default.webp') }}" alt="" id="image-preview" />
@@ -46,7 +46,7 @@
                             <div class="card-header">
                                 <div>
                                     <h3 class="card-title">
-                                        {{ __('Crear Producto') }}
+                                        {{ __('Crear Ramo') }}
                                     </h3>
                                 </div>
 
@@ -62,16 +62,16 @@
 
                                         <x-input name="name"
                                                  id="name"
-                                                 placeholder="Nombre del Producto"
+                                                 placeholder="Nombre del Ramo"
                                                  value="{{ old('name') }}"
-                                                 label="Nombre del Producto"
+                                                 label="Nombre del Ramo"
                                         />
                                     </div>
 
                                     <div class="col-sm-6 col-md-6">
                                         <div class="mb-3">
                                             <label for="category_id" class="form-label">
-                                                Categoria del Producto
+                                                Categoria del Ramo
                                                 <span class="text-danger">*</span>
                                             </label>
 

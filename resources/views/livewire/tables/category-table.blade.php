@@ -58,7 +58,7 @@
                     </th>
                     <th scope="col" class="align-middle text-center d-none d-sm-table-cell">
                         <a wire:click.prevent="sortBy('slug')" href="#" role="button">
-                            {{ __('Cantidad de Productos') }}
+                            {{ __('Cantidad de Ramos') }}
                             @include('inclues._sort-icon', ['field' => 'products'])
                         </a>
                     </th>

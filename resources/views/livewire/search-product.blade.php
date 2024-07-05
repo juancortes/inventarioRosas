@@ -44,7 +44,7 @@
             <div class="card position-absolute mt-1 border-0" style="z-index: 1;left: 0;right: 0;">
                 <div class="card-body shadow">
                     <div class="alert alert-warning mb-0">
-                        No hay producto....
+                        No hay Ramo....
                     </div>
                 </div>
             </div>

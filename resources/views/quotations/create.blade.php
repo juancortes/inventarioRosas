@@ -35,7 +35,7 @@
                 <div class="col">
                     <div class="card mb-4">
                         <div class="card-header">
-                            Productos
+                            Ramos
                         </div>
                         <div class="card-body">
                             <livewire:search-product/>

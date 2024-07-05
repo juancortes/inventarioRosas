@@ -23,7 +23,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <h3 class="card-title">
-                                    {{ __('Imagen del Producto') }}
+                                    {{ __('Imagen del Ramo') }}
                                 </h3>
 
                                 <img style="width: 90px;" id="image-preview"
@@ -37,7 +37,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="card-title">
-                                    Código del Producto
+                                    Código del Ramo
                                 </div>
                                 <div class="row row-cards">
                                     <div class="col-md-6">
@@ -69,7 +69,7 @@
                         <div class="card">
                             <div class="card-header">
                                 <h3 class="card-title">
-                                    {{ __('Detalles del Producto') }}
+                                    {{ __('Detalles del Ramo') }}
                                 </h3>
                             </div>
                             <div class="table-responsive">

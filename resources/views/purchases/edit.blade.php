@@ -70,8 +70,8 @@
                           <tr>
                             <th scope="col" class="align-middle text-center">No.</th>
                             <th scope="col" class="align-middle text-center">Foto</th>
-                            <th scope="col" class="align-middle text-center">Nombre del Producto</th>
-                            <th scope="col" class="align-middle text-center">Código del Producto</th>
+                            <th scope="col" class="align-middle text-center">Nombre del Ramo</th>
+                            <th scope="col" class="align-middle text-center">Código del Ramo</th>
                             <th scope="col" class="align-middle text-center">Existencias actuales</th>
                             <th scope="col" class="align-middle text-center">Cantidad</th>
                             <th scope="col" class="align-middle text-center">Precio</th>

@@ -2,7 +2,7 @@
     <div class="card-header">
         <div>
             <h3 class="card-title">
-                {{ __('Productos') }}
+                {{ __('Ramos') }}
             </h3>
         </div>
 
@@ -15,15 +15,15 @@
                 <div class="dropdown-menu dropdown-menu-end" style="">
                     <a href="{{ route('products.create') }}" class="dropdown-item">
                         <x-icon.plus />
-                        {{ __('Crear Producto') }}
+                        {{ __('Crear Ramo') }}
                     </a>
                     <a href="{{ route('products.import.view') }}" class="dropdown-item">
                         <x-icon.plus />
-                        {{ __('Importar Producto') }}
+                        {{ __('Importar Ramo') }}
                     </a>
                     <a href="{{ route('products.export.store') }}" class="dropdown-item">
                         <x-icon.plus />
-                        {{ __('Exportar Producto') }}
+                        {{ __('Exportar Ramo') }}
                     </a>
                 </div>
             </div>

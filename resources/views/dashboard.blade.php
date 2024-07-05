@@ -218,7 +218,7 @@
                                                 {{ $orders }} Ordenes
                                             </div>
                                             <div class="text-muted">
-                                                {{ $todayOrders }} 
+                                                {{ $todayOrders }} hoy
                                             </div>
                                         </div>
                                     </div>

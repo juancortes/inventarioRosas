@@ -5,13 +5,13 @@
         @if (!$products)
             <x-empty title="No products found" 
                 message="."
-                button_label="{{ __('Adicione su primer producto') }}" 
+                button_label="{{ __('Adicione su primer Ramo') }}" 
                 button_route="{{ route('products.create') }}" />
 
             <div style="text-center" style="padding-top:-25px">
                 <center>
                     <a href="{{ route('products.import.view') }}" class="">
-                        {{ __('Importar Producto') }}
+                        {{ __('Importar Ramo') }}
                     </a>
                 </center>
             </div>

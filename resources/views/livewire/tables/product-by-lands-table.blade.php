@@ -60,13 +60,13 @@
                     </th>
                     <th scope="col" class="align-middle text-center">
                         <a wire:click.prevent="sortBy('name')" href="#" role="button">
-                            {{ __('Nombre del Producto') }}
+                            {{ __('Nombre del Ramo') }}
                             @include('inclues._sort-icon', ['field' => 'name'])
                         </a>
                     </th>
                     <th scope="col" class="align-middle text-center d-none d-sm-table-cell">
                         <a wire:click.prevent="sortBy('code')" href="#" role="button">
-                            {{ __('Código del Producto') }}
+                            {{ __('Código del Ramo') }}
                             @include('inclues._sort-icon', ['field' => 'code'])
                         </a>
                     </th>

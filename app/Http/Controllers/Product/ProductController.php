@@ -78,7 +78,7 @@ class ProductController extends Controller
         ]);
 
 
-        return to_route('products.index')->with('success', 'Producto ha sido creado!');
+        return to_route('products.index')->with('success', 'Ramo ha sido creado!');
     }
 
     public function show($uuid)
@@ -137,7 +137,7 @@ class ProductController extends Controller
 
         return redirect()
             ->route('products.index')
-            ->with('success', 'Producto ha sido actualizado!');
+            ->with('success', 'Ramo ha sido actualizado!');
     }
 
     public function destroy($uuid)
@@ -157,6 +157,6 @@ class ProductController extends Controller
 
         return redirect()
             ->route('products.index')
-            ->with('success', 'Producto ha sido borrado!');
+            ->with('success', 'Ramo ha sido borrado!');
     }
 }
