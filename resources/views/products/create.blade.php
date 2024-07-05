@@ -234,7 +234,7 @@
                                                       id="notes"
                                                       rows="5"
                                                       class="form-control @error('notes') is-invalid @enderror"
-                                                      placeholder="Product notes"
+                                                      placeholder="Notas"
                                             ></textarea>
 
                                             @error('notes')

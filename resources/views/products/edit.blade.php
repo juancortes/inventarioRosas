@@ -260,7 +260,7 @@
                                                 </label>
 
                                                 <textarea name="notes" id="notes" rows="5" class="form-control @error('notes') is-invalid @enderror"
-                                                    placeholder="Product notes">{{ old('notes', $product->notes) }}</textarea>
+                                                    placeholder="Notas">{{ old('notes', $product->notes) }}</textarea>
 
                                                 @error('notes')
                                                     <div class="invalid-feedback">
