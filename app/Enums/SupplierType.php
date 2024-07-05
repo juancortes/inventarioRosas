@@ -4,18 +4,18 @@ namespace App\Enums;
 
 enum SupplierType: string
 {
-    case DISTRIBUTOR = 'distributor';
+    case DISTRIBUIDOR = 'distribuidor';
 
-    case WHOLESALER = 'wholesaler';
+    case MAYORISTA = 'mayorista';
 
-    case PRODUCER = 'producer';
+    case PRODUCTOR = 'productor';
 
     public function label(): string
     {
         return match ($this) {
-            self::DISTRIBUTOR => __('Distributor'),
-            self::WHOLESALER => __('Wholesaler'),
-            self::PRODUCER => __('Producer'),
+            self::DISTRIBUIDOR => __('Distribuidor'),
+            self::MAYORISTA => __('Mayorista'),
+            self::PRODUCTOR => __('Productor'),
         };
     }
 }
