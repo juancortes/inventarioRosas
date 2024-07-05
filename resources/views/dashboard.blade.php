@@ -215,10 +215,10 @@
                                         </div>
                                         <div class="col">
                                             <div class="font-weight-medium">
-                                                {{ $orders }} Orders
+                                                {{ $orders }} Ordenes
                                             </div>
                                             <div class="text-muted">
-                                                {{ $todayOrders }} shipped
+                                                {{ $todayOrders }} 
                                             </div>
                                         </div>
                                     </div>
@@ -247,10 +247,10 @@
                                         </div>
                                         <div class="col">
                                             <div class="font-weight-medium">
-                                                {{ $purchases }} Purchases
+                                                {{ $purchases }} Compras
                                             </div>
                                             <div class="text-muted">
-                                                {{ $todayPurchases }} today
+                                                {{ $todayPurchases }} hoy
                                             </div>
                                         </div>
                                     </div>
@@ -279,10 +279,10 @@
                                         </div>
                                         <div class="col">
                                             <div class="font-weight-medium">
-                                                {{ $quotations }} Quotations
+                                                {{ $quotations }} Cotizaciones
                                             </div>
                                             <div class="text-muted">
-                                                {{ $todayQuotations }} today
+                                                {{ $todayQuotations }} hoy
                                             </div>
                                         </div>
                                     </div>

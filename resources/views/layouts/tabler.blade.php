@@ -49,7 +49,7 @@
                 </button>
                 <h1 class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
                     <a href="{{ url('/') }}">
-                        <img src="{{ asset('static/logos.svg') }}" width="110" height="32" alt="Inventario"
+                        <img src="{{ asset('static/logo.png') }}" width="110" height="32" alt="Inventario"
                             class="navbar-brand-image">
                     </a>
                 </h1>
@@ -166,7 +166,7 @@
                                     </path>
                                     <path d="M12 12m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"></path>
                                 </svg>
-                                Account
+                                Cuenta
                             </a>
                             <form action="{{ route('logout') }}" method="post">
                                 @csrf
@@ -181,7 +181,7 @@
                                         <path d="M9 12h12l-3 -3" />
                                         <path d="M18 15l3 -3" />
                                     </svg>
-                                    Logout
+                                    Salir
                                 </button>
                             </form>
                         </div>
@@ -491,7 +491,7 @@
                             <ul class="list-inline list-inline-dots mb-0">
                                 <li class="list-inline-item">
                                      {{ now()->year }}
-                                    <a href="." class="link-secondary">Tabler</a>.
+                                    <a href="." class="link-secondary">by Top Software</a>.
                                 </li>
                                 <li class="list-inline-item">
                                     <a href="#" class="link-secondary" rel="noopener">
@@ -514,7 +514,6 @@
     {{-- - Page Scripts - --}}
     @stack('page-scripts')
 
-    @livewireScripts
 </body>
 
 </html>
