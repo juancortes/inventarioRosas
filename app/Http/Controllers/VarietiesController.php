@@ -54,24 +54,39 @@ class VarietiesController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Varieties $varieties)
+    public function edit($variety_id)
     {
-        //
+        $varieties = Varieties::find( $variety_id);
+        return view('varieties.edit', [
+            'varieties' => $varieties
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateVarietiesRequest $request, Varieties $varieties)
+    public function update(UpdateVarietiesRequest $request,  $variety_id)
     {
-        //
+        $varieties = Varieties::find( $variety_id);
+        $varieties->update([
+            "name" => $request->name,
+        ]);
+
+        return redirect()
+            ->route('varieties.index')
+            ->with('success', 'Variedad fue actualizada!');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Varieties $varieties)
+    public function destroy( $variety_id)
     {
-        //
+        $varieties = Varieties::find( $variety_id);
+        $varieties->delete();
+
+        return redirect()
+            ->route('varieties.index')
+            ->with('success', 'Variedad fue eliminada!');
     }
 }
