@@ -460,7 +460,7 @@
     <script src="{{ asset('dist/js/demo.min.js') }}" defer></script>
     {{-- - Page Scripts - --}}
     @stack('page-scripts')
-
+    @livewireScripts
 </body>
 
 </html>
