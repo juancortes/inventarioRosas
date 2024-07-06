@@ -158,7 +158,7 @@
             <!-- Product image card-->
             <div class="card mb-4 mb-xl-0">
                 <div class="card-header">
-                    Listar Producto
+                    Listar Ramo
                 </div>
                 <div class="card-body">
                     <div class="col-lg-12">
