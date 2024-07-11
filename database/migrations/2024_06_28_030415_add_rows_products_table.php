@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('products', function (Blueprint $table) {
-            $table->unsignedBigInteger('branch_stem_id')->nullable();
+            /*$table->unsignedBigInteger('branch_stem_id')->nullable();
             $table->foreign('branch_stem_id')
                 ->references('id')
                 ->on('branch_stems');
@@ -25,7 +25,11 @@ return new class extends Migration
             $table->unsignedBigInteger('table_id')->nullable();
             $table->foreign('table_id')
                 ->references('id')
-                ->on('tables');
+                ->on('tables');*/
+
+            $table->string('branch_stem');
+            $table->string('type_branche');
+            $table->string('table');
 
             $table->unsignedBigInteger('varietie_id')->nullable();
             $table->foreign('varietie_id')

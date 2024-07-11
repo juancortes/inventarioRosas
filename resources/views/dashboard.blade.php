@@ -6,7 +6,7 @@
             <div class="row g-2 align-items-center">
                 <div class="col">
                     <div class="page-pretitle">
-                        Overview
+                        Resumen
                     </div>
                     <h2 class="page-title">
                         Dashboard
