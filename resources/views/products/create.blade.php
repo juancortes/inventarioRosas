@@ -199,12 +199,12 @@
 
                     <div class="col-sm-6 col-md-6">
                       <div class="mb-3">
-                        <label class="form-label" for="tax_type">
+                        <label class="form-label" for="grades">
                           {{ __('grado') }}
                         </label>
 
-                        <select name="tax_type" id="tax_type"
-                            class="form-select @error('tax_type') is-invalid @enderror"
+                        <select name="grades" id="grades"
+                            class="form-select @error('grades') is-invalid @enderror"
                             >
                           @foreach(\App\Enums\Grades::cases() as $Grades)
                             <option value="{{ $Grades->value }}" @selected(old('Grades') == $Grades->value)>
@@ -213,7 +213,7 @@
                           @endforeach
                         </select>
 
-                        @error('tax_type')
+                        @error('grades')
                         <div class="invalid-feedback">
                             {{ $message }}
                         </div>
@@ -253,14 +253,14 @@
 
                     <div class="col-sm-6 col-md-6">
                       <div class="mb-3">
-                        <label for="variety_id" class="form-label">
+                        <label for="varietie_id" class="form-label">
                             Variedad
                             <span class="text-danger">*</span>
                         </label>
 
                         @if ($varieties->count() === 1)
-                          <select name="variety_id" id="variety_id"
-                              class="form-select @error('variety_id') is-invalid @enderror"
+                          <select name="varietie_id" id="varietie_id"
+                              class="form-select @error('varietie_id') is-invalid @enderror"
                               readonly
                               >
                               <option selected="" >
@@ -273,22 +273,67 @@
                             @endforeach
                           </select>
                         @else
-                          <select name="variety_id" id="variety_id"
-                              class="form-select @error('variety_id') is-invalid @enderror"
+                          <select name="varietie_id" id="varietie_id"
+                              class="form-select @error('varietie_id') is-invalid @enderror"
                               >
                               <option selected="" >
                                   Seleccione una variedad:
                               </option>
 
                               @foreach ($varieties as $variety)
-                                  <option value="{{ $variety->id }}" @if(old('variety_id') == $variety->id) selected="selected" @endif>
+                                  <option value="{{ $variety->id }}" @if(old('varietie_id') == $variety->id) selected="selected" @endif>
                                       {{ $variety->name }}
                                   </option>
                               @endforeach
                           </select>
                         @endif
 
-                        @error('variety_id')
+                        @error('varietie_id')
+                        <div class="invalid-feedback">
+                          {{ $message }}
+                        </div>
+                        @enderror
+                      </div>
+                    </div>
+
+                    <div class="col-sm-6 col-md-6">
+                      <div class="mb-3">
+                        <label for="lands_id" class="form-label">
+                          Finca
+                          <span class="text-danger">*</span>
+                        </label>
+
+                        @if ($varieties->count() === 1)
+                          <select name="lands_id" id="lands_id"
+                              class="form-select @error('lands_id') is-invalid @enderror"
+                              readonly
+                              >
+                              <option selected="" >
+                                  Seleccione una Finca:
+                              </option>
+                            @foreach ($lands as $land)
+                                <option value="{{ $land->id }}" >
+                                    {{ $land->name }}
+                                </option>
+                            @endforeach
+                          </select>
+                        @else
+                          <select name="lands_id" id="lands_id"
+                              class="form-select @error('lands_id') is-invalid @enderror"
+                              >
+                              <option selected="" >
+                                  Seleccione una Finca:
+                              </option>
+
+                              @foreach ($lands as $land)
+                                  <option value="{{ $land->id }}" @if(old('lands_id') == $land->id) selected="selected" @endif>
+                                      {{ $land->name }}
+                                  </option>
+                              @endforeach
+                          </select>
+                        @endif
+
+                        @error('lands_id')
                         <div class="invalid-feedback">
                           {{ $message }}
                         </div>

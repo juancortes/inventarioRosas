@@ -8,6 +8,7 @@ use App\Http\Requests\Product\UpdateProductRequest;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\Unit;
+use App\Models\Lands;
 use App\Models\Varieties;
 use Haruncpi\LaravelIdGenerator\IdGenerator;
 use Illuminate\Http\Request;
@@ -30,6 +31,7 @@ class ProductController extends Controller
         $categories = Category::where("user_id", auth()->id())->get(['id', 'name']);
         $varieties = Varieties::get(['id', 'name']);
         $units = Unit::where("user_id", auth()->id())->get(['id', 'name']);
+        $lands = Lands::get(['id', 'name']);
 
         if ($request->has('category')) {
             $categories = Category::where("user_id", auth()->id())->whereSlug($request->get('category'))->get();
@@ -43,10 +45,15 @@ class ProductController extends Controller
             $varieties = Varieties::get();
         }
 
+        if ($request->has('lands')) {
+            $lands = Lands::get();
+        }
+
         return view('products.create', [
             'categories' => $categories,
             'units' => $units,
             'varieties' => $varieties,
+            'lands' => $lands,
         ]);
     }
 
@@ -68,20 +75,25 @@ class ProductController extends Controller
                 'prefix' => 'PC'
             ]),
 
-            'product_image'     => $image,
-            'name'              => $request->name,
-            'category_id'       => $request->category_id,
-            'unit_id'           => $request->unit_id,
-            'quantity'          => $request->quantity,
-            'buying_price'      => $request->buying_price,
-            'selling_price'     => $request->selling_price,
-            'quantity_alert'    => $request->quantity_alert,
-            'tax'               => $request->tax,
-            'tax_type'          => $request->tax_type,
-            'notes'             => $request->notes,
-            "user_id" => auth()->id(),
-            "slug" => Str::slug($request->name, '-'),
-            "uuid" => Str::uuid()
+            'product_image'  => $image,
+            'name'           => $request->name,
+            'category_id'    => $request->category_id,
+            'unit_id'        => $request->unit_id,
+            'quantity'       => $request->quantity,
+            'buying_price'   => $request->buying_price,
+            'selling_price'  => $request->selling_price,
+            'quantity_alert' => $request->quantity_alert,
+            'tax'            => $request->tax,
+            'notes'          => $request->notes,
+            'branch_stem'    => $request->branch_stem,
+            'type_branche'   => $request->type_branche,
+            'table'          => $request->table,
+            'varietie_id'    => $request->varietie_id,
+            'grades'         => $request->grades,
+            'lands_id'       => $request->lands_id,
+            "user_id"        => auth()->id(),
+            "slug"           => Str::slug($request->name, '-'),
+            "uuid"           => Str::uuid()
         ]);
 
 
@@ -108,6 +120,8 @@ class ProductController extends Controller
         return view('products.edit', [
             'categories' => Category::where("user_id", auth()->id())->get(),
             'units' => Unit::where("user_id", auth()->id())->get(),
+            'varieties' => Varieties::get(['id', 'name']),
+            'lands' => Lands::get(['id', 'name']),
             'product' => $product
         ]);
     }

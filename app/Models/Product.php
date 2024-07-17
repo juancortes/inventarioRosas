@@ -34,9 +34,9 @@ class Product extends Model
         "user_id",
         "uuid",
         "lands_id",
-        "branch_stem_id",
-        "type_branche_id",
-        "table_id",
+        "branch_stem",
+        "type_branche",
+        "table",
         "varietie_id",
         "grades"
     ];
@@ -45,7 +45,7 @@ class Product extends Model
         'created_at' => 'datetime',
         'updated_at' => 'datetime',
         'tax_type' => TaxType::class,
-        'grades' => Grades::class
+        //'grades' => Grades::class
     ];
 
     public function getRouteKeyName(): string
