@@ -376,7 +376,7 @@
                                           {{ __('Usuarios') }}
                                       </a> 
                                   <a class="dropdown-item" href="{{ route('categories.index') }}">
-                                      {{ __('Categorias') }}
+                                      {{ __('Tipo de Ramos') }}
                                   </a>
                                   <a class="dropdown-item" href="{{ route('lands.index') }}">
                                       {{ __('Fincas') }}

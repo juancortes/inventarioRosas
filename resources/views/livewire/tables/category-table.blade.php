@@ -2,7 +2,7 @@
     <div class="card-header">
         <div>
             <h3 class="card-title">
-                {{ __('Categorias') }}
+                {{ __('Tipo de Ramo') }}
             </h3>
         </div>
 

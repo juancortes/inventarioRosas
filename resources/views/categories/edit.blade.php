@@ -7,7 +7,7 @@
             <div class="card-header">
                 <div>
                     <h3 class="card-title">
-                        {{ __('Editar Categoria') }}
+                        {{ __('Editar Tipo de Ramo') }}
                     </h3>
                 </div>
 

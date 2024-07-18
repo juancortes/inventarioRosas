@@ -80,13 +80,13 @@
                     <div class="col-sm-6 col-md-6">
                       <div class="mb-3">
                         <label for="category_id" class="form-label">
-                          Categoria del Ramo
+                          Tipo Ramo
                           <span class="text-danger">*</span>
                         </label>
 
                         <select name="category_id" id="category_id"
                           class="form-select @error('category_id') is-invalid @enderror">
-                          <option selected="" disabled="">Seleccione una categoria:</option>
+                          <option selected="" disabled="">Seleccione Tipo:</option>
                           @foreach ($categories as $category)
                             <option value="{{ $category->id }}"
                                 @if (old('category_id', $product->category_id) == $category->id) selected="selected" @endif>
@@ -174,10 +174,10 @@
                       <div class="col-sm-6 col-md-6">
                           <div class="mb-3">
                               <label for="quantity" class="form-label">
-                                  {{ __('Cantidad') }}
+                                  {{ __('Cantidad de Tallos') }}
                               </label>
 
-                              <input class="form-control" name="quantity" type="text" readonly value="{{ old('quantity', $product->quantity) }}"  required="true" aria-required="true" style="color: var(--tblr-secondary);background-color: var(--tblr-bg-surface-secondary); opacity: 1;"/>
+                              <input class="form-control" name="quantity" type="text"  value="{{ old('quantity', $product->quantity) }}"  required="true" aria-required="true" style="color: var(--tblr-secondary);background-color: var(--tblr-bg-surface-secondary); opacity: 1;"/>
 
 
                               {{-- <input type="text" id="quantity" name="quantity"
@@ -356,6 +356,63 @@
                             </div>
                           @enderror
                         </div>
+                      </div>
+
+                      <div class="col-sm-6 col-md-6">
+                          <div class="mb-3">
+                              <label for="table" class="form-label">
+                                  {{ __('Tabla') }}
+                              </label>
+
+                              <input type="text" id="table" name="table"
+                                  class="form-control @error('table') is-invalid @enderror"
+                                  placeholder="Tabla"
+                                  value="{{ old('table', $product->table) }}">
+
+                              @error('table')
+                                  <div class="invalid-feedback">
+                                      {{ $message }}
+                                  </div>
+                              @enderror
+                          </div>
+                      </div>
+
+                      <div class="col-sm-6 col-md-6">
+                          <div class="mb-3">
+                              <label for="date" class="form-label">
+                                  {{ __('Fecha') }}
+                              </label>
+
+                              <input type="date" id="date" name="date"
+                                  class="form-control @error('date') is-invalid @enderror"
+                                  placeholder="Fecha"
+                                  value="{{ old('date', $product->date) }}">
+
+                              @error('date')
+                                  <div class="invalid-feedback">
+                                      {{ $message }}
+                                  </div>
+                              @enderror
+                          </div>
+                      </div>
+
+                      <div class="col-sm-6 col-md-6">
+                          <div class="mb-3">
+                              <label for="week" class="form-label">
+                                  {{ __('Semana') }}
+                              </label>
+
+                              <input type="text" id="week" name="week"
+                                  class="form-control @error('week') is-invalid @enderror"
+                                  placeholder="Semana"
+                                  value="{{ old('week', $product->week) }}">
+
+                              @error('week')
+                                  <div class="invalid-feedback">
+                                      {{ $message }}
+                                  </div>
+                              @enderror
+                          </div>
                       </div>
 
                       <div class="col-md-12">

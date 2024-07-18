@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2afde9420286195589f6638d25f722a6",
+    "content-hash": "50d1cfb7cdc07784acaecc4cdc4f95bf",
     "packages": [
         {
             "name": "anayarojo/shoppingcart",
@@ -1860,6 +1860,119 @@
                 }
             ],
             "time": "2022-05-21T17:30:32+00:00"
+        },
+        {
+            "name": "itstructure/laravel-grid-view",
+            "version": "1.1.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/itstructure/laravel-grid-view.git",
+                "reference": "a9004828b410dfa0dbb8258fe3d2aaabe8e58232"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/itstructure/laravel-grid-view/zipball/a9004828b410dfa0dbb8258fe3d2aaabe8e58232",
+                "reference": "a9004828b410dfa0dbb8258fe3d2aaabe8e58232",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "~5.5.0|~5.6.0|~5.7.0|~5.8.0|^6.0|^7.0|^8.0|^9.0|^10.0|^11.0",
+                "php": ">=7.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Itstructure\\GridView\\GridViewServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Itstructure\\GridView\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andrey Girnik",
+                    "email": "girnikandrey@gmail.com"
+                }
+            ],
+            "description": "Grid view for laravel framework",
+            "keywords": [
+                "grid",
+                "gridview",
+                "laravel",
+                "table",
+                "view"
+            ],
+            "support": {
+                "issues": "https://github.com/itstructure/laravel-grid-view/issues",
+                "source": "https://github.com/itstructure/laravel-grid-view/tree/1.1.4"
+            },
+            "time": "2024-07-15T13:44:38+00:00"
+        },
+        {
+            "name": "itstructure/laravel-rbac",
+            "version": "3.0.15",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/itstructure/laravel-rbac.git",
+                "reference": "bab467c3065b22e1a50f6829af5197239cefb7ed"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/itstructure/laravel-rbac/zipball/bab467c3065b22e1a50f6829af5197239cefb7ed",
+                "reference": "bab467c3065b22e1a50f6829af5197239cefb7ed",
+                "shasum": ""
+            },
+            "require": {
+                "itstructure/laravel-grid-view": "^1.1.4",
+                "laravel/framework": "^8.0|^9.0|^10.0|^11.0",
+                "php": ">=7.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Itstructure\\LaRbac\\RbacServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Itstructure\\LaRbac\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andrey Girnik",
+                    "email": "girnikandrey@gmail.com",
+                    "homepage": "https://github.com/itstructure",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Laravel package for RBAC manage",
+            "keywords": [
+                "laravel",
+                "permission",
+                "profile",
+                "rbac",
+                "role"
+            ],
+            "support": {
+                "issues": "https://github.com/itstructure/laravel-rbac/issues",
+                "source": "https://github.com/itstructure/laravel-rbac/tree/3.0.15"
+            },
+            "time": "2024-07-15T13:50:45+00:00"
         },
         {
             "name": "laravel/framework",
@@ -10033,5 +10146,5 @@
         "php": "^8.1"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.6.0"
 }

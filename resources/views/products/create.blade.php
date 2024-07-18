@@ -68,7 +68,7 @@
                     <div class="col-sm-6 col-md-6">
                       <div class="mb-3">
                         <label for="category_id" class="form-label">
-                            Categoria del Ramo
+                            Tipo del Ramo
                             <span class="text-danger">*</span>
                         </label>
 
@@ -88,7 +88,7 @@
                               class="form-select @error('category_id') is-invalid @enderror"
                               >
                               <option selected="" disabled="">
-                                  Seleccione una categoria:
+                                  Seleccione un Tipo:
                               </option>
 
                               @foreach ($categories as $category)
@@ -169,7 +169,7 @@
 
                     <div class="col-sm-6 col-md-6">
                       <x-input type="number"
-                               label="Cantidad"
+                               label="Cantidad de Tallos"
                                name="quantity"
                                id="quantity"
                                placeholder="0"
@@ -339,6 +339,36 @@
                         </div>
                         @enderror
                       </div>
+                    </div>
+
+                    <div class="col-sm-6 col-md-6">
+                      <x-input type="text"
+                               label="Tabla"
+                               name="table"
+                               id="table"
+                               placeholder="Tipo de Ramo"
+                               value="{{ old('table') }}"
+                      />
+                    </div>
+
+                    <div class="col-sm-6 col-md-6">
+                      <x-input type="date"
+                               label="Fecha"
+                               name="date"
+                               id="date"
+                               placeholder="0"
+                               value="{{ old('date') }}"
+                      />
+                    </div>
+
+                    <div class="col-sm-6 col-md-6">
+                      <x-input type="text"
+                               label="Semana"
+                               name="week"
+                               id="week"
+                               placeholder="Semana"
+                               value="{{ old('week') }}"
+                      />
                     </div>
 
                     <div class="col-md-12">

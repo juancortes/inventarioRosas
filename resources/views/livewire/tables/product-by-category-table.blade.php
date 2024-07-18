@@ -3,7 +3,7 @@
         <div class="card-header">
             <div>
                 <h3 class="card-title">
-                    Categoría: {{ $category->name }}
+                    Tipo de Ramo: {{ $category->name }}
                 </h3>
             </div>
 

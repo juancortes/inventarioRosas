@@ -7,10 +7,12 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Itstructure\LaRbac\Interfaces\RbacUserInterface;
+use Itstructure\LaRbac\Traits\Administrable;
 
-class User extends Authenticatable implements MustVerifyEmail
+class User extends Authenticatable implements MustVerifyEmail, RbacUserInterface
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable, Administrable;
 
     protected $fillable = [
         'uuid',
@@ -23,6 +25,7 @@ class User extends Authenticatable implements MustVerifyEmail
         "store_address",
         "store_phone",
         "store_email",
+        "roles"
     ];
 
     protected $hidden = [

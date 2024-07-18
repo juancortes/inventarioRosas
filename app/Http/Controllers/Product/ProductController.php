@@ -91,6 +91,8 @@ class ProductController extends Controller
             'varietie_id'    => $request->varietie_id,
             'grades'         => $request->grades,
             'lands_id'       => $request->lands_id,
+            'date'           => $request->date,
+            'week'           => $request->week,
             "user_id"        => auth()->id(),
             "slug"           => Str::slug($request->name, '-'),
             "uuid"           => Str::uuid()
@@ -141,18 +143,20 @@ class ProductController extends Controller
             $image = $request->file('product_image')->store('products', 'public');
         }
 
-        $product->name = $request->name;
-        $product->slug = Str::slug($request->name, '-');
-        $product->category_id = $request->category_id;
-        $product->unit_id = $request->unit_id;
-        $product->quantity = $request->quantity;
-        $product->buying_price = $request->buying_price;
-        $product->selling_price = $request->selling_price;
+        $product->name           = $request->name;
+        $product->slug           = Str::slug($request->name, '-');
+        $product->category_id    = $request->category_id;
+        $product->unit_id        = $request->unit_id;
+        $product->quantity       = $request->quantity;
+        $product->buying_price   = $request->buying_price;
+        $product->selling_price  = $request->selling_price;
         $product->quantity_alert = $request->quantity_alert;
-        $product->tax = $request->tax;
-        $product->tax_type = $request->tax_type;
-        $product->notes = $request->notes;
-        $product->product_image = $image;
+        $product->tax            = $request->tax;
+        $product->tax_type       = $request->tax_type;
+        $product->notes          = $request->notes;
+        $product->product_image  = $image;
+        $product->date           = $request->date;
+        $product->week           = $request->week;
         $product->save();
 
 
