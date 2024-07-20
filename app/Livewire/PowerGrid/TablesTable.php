@@ -2,7 +2,7 @@
 
 namespace App\Livewire\PowerGrid;
 
-use App\Models\Lands;
+use App\Models\Tables;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Carbon;
 use PowerComponents\LivewirePowerGrid\Button;
@@ -13,7 +13,7 @@ use PowerComponents\LivewirePowerGrid\PowerGrid;
 use PowerComponents\LivewirePowerGrid\PowerGridColumns;
 use PowerComponents\LivewirePowerGrid\PowerGridComponent;
 
-final class LandsTable extends PowerGridComponent
+final class TablesTable extends PowerGridComponent
 {
     public int $perPage = 5;
     public array $perPageValues = [0, 5, 10, 20, 50];
@@ -31,7 +31,7 @@ final class LandsTable extends PowerGridComponent
 
     public function datasource(): Builder
     {
-        return Lands::query();
+        return Tables::query();
     }
 
     public function addColumns(): PowerGridColumns
@@ -84,27 +84,27 @@ final class LandsTable extends PowerGridComponent
         ];
     }
 
-    public function actions(\App\Models\Lands $row): array
+    public function actions(\App\Models\Tables $row): array
     {
         return [
             Button::make('show', file_get_contents('assets/svg/eye.svg'))
 //                ->slot('Show')
                 ->class('btn btn-outline-info btn-icon w-100')
-                ->tooltip('Mostrar Detalles de Finca')
-                ->route('lands.show', ['lands' => $row])
+                ->tooltip('Mostrar Detalles de Mesa')
+                ->route('Tables.show', ['Tables' => $row])
                 ->method('get'),
 
             Button::make('edit', file_get_contents('assets/svg/edit.svg'))
                 ->class('btn btn-outline-warning btn-icon w-100')
-                ->route('landss.edit', ['lands' => $row])
+                ->route('Tabless.edit', ['Tables' => $row])
                 ->method('get')
-                ->tooltip('Editar Finca'),
+                ->tooltip('Editar Mesa'),
 
             Button::add('delete')
                 ->slot(file_get_contents('assets/svg/trash.svg'))
                 ->class('btn btn-outline-danger btn-icon w-100')
-                ->tooltip('Borrar Finca')
-                ->route('lands.destroy', ['lands' => $row])
+                ->tooltip('Borrar Mesa')
+                ->route('Tables.destroy', ['Tables' => $row])
                 ->method('delete'),
         ];
     }

@@ -376,13 +376,22 @@
                                           {{ __('Usuarios') }}
                                       </a> 
                                   <a class="dropdown-item" href="{{ route('categories.index') }}">
-                                      {{ __('Tipo de Ramos') }}
+                                      {{ __('Tipo de Empaque') }}
                                   </a>
                                   <a class="dropdown-item" href="{{ route('lands.index') }}">
                                       {{ __('Fincas') }}
                                   </a>
+                                  <a class="dropdown-item" href="{{ route('tables.index') }}">
+                                      {{ __('Mesas') }}
+                                  </a>
+                                  <a class="dropdown-item" href="{{ route('grades.index') }}">
+                                      {{ __('Grados') }}
+                                  </a>
                                   <a class="dropdown-item" href="{{ route('varieties.index') }}">
                                       {{ __('Variedades') }}
+                                  </a>
+                                  <a class="dropdown-item" href="{{ route('typeBranches.index') }}">
+                                      {{ __('Tipo de Ramo') }}
                                   </a>
                               </div>
                           </div>

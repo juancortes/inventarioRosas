@@ -19,7 +19,7 @@ class UserSeeder extends Seeder
                 'name' => 'Admin',
                 'email' => 'admin@admin.com',
                 'email_verified_at' => now(),
-                'password' => bcrypt('password'),
+                'password' => bcrypt('TodoSistemas20##'),
                 'created_at' => now(),
                 'uuid' => Str::uuid(),
                 'photo' => 'admin.jpg'

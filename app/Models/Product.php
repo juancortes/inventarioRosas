@@ -35,10 +35,13 @@ class Product extends Model
         "uuid",
         "lands_id",
         "branch_stem",
-        "type_branche",
-        "table",
+        "type_branche_id",
+        "table_id",
         "varietie_id",
-        "grades"
+        "date",
+        "week",
+        "consecutive",
+        "grades_id"
     ];
 
     protected $casts = [
@@ -86,6 +89,11 @@ class Product extends Model
     public function Variety(): BelongsTo
     {
         return $this->belongsTo(Varieties::class);
+    }
+
+    public function grade(): BelongsTo
+    {
+        return $this->belongsTo(Grades::class);
     }
 
     protected function buyingPrice(): Attribute

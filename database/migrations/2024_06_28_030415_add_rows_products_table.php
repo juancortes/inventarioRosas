@@ -15,7 +15,7 @@ return new class extends Migration
             /*$table->unsignedBigInteger('branch_stem_id')->nullable();
             $table->foreign('branch_stem_id')
                 ->references('id')
-                ->on('branch_stems');
+                ->on('branch_stems');*/
             
             $table->unsignedBigInteger('type_branche_id')->nullable();
             $table->foreign('type_branche_id')
@@ -25,18 +25,20 @@ return new class extends Migration
             $table->unsignedBigInteger('table_id')->nullable();
             $table->foreign('table_id')
                 ->references('id')
-                ->on('tables');*/
+                ->on('tables');
 
-            $table->string('branch_stem');
-            $table->string('type_branche');
-            $table->string('table');
+            $table->string('branch_stem')->nullable();
 
             $table->unsignedBigInteger('varietie_id')->nullable();
             $table->foreign('varietie_id')
                 ->references('id')
                 ->on('varieties');
+
+            $table->unsignedBigInteger('grades_id')->nullable();
+            $table->foreign('grades_id')
+                ->references('id')
+                ->on('grades');
                 
-            $table->string('grades')->nullable();
         });
     }
 

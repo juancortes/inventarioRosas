@@ -13,7 +13,12 @@ class TypeBranchesController extends Controller
      */
     public function index()
     {
-        //
+        $typeBranches = TypeBranches::select(['id', 'name'])
+            ->get();
+
+        return view('typeBranches.index', [
+            'typeBranches' => $typeBranches,
+        ]);
     }
 
     /**
@@ -21,7 +26,7 @@ class TypeBranchesController extends Controller
      */
     public function create()
     {
-        //
+        return view('typeBranches.create');
     }
 
     /**

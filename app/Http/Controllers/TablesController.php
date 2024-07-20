@@ -13,7 +13,12 @@ class TablesController extends Controller
      */
     public function index()
     {
-        //
+        $tables = Tables::select(['id', 'name'])
+            ->get();
+
+        return view('tables.index', [
+            'tables' => $tables,
+        ]);
     }
 
     /**
@@ -21,7 +26,7 @@ class TablesController extends Controller
      */
     public function create()
     {
-        //
+        return view('tables.create');
     }
 
     /**
@@ -29,7 +34,13 @@ class TablesController extends Controller
      */
     public function store(StoreTablesRequest $request)
     {
-        //
+        Tables::create([
+            'name' => $request->name,
+        ]);
+
+        return redirect()
+            ->route('tables.index')
+            ->with('success', 'Mesa ha sido creada!');
     }
 
     /**
@@ -37,30 +48,47 @@ class TablesController extends Controller
      */
     public function show(Tables $tables)
     {
-        //
+        return view('tables.show', [
+            'tables' => $tables
+        ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Tables $tables)
+    public function edit($table_id)
     {
-        //
+        $table = Tables::find( $table_id);
+        return view('tables.edit', [
+            'table' => $table
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateTablesRequest $request, Tables $tables)
+    public function update(UpdateTablesRequest $request, $table_id)
     {
-        //
+        $table = Tables::find( $table_id);
+        $table->update([
+            "name" => $request->name,
+        ]);
+
+        return redirect()
+            ->route('tables.index')
+            ->with('success', 'Mesa fue actualizada!');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Tables $tables)
+    public function destroy($table_id)
     {
-        //
+        $table = Tables::find( $table_id);
+        $table->delete();
+
+        return redirect()
+            ->route('tables.index')
+            ->with('success', 'Mesa fue eliminada!');
     }
 }

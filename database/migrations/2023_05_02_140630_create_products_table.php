@@ -17,12 +17,12 @@ return new class extends Migration
             $table->foreignId("user_id")->constrained()->onDelete('cascade');
             $table->string('name');
             $table->string('slug');
-            $table->string('code');
+            $table->string('code')->nullable();
             //$table->string('product_barcode_symbology')->nullable();
-            $table->integer('quantity');
-            $table->integer('buying_price')->comment('Buying Price');
-            $table->integer('selling_price')->comment('Selling Price');
-            $table->integer('quantity_alert');
+            $table->integer('quantity')->nullable();
+            $table->integer('buying_price')->nullable()->comment('Buying Price');
+            $table->integer('selling_price')->nullable()->comment('Selling Price');
+            $table->integer('quantity_alert')->nullable();
             $table->integer('tax')->nullable();
             $table->tinyInteger('tax_type')->nullable();
             $table->text('notes')->nullable();
@@ -35,6 +35,7 @@ return new class extends Migration
                 ->nullOnDelete();
 
             $table->foreignIdFor(\App\Models\Unit::class)->constrained()
+                ->nullable()
                 ->cascadeOnDelete();
             $table->timestamps();
         });

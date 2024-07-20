@@ -68,7 +68,7 @@
                     <div class="col-sm-6 col-md-6">
                       <div class="mb-3">
                         <label for="category_id" class="form-label">
-                            Tipo del Ramo
+                            Tipo Empaque
                             <span class="text-danger">*</span>
                         </label>
 
@@ -109,14 +109,114 @@
 
                     <div class="col-sm-6 col-md-6">
                       <div class="mb-3">
+                        <label for="lands_id" class="form-label">
+                          Finca
+                          <span class="text-danger">*</span>
+                        </label>
+
+                        @if ($varieties->count() === 1)
+                          <select name="lands_id" id="lands_id"
+                              class="form-select @error('lands_id') is-invalid @enderror"
+                              readonly
+                              >
+                              <option selected="" >
+                                  Seleccione una Finca:
+                              </option>
+                            @foreach ($lands as $land)
+                                <option value="{{ $land->id }}" >
+                                    {{ $land->name }}
+                                </option>
+                            @endforeach
+                          </select>
+                        @else
+                          <select name="lands_id" id="lands_id"
+                              class="form-select @error('lands_id') is-invalid @enderror"
+                              >
+                              <option selected="" >
+                                  Seleccione una Finca:
+                              </option>
+
+                              @foreach ($lands as $land)
+                                  <option value="{{ $land->id }}" @if(old('lands_id') == $land->id) selected="selected" @endif>
+                                      {{ $land->name }}
+                                  </option>
+                              @endforeach
+                          </select>
+                        @endif
+
+                        @error('lands_id')
+                        <div class="invalid-feedback">
+                          {{ $message }}
+                        </div>
+                        @enderror
+                      </div>
+                    </div>
+
+                    <div class="col-sm-6 col-md-6">
+                      <div class="mb-3">
+                        <label for="varietie_id" class="form-label">
+                            Variedad
+                            <span class="text-danger">*</span>
+                        </label>
+
+                        @if ($varieties->count() === 1)
+                          <select name="varietie_id" id="varietie_id"
+                              class="form-select @error('varietie_id') is-invalid @enderror"
+                              readonly
+                              >
+                              <option selected="" >
+                                  Seleccione una variedad:
+                              </option>
+                            @foreach ($varieties as $variety)
+                                <option value="{{ $variety->id }}" >
+                                    {{ $variety->name }}
+                                </option>
+                            @endforeach
+                          </select>
+                        @else
+                          <select name="varietie_id" id="varietie_id"
+                              class="form-select @error('varietie_id') is-invalid @enderror"
+                              >
+                              <option selected="" >
+                                  Seleccione una variedad:
+                              </option>
+
+                              @foreach ($varieties as $variety)
+                                  <option value="{{ $variety->id }}" @if(old('varietie_id') == $variety->id) selected="selected" @endif>
+                                      {{ $variety->name }}
+                                  </option>
+                              @endforeach
+                          </select>
+                        @endif
+
+                        @error('varietie_id')
+                        <div class="invalid-feedback">
+                          {{ $message }}
+                        </div>
+                        @enderror
+                      </div>
+                    </div>
+
+                    <div class="col-sm-6 col-md-6">
+                      <x-input type="text"
+                               label="Tipo de Ramo"
+                               name="type_branche"
+                               id="type_branche"
+                               placeholder="Tipo de Ramo"
+                               value="{{ old('type_branche') }}"
+                      />
+                    </div>
+
+                    <div class="col-sm-6 col-md-6">
+                      <div class="mb-3">
                         <label class="form-label" for="unit_id">
                           {{ __('Unidades') }}
                           <span class="text-danger">*</span>
                         </label>
 
                         @if ($units->count() === 1)
-                          <select name="category_id" id="category_id"
-                                class="form-select @error('category_id') is-invalid @enderror"
+                          <select name="unit_id" id="unit_id"
+                                class="form-select @error('unit_id') is-invalid @enderror"
                                 readonly
                             >
                             @foreach ($units as $unit)
@@ -221,15 +321,7 @@
                       </div>
                     </div>
 
-                    <div class="col-sm-6 col-md-6">
-                      <x-input type="text"
-                               label="Tipo de Ramo"
-                               name="type_branche"
-                               id="type_branche"
-                               placeholder="Tipo de Ramo"
-                               value="{{ old('type_branche') }}"
-                      />
-                    </div>
+                    
 
                     <div class="col-sm-6 col-md-6">
                       <x-input type="text"
@@ -242,53 +334,40 @@
                     </div>
 
                     <div class="col-sm-6 col-md-6">
-                      <x-input type="text"
-                               label="Tabla"
-                               name="table"
-                               id="table"
-                               placeholder="Tallos por Ramo"
-                               value="{{ old('table') }}"
-                      />
-                    </div>
-
-                    <div class="col-sm-6 col-md-6">
                       <div class="mb-3">
-                        <label for="varietie_id" class="form-label">
-                            Variedad
+                        <label for="table_id" class="form-label">
+                            Mesa
                             <span class="text-danger">*</span>
                         </label>
 
-                        @if ($varieties->count() === 1)
-                          <select name="varietie_id" id="varietie_id"
-                              class="form-select @error('varietie_id') is-invalid @enderror"
+                        @if ($tables->count() === 1)
+                          <select name="table_id" id="table_id"
+                              class="form-select @error('table_id') is-invalid @enderror"
                               readonly
                               >
-                              <option selected="" >
-                                  Seleccione una variedad:
-                              </option>
-                            @foreach ($varieties as $variety)
-                                <option value="{{ $variety->id }}" >
-                                    {{ $variety->name }}
+                            @foreach ($tables as $table)
+                                <option value="{{ $table->id }}" selected>
+                                    {{ $table->name }}
                                 </option>
                             @endforeach
                           </select>
                         @else
-                          <select name="varietie_id" id="varietie_id"
-                              class="form-select @error('varietie_id') is-invalid @enderror"
+                          <select name="table_id" id="table_id"
+                              class="form-select @error('table_id') is-invalid @enderror"
                               >
-                              <option selected="" >
-                                  Seleccione una variedad:
+                              <option selected="" disabled="">
+                                  Seleccione una Mesa:
                               </option>
 
-                              @foreach ($varieties as $variety)
-                                  <option value="{{ $variety->id }}" @if(old('varietie_id') == $variety->id) selected="selected" @endif>
-                                      {{ $variety->name }}
+                              @foreach ($tables as $table)
+                                  <option value="{{ $table->id }}" @if(old('table_id') == $table->id) selected="selected" @endif>
+                                      {{ $table->name }}
                                   </option>
                               @endforeach
                           </select>
                         @endif
 
-                        @error('varietie_id')
+                        @error('table_id')
                         <div class="invalid-feedback">
                           {{ $message }}
                         </div>
@@ -296,60 +375,9 @@
                       </div>
                     </div>
 
-                    <div class="col-sm-6 col-md-6">
-                      <div class="mb-3">
-                        <label for="lands_id" class="form-label">
-                          Finca
-                          <span class="text-danger">*</span>
-                        </label>
+                    
 
-                        @if ($varieties->count() === 1)
-                          <select name="lands_id" id="lands_id"
-                              class="form-select @error('lands_id') is-invalid @enderror"
-                              readonly
-                              >
-                              <option selected="" >
-                                  Seleccione una Finca:
-                              </option>
-                            @foreach ($lands as $land)
-                                <option value="{{ $land->id }}" >
-                                    {{ $land->name }}
-                                </option>
-                            @endforeach
-                          </select>
-                        @else
-                          <select name="lands_id" id="lands_id"
-                              class="form-select @error('lands_id') is-invalid @enderror"
-                              >
-                              <option selected="" >
-                                  Seleccione una Finca:
-                              </option>
-
-                              @foreach ($lands as $land)
-                                  <option value="{{ $land->id }}" @if(old('lands_id') == $land->id) selected="selected" @endif>
-                                      {{ $land->name }}
-                                  </option>
-                              @endforeach
-                          </select>
-                        @endif
-
-                        @error('lands_id')
-                        <div class="invalid-feedback">
-                          {{ $message }}
-                        </div>
-                        @enderror
-                      </div>
-                    </div>
-
-                    <div class="col-sm-6 col-md-6">
-                      <x-input type="text"
-                               label="Tabla"
-                               name="table"
-                               id="table"
-                               placeholder="Tipo de Ramo"
-                               value="{{ old('table') }}"
-                      />
-                    </div>
+                    
 
                     <div class="col-sm-6 col-md-6">
                       <x-input type="date"

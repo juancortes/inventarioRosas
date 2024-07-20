@@ -5,8 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-
-class Tables extends Model
+class Grades extends Model
 {
     use HasFactory;
 
@@ -15,7 +14,7 @@ class Tables extends Model
     ];
 
     public $fillable = [
-        'name',
+        'name'
     ];
 
     protected $casts = [
@@ -25,7 +24,7 @@ class Tables extends Model
 
     public function products(): HasMany
     {
-        return $this->hasMany(Product::class, 'table_id', 'id');
+        return $this->hasMany(Product::class, 'grades_id', 'id');
     }
 
     public function scopeSearch($query, $value): void

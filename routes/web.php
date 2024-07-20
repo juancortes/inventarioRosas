@@ -20,6 +20,9 @@ use App\Http\Controllers\UnitController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LandsController;
 use App\Http\Controllers\VarietiesController;
+use App\Http\Controllers\TablesController;
+use App\Http\Controllers\GradesController;
+use App\Http\Controllers\TypeBranchesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -65,7 +68,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('/categories', CategoryController::class);
     Route::resource('/units', UnitController::class);
     Route::resource('/lands', LandsController::class);
+    Route::resource('/tables', TablesController::class);
+    Route::resource('/grades', GradesController::class);
     Route::resource('/varieties', VarietiesController::class);
+    Route::resource('/typeBranches', TypeBranchesController::class);
 
     // Route Products
     Route::get('products/import/', [ProductImportController::class, 'create'])->name('products.import.view');

@@ -10,6 +10,7 @@ use App\Models\Product;
 use App\Models\Unit;
 use App\Models\Lands;
 use App\Models\Varieties;
+use App\Models\Tables;
 use Haruncpi\LaravelIdGenerator\IdGenerator;
 use Illuminate\Http\Request;
 use Picqer\Barcode\BarcodeGeneratorHTML;
@@ -28,33 +29,39 @@ class ProductController extends Controller
 
     public function create(Request $request)
     {
-        $categories = Category::where("user_id", auth()->id())->get(['id', 'name']);
-        $varieties = Varieties::get(['id', 'name']);
-        $units = Unit::where("user_id", auth()->id())->get(['id', 'name']);
-        $lands = Lands::get(['id', 'name']);
+      $categories = Category::where("user_id", auth()->id())->get(['id', 'name']);
+      $varieties  = Varieties::get(['id', 'name']);
+      $units      = Unit::where("user_id", auth()->id())->get(['id', 'name']);
+      $lands      = Lands::get(['id', 'name']);
+      $tables     = Tables::get(['id', 'name']);
 
-        if ($request->has('category')) {
-            $categories = Category::where("user_id", auth()->id())->whereSlug($request->get('category'))->get();
-        }
+      if ($request->has('category')) {
+          $categories = Category::where("user_id", auth()->id())->whereSlug($request->get('category'))->get();
+      }
 
-        if ($request->has('unit')) {
-            $units = Unit::where("user_id", auth()->id())->whereSlug($request->get('unit'))->get();
-        }
+      if ($request->has('unit')) {
+          $units = Unit::where("user_id", auth()->id())->whereSlug($request->get('unit'))->get();
+      }
 
-        if ($request->has('varieties')) {
-            $varieties = Varieties::get();
-        }
+      if ($request->has('varieties')) {
+          $varieties = Varieties::get();
+      }
 
-        if ($request->has('lands')) {
-            $lands = Lands::get();
-        }
+      if ($request->has('lands')) {
+          $lands = Lands::get();
+      }
 
-        return view('products.create', [
-            'categories' => $categories,
-            'units' => $units,
-            'varieties' => $varieties,
-            'lands' => $lands,
-        ]);
+      if ($request->has('tables')) {
+          $tables = Lands::get();
+      }
+
+      return view('products.create', [
+          'categories' => $categories,
+          'units'      => $units,
+          'varieties'  => $varieties,
+          'lands'      => $lands,
+          'tables'     => $tables,
+      ]);
     }
 
     public function store(StoreProductRequest $request)
@@ -86,10 +93,11 @@ class ProductController extends Controller
             'tax'            => $request->tax,
             'notes'          => $request->notes,
             'branch_stem'    => $request->branch_stem,
-            'type_branche'   => $request->type_branche,
-            'table'          => $request->table,
+            'type_branche_id'=> $request->type_branche_id,
+            'table_id'       => $request->table_id,
             'varietie_id'    => $request->varietie_id,
-            'grades'         => $request->grades,
+            'consecutive'    => $request->consecutive,
+            'grades_id'      => $request->grades_id,
             'lands_id'       => $request->lands_id,
             'date'           => $request->date,
             'week'           => $request->week,
@@ -153,6 +161,8 @@ class ProductController extends Controller
         $product->quantity_alert = $request->quantity_alert;
         $product->tax            = $request->tax;
         $product->tax_type       = $request->tax_type;
+        $product->table_id          = $request->table_id;
+        $product->notes          = $request->notes;
         $product->notes          = $request->notes;
         $product->product_image  = $image;
         $product->date           = $request->date;

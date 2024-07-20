@@ -290,22 +290,28 @@
                       </div>
 
                       <div class="col-sm-6 col-md-6">
-                          <div class="mb-3">
-                              <label for="table" class="form-label">
-                                  {{ __('Tabla') }}
-                              </label>
+                        <div class="mb-3">
+                          <label for="table_id" class="form-label">
+                            Mesa
+                            <span class="text-danger">*</span>
+                          </label>
 
-                              <input type="text" id="table" name="table"
-                                  class="form-control @error('table') is-invalid @enderror"
-                                  placeholder="Tabla"
-                                  value="{{ old('table', $product->table) }}">
+                          <select name="table_id" id="table_id"
+                            class="form-select @error('table_id') is-invalid @enderror">
+                            <option selected="" disabled="">Seleccione una Mesa:</option>
+                            @foreach ($tables as $table)
+                              <option value="{{ $table->id }}"
+                                  @if (old('table_id', $product->table_id) == $table->id) selected="selected" @endif>
+                                  {{ $table->name }}</option>
+                            @endforeach
+                          </select>
 
-                              @error('table')
-                                  <div class="invalid-feedback">
-                                      {{ $message }}
-                                  </div>
-                              @enderror
-                          </div>
+                          @error('table_id')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                          @enderror
+                        </div>
                       </div>
 
                       <div class="col-sm-6 col-md-6">
@@ -356,25 +362,6 @@
                             </div>
                           @enderror
                         </div>
-                      </div>
-
-                      <div class="col-sm-6 col-md-6">
-                          <div class="mb-3">
-                              <label for="table" class="form-label">
-                                  {{ __('Tabla') }}
-                              </label>
-
-                              <input type="text" id="table" name="table"
-                                  class="form-control @error('table') is-invalid @enderror"
-                                  placeholder="Tabla"
-                                  value="{{ old('table', $product->table) }}">
-
-                              @error('table')
-                                  <div class="invalid-feedback">
-                                      {{ $message }}
-                                  </div>
-                              @enderror
-                          </div>
                       </div>
 
                       <div class="col-sm-6 col-md-6">
