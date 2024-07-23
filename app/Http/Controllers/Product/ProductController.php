@@ -11,6 +11,7 @@ use App\Models\Unit;
 use App\Models\Lands;
 use App\Models\Varieties;
 use App\Models\Tables;
+use App\Models\TypeBranches;
 use Haruncpi\LaravelIdGenerator\IdGenerator;
 use Illuminate\Http\Request;
 use Picqer\Barcode\BarcodeGeneratorHTML;
@@ -29,11 +30,12 @@ class ProductController extends Controller
 
     public function create(Request $request)
     {
-      $categories = Category::where("user_id", auth()->id())->get(['id', 'name']);
-      $varieties  = Varieties::get(['id', 'name']);
-      $units      = Unit::where("user_id", auth()->id())->get(['id', 'name']);
-      $lands      = Lands::get(['id', 'name']);
-      $tables     = Tables::get(['id', 'name']);
+      $categories    = Category::where("user_id", auth()->id())->get(['id', 'name']);
+      $varieties     = Varieties::get(['id', 'name']);
+      $units         = Unit::where("user_id", auth()->id())->get(['id', 'name']);
+      $lands         = Lands::get(['id', 'name']);
+      $tables        = Tables::get(['id', 'name']);
+      $type_branches = TypeBranches::get(['id', 'name']);
 
       if ($request->has('category')) {
           $categories = Category::where("user_id", auth()->id())->whereSlug($request->get('category'))->get();
@@ -55,12 +57,17 @@ class ProductController extends Controller
           $tables = Lands::get();
       }
 
+      if ($request->has('type_branches')) {
+          $type_branches = Lands::get();
+      }
+
       return view('products.create', [
-          'categories' => $categories,
-          'units'      => $units,
-          'varieties'  => $varieties,
-          'lands'      => $lands,
-          'tables'     => $tables,
+          'categories'    => $categories,
+          'units'         => $units,
+          'varieties'     => $varieties,
+          'lands'         => $lands,
+          'tables'        => $tables,
+          'type_branches' => $type_branches,
       ]);
     }
 

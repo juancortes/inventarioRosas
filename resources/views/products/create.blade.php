@@ -108,6 +108,16 @@
                     </div>
 
                     <div class="col-sm-6 col-md-6">
+                      <x-input type="text"
+                               label="Consecutivo"
+                               name="consecutive"
+                               id="consecutive"
+                               placeholder="Consecutivo"
+                               value="{{ old('consecutive') }}"
+                      />
+                    </div>
+
+                    <div class="col-sm-6 col-md-6">
                       <div class="mb-3">
                         <label for="lands_id" class="form-label">
                           Finca
@@ -198,139 +208,48 @@
                     </div>
 
                     <div class="col-sm-6 col-md-6">
-                      <x-input type="text"
-                               label="Tipo de Ramo"
-                               name="type_branche"
-                               id="type_branche"
-                               placeholder="Tipo de Ramo"
-                               value="{{ old('type_branche') }}"
-                      />
-                    </div>
-
-                    <div class="col-sm-6 col-md-6">
                       <div class="mb-3">
-                        <label class="form-label" for="unit_id">
-                          {{ __('Unidades') }}
-                          <span class="text-danger">*</span>
+                        <label for="type_branche_id" class="form-label">
+                            Tipo de Ramo
+                            <span class="text-danger">*</span>
                         </label>
 
-                        @if ($units->count() === 1)
-                          <select name="unit_id" id="unit_id"
-                                class="form-select @error('unit_id') is-invalid @enderror"
-                                readonly
-                            >
-                            @foreach ($units as $unit)
-                                <option value="{{ $unit->id }}" selected>
-                                    {{ $unit->name }}
+                        @if ($type_branches->count() === 1)
+                          <select name="type_branche_id" id="type_branche_id"
+                              class="form-select @error('type_branche_id') is-invalid @enderror"
+                              readonly
+                              >
+                              <option selected="" >
+                                  Seleccione una variedad:
+                              </option>
+                            @foreach ($type_branches as $type_branche)
+                                <option value="{{ $type_branche->id }}" >
+                                    {{ $type_branche->name }}
                                 </option>
                             @endforeach
                           </select>
                         @else
-                          <select name="unit_id" id="unit_id"
-                              class="form-select @error('unit_id') is-invalid @enderror"
-                            >
-                              <option selected="" disabled="">
-                                  Seleccione una unidad:
+                          <select name="type_branche_id" id="type_branche_id"
+                              class="form-select @error('type_branche_id') is-invalid @enderror"
+                              >
+                              <option selected="" >
+                                  Seleccione una variedad:
                               </option>
 
-                              @foreach ($units as $unit)
-                                  <option value="{{ $unit->id }}" @if(old('unit_id') == $unit->id) selected="selected" @endif>{{ $unit->name }}</option>
+                              @foreach ($type_branches as $type_branche)
+                                  <option value="{{ $type_branche->id }}" @if(old('type_branche_id') == $type_branche->id) selected="selected" @endif>
+                                      {{ $type_branche->name }}
+                                  </option>
                               @endforeach
                           </select>
                         @endif
 
-                        @error('unit_id')
+                        @error('type_branche_id')
                         <div class="invalid-feedback">
-                            {{ $message }}
+                          {{ $message }}
                         </div>
                         @enderror
                       </div>
-                    </div>
-
-                    <div class="col-sm-6 col-md-6">
-                      <x-input type="number"
-                               label="Precio de Compra"
-                               name="buying_price"
-                               id="buying_price"
-                               placeholder="0"
-                               value="{{ old('buying_price') }}"
-                      />
-                    </div>
-
-                    <div class="col-sm-6 col-md-6">
-                      <x-input type="number"
-                               label="Precio de Venta"
-                               name="selling_price"
-                               id="selling_price"
-                               placeholder="0"
-                               value="{{ old('selling_price') }}"
-                      />
-                    </div>
-
-                    <div class="col-sm-6 col-md-6">
-                      <x-input type="number"
-                               label="Cantidad de Tallos"
-                               name="quantity"
-                               id="quantity"
-                               placeholder="0"
-                               value="{{ old('quantity') }}"
-                      />
-                    </div>
-
-                    <div class="col-sm-6 col-md-6">
-                      <x-input type="number"
-                               label="Alerta de Cantidad"
-                               name="quantity_alert"
-                               id="quantity_alert"
-                               placeholder="0"
-                               value="{{ old('quantity_alert') }}"
-                      />
-                    </div>
-
-                    <div class="col-sm-6 col-md-6">
-                      <x-input type="number"
-                               label="Impuesto"
-                               name="tax"
-                               id="tax"
-                               placeholder="0"
-                               value="{{ old('tax') }}"
-                      />
-                    </div>
-
-                    <div class="col-sm-6 col-md-6">
-                      <div class="mb-3">
-                        <label class="form-label" for="grades">
-                          {{ __('grado') }}
-                        </label>
-
-                        <select name="grades" id="grades"
-                            class="form-select @error('grades') is-invalid @enderror"
-                            >
-                          @foreach(\App\Enums\Grades::cases() as $Grades)
-                            <option value="{{ $Grades->value }}" @selected(old('Grades') == $Grades->value)>
-                                {{ $Grades->label() }}
-                            </option>
-                          @endforeach
-                        </select>
-
-                        @error('grades')
-                        <div class="invalid-feedback">
-                            {{ $message }}
-                        </div>
-                        @enderror
-                      </div>
-                    </div>
-
-                    
-
-                    <div class="col-sm-6 col-md-6">
-                      <x-input type="text"
-                               label="Tallos por Ramo"
-                               name="branch_stem"
-                               id="branch_stem"
-                               placeholder="Tallos por Ramo"
-                               value="{{ old('branch_stem') }}"
-                      />
                     </div>
 
                     <div class="col-sm-6 col-md-6">
@@ -375,9 +294,39 @@
                       </div>
                     </div>
 
-                    
+                    <div class="col-sm-6 col-md-6">
+                      <div class="mb-3">
+                        <label class="form-label" for="grades">
+                          {{ __('grado') }}
+                        </label>
 
-                    
+                        <select name="grades" id="grades"
+                            class="form-select @error('grades') is-invalid @enderror"
+                            >
+                          @foreach(\App\Enums\Grades::cases() as $Grades)
+                            <option value="{{ $Grades->value }}" @selected(old('Grades') == $Grades->value)>
+                                {{ $Grades->label() }}
+                            </option>
+                          @endforeach
+                        </select>
+
+                        @error('grades')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
+                      </div>
+                    </div>
+
+                    <div class="col-sm-6 col-md-6">
+                      <x-input type="number"
+                               label="Cantidad de Tallos"
+                               name="quantity"
+                               id="quantity"
+                               placeholder="0"
+                               value="{{ old('quantity') }}"
+                      />
+                    </div>
 
                     <div class="col-sm-6 col-md-6">
                       <x-input type="date"

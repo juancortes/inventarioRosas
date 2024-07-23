@@ -34,7 +34,13 @@ class TypeBranchesController extends Controller
      */
     public function store(StoreTypeBranchesRequest $request)
     {
-        //
+        TypeBranches::create([
+            'name' => $request->name,
+        ]);
+
+        return redirect()
+            ->route('typeBranches.index')
+            ->with('success', 'Tipo de Ramo ha sido creada!');
     }
 
     /**
@@ -42,30 +48,47 @@ class TypeBranchesController extends Controller
      */
     public function show(TypeBranches $typeBranches)
     {
-        //
+        return view('typeBranches.show', [
+            'typeBranches' => $typeBranches
+        ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(TypeBranches $typeBranches)
+    public function edit($typeBranche_id)
     {
-        //
+        $typeBranche = TypeBranches::find( $typeBranche_id);
+        return view('typeBranches.edit', [
+            'typeBranche' => $typeBranche
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateTypeBranchesRequest $request, TypeBranches $typeBranches)
+    public function update(UpdateTypeBranchesRequest $request, $typeBranche_id)
     {
-        //
+        $typeBranche = TypeBranches::find( $typeBranche_id);
+        $typeBranche->update([
+            "name" => $request->name,
+        ]);
+
+        return redirect()
+            ->route('typeBranches.index')
+            ->with('success', 'Tipo Ramo fue actualizada!');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(TypeBranches $typeBranches)
+    public function destroy($typeBranche_id)
     {
-        //
+        $typeBranche = TypeBranches::find( $typeBranche_id);
+        $typeBranche->delete();
+
+        return redirect()
+            ->route('typeBranches.index')
+            ->with('success', 'Tipo Ramo fue eliminada!');
     }
 }
