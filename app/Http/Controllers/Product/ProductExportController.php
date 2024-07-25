@@ -33,7 +33,7 @@ class ProductExportController extends Controller
                 'Nombre del Ramo' => $product->name,
                 'Product Slug' => $product->slug,
                 'Category Id' => $product->category_id,
-                'Unit Id' => $product->unit_id,
+              //  'Unit Id' => $product->unit_id,
                 'Código del Ramo' => $product->code,
                 'Stock' => $product->quantity,
                 "Stock Alert" => $product->quantity_alert,

@@ -53,7 +53,7 @@ final class ProductsTable extends PowerGridComponent
                 return $product->category->name;
             })
             ->addColumn('quantity')
-            ->addColumn('unit_id')
+           // ->addColumn('unit_id')
             ->addColumn('unit_name', function (Product $product){
                 return $product->unit->short_code;
             })

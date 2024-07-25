@@ -12,6 +12,7 @@ use App\Models\Lands;
 use App\Models\Varieties;
 use App\Models\Tables;
 use App\Models\TypeBranches;
+use App\Models\Grades;
 use Haruncpi\LaravelIdGenerator\IdGenerator;
 use Illuminate\Http\Request;
 use Picqer\Barcode\BarcodeGeneratorHTML;
@@ -36,6 +37,7 @@ class ProductController extends Controller
       $lands         = Lands::get(['id', 'name']);
       $tables        = Tables::get(['id', 'name']);
       $type_branches = TypeBranches::get(['id', 'name']);
+      $grades        = Grades::get(['id', 'name']);
 
       if ($request->has('category')) {
           $categories = Category::where("user_id", auth()->id())->whereSlug($request->get('category'))->get();
@@ -61,6 +63,10 @@ class ProductController extends Controller
           $type_branches = Lands::get();
       }
 
+      if ($request->has('grades')) {
+          $grades = Lands::get();
+      }
+
       return view('products.create', [
           'categories'    => $categories,
           'units'         => $units,
@@ -68,6 +74,7 @@ class ProductController extends Controller
           'lands'         => $lands,
           'tables'        => $tables,
           'type_branches' => $type_branches,
+          'grades'        => $grades,
       ]);
     }
 
@@ -92,22 +99,16 @@ class ProductController extends Controller
             'product_image'  => $image,
             'name'           => $request->name,
             'category_id'    => $request->category_id,
-            'unit_id'        => $request->unit_id,
-            'quantity'       => $request->quantity,
-            'buying_price'   => $request->buying_price,
-            'selling_price'  => $request->selling_price,
-            'quantity_alert' => $request->quantity_alert,
-            'tax'            => $request->tax,
-            'notes'          => $request->notes,
-            'branch_stem'    => $request->branch_stem,
+            'consecutive'    => $request->consecutive,
+            'lands_id'       => $request->lands_id,
+            'varietie_id'    => $request->varietie_id,
             'type_branche_id'=> $request->type_branche_id,
             'table_id'       => $request->table_id,
-            'varietie_id'    => $request->varietie_id,
-            'consecutive'    => $request->consecutive,
             'grades_id'      => $request->grades_id,
-            'lands_id'       => $request->lands_id,
+            'quantity'       => $request->quantity,
             'date'           => $request->date,
             'week'           => $request->week,
+            'notes'          => $request->notes,
             "user_id"        => auth()->id(),
             "slug"           => Str::slug($request->name, '-'),
             "uuid"           => Str::uuid()
@@ -135,11 +136,14 @@ class ProductController extends Controller
     {
         $product = Product::where("uuid", $uuid)->firstOrFail();
         return view('products.edit', [
-            'categories' => Category::where("user_id", auth()->id())->get(),
-            'units' => Unit::where("user_id", auth()->id())->get(),
-            'varieties' => Varieties::get(['id', 'name']),
-            'lands' => Lands::get(['id', 'name']),
-            'product' => $product
+          'categories'    => Category::where("user_id", auth()->id())->get(),
+          'units'         => Unit::where("user_id", auth()->id())->get(),
+          'varieties'     => Varieties::get(['id', 'name']),
+          'lands'         => Lands::get(['id', 'name']),
+          'product'       => $product,
+          'tables'        => Tables::get(['id', 'name']),
+          'grades'        => Grades::get(['id', 'name']),
+          'type_branches' => TypeBranches::get(['id', 'name']),
         ]);
     }
 
@@ -158,24 +162,22 @@ class ProductController extends Controller
             $image = $request->file('product_image')->store('products', 'public');
         }
 
-        $product->name           = $request->name;
-        $product->slug           = Str::slug($request->name, '-');
-        $product->category_id    = $request->category_id;
-        $product->unit_id        = $request->unit_id;
-        $product->quantity       = $request->quantity;
-        $product->buying_price   = $request->buying_price;
-        $product->selling_price  = $request->selling_price;
-        $product->quantity_alert = $request->quantity_alert;
-        $product->tax            = $request->tax;
-        $product->tax_type       = $request->tax_type;
-        $product->table_id          = $request->table_id;
-        $product->notes          = $request->notes;
-        $product->notes          = $request->notes;
-        $product->product_image  = $image;
-        $product->date           = $request->date;
-        $product->week           = $request->week;
+        $product->name            = $request->name;
+        $product->slug            = Str::slug($request->name, '-');
+        $product->category_id     = $request->category_id;
+        $product->consecutive     = $request->consecutive;
+        $product->lands_id        = $request->lands_id;
+        $product->varietie_id     = $request->varietie_id;
+        $product->type_branche_id = $request->type_branche_id;
+        $product->table_id        = $request->table_id;
+        $product->grades_id       = $request->grades_id;
+        $product->tax_type        = $request->tax_type;
+        $product->quantity        = $request->quantity;
+        $product->notes           = $request->notes;
+        $product->product_image   = $image;
+        $product->date            = $request->date;
+        $product->week            = $request->week;
         $product->save();
-
 
         return redirect()
             ->route('products.index')

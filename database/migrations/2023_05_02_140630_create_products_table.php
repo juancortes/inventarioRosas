@@ -33,10 +33,7 @@ return new class extends Migration
                 ->nullable()
                 ->constrained()
                 ->nullOnDelete();
-
-            $table->foreignIdFor(\App\Models\Unit::class)->constrained()
-                ->nullable()
-                ->cascadeOnDelete();
+            
             $table->timestamps();
         });
     }

@@ -109,7 +109,7 @@ class ProductCart extends Component
                 'code'                  => $product['code'],
                 'stock'                 => $product['quantity'],
                 //'unit'                  => $product['product_unit'],
-                'unit'                  => $product['unit_id'],
+               // 'unit'                  => $product['unit_id'],
                 'product_tax'           => $this->calculate($product)['tax'],
                 'unit_price'            => $this->calculate($product)['unit_price']
             ]

@@ -29,7 +29,7 @@ abstract class TestCase extends BaseTestCase
         return Product::factory()->create([
             'name' => 'Test Product',
             'category_id' => $this->createCategory(),
-            'unit_id' => $this->createUnit()
+            //'unit_id' => $this->createUnit()
         ]);
     }
 
