@@ -56,15 +56,15 @@ class ProductController extends Controller
       }
 
       if ($request->has('tables')) {
-          $tables = Lands::get();
+          $tables = Tables::get();
       }
 
       if ($request->has('type_branches')) {
-          $type_branches = Lands::get();
+          $type_branches = TypeBranches::get();
       }
 
       if ($request->has('grades')) {
-          $grades = Lands::get();
+          $grades = Grades::get();
       }
 
       return view('products.create', [
@@ -88,6 +88,10 @@ class ProductController extends Controller
             $image = $request->file('product_image')->store('products', 'public');
         }
 
+        $ddate = date('Y-m-d');
+        $date = new \DateTime($ddate);
+        $week = $date->format("W");
+
         Product::create([
             "code" => IdGenerator::generate([
                 'table' => 'products',
@@ -106,8 +110,8 @@ class ProductController extends Controller
             'table_id'       => $request->table_id,
             'grades_id'      => $request->grades_id,
             'quantity'       => $request->quantity,
-            'date'           => $request->date,
-            'week'           => $request->week,
+            'date'           => date('Y-m-d'),
+            'week'           => $week,
             'notes'          => $request->notes,
             "user_id"        => auth()->id(),
             "slug"           => Str::slug($request->name, '-'),
@@ -202,5 +206,23 @@ class ProductController extends Controller
         return redirect()
             ->route('products.index')
             ->with('success', 'Ramo ha sido borrado!');
+    }
+
+    public function getCodes()
+    {
+        $finca     = Lands::where('code',$_GET['finca'])->firstOrFail();
+        $variedad  = Varieties::where('code',$_GET['variedad'])->firstOrFail();
+        $mesa      = Tables::where('code',$_GET['mesa'])->firstOrFail();
+        $grado     = Grades::where('code',$_GET['grado'])->firstOrFail();
+        $tipo_ramo = TypeBranches::where('code',$_GET['tipo_ramo'])->firstOrFail();
+
+        $data = [
+            "finca"     => $finca->id,
+            "variedad"  => $variedad->id,
+            "mesa"      => $mesa->id,
+            "grado"     => $grado->id,
+            "tipo_ramo" => $tipo_ramo->id,
+        ];
+        return response()->json($data);
     }
 }

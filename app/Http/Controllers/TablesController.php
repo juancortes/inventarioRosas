@@ -36,6 +36,7 @@ class TablesController extends Controller
     {
         Tables::create([
             'name' => $request->name,
+            'code' => $request->code,
         ]);
 
         return redirect()
@@ -72,6 +73,7 @@ class TablesController extends Controller
         $table = Tables::find( $table_id);
         $table->update([
             "name" => $request->name,
+            'code' => $request->code,
         ]);
 
         return redirect()

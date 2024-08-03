@@ -23,6 +23,7 @@ class UpdateVarietiesRequest extends FormRequest
     {
         return [
             'name' => ['required'],
+            'code' => ['required'],
         ];
     }
 }

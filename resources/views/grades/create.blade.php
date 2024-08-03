@@ -21,6 +21,9 @@
                 <div class="card-body">
                     <livewire:name />                   
                 </div>
+                <div class="card-body">
+                    <livewire:code />                   
+                </div>
                 <div class="card-footer text-end">
                     <x-button type="submit">
                         {{ __('Crear') }}

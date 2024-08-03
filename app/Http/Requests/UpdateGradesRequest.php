@@ -23,6 +23,7 @@ class UpdateGradesRequest extends FormRequest
     {
         return [
             'name' => ['required'],
+            'code' => ['required'],
         ];
     }
 }

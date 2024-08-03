@@ -36,6 +36,7 @@ class TypeBranchesController extends Controller
     {
         TypeBranches::create([
             'name' => $request->name,
+            'code' => $request->code,
         ]);
 
         return redirect()
@@ -72,6 +73,7 @@ class TypeBranchesController extends Controller
         $typeBranche = TypeBranches::find( $typeBranche_id);
         $typeBranche->update([
             "name" => $request->name,
+            'code' => $request->code,
         ]);
 
         return redirect()

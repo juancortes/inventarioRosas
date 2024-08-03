@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateTypeBranchesRequest extends FormRequest
+class StoreremisionesRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,8 +22,12 @@ class UpdateTypeBranchesRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|unique:units,name',
-            'code' => ['required'],
+            'date'         => 'required|string',
+            'support'      => 'image|file|max:2048',
+            'lands_id'     => 'required|integer',
+            'variety'      => 'required|string',
+            'observations' => 'nullable|max:1000'
+            
         ];
     }
 }

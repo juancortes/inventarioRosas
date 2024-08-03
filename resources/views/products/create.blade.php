@@ -1,6 +1,36 @@
 @extends('layouts.tabler')
 
 @section('content')
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="col-md-12">
+                <x-input name="codigo_barras"
+                         id="codigo_barras"
+                         label="Código de Barras"
+                    />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 <div class="page-body">
   <div class="container-xl">
     <x-alert/>
@@ -124,7 +154,7 @@
                         <span class="text-danger">*</span>
                       </label>
 
-                      @if ($varieties->count() === 1)
+                      @if ($lands->count() === 1)
                         <select name="lands_id" id="lands_id"
                             class="form-select @error('lands_id') is-invalid @enderror"
                             readonly
@@ -394,4 +424,5 @@
 
 @pushonce('page-scripts')
     <script src="{{ asset('assets/js/img-preview.js') }}"></script>
+    <script src="{{ asset('assets/js/product.js') }}"></script>
 @endpushonce

@@ -23,6 +23,7 @@ class UpdateTablesRequest extends FormRequest
     {
         return [
             'name' => ['required'],
+            'code' => ['required'],
         ];
     }
 }

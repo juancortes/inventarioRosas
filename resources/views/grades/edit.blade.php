@@ -22,13 +22,24 @@
 
                 <div class="card-body">
                     <x-input
-                        label="{{ __('Nombre Grado') }}"
+                        label="{{ __('Grado') }}"
                         id="name"
                         name="name"
                         :value="old('name', $grade->name)"
                         required
                     />
                 </div>
+
+                <div class="card-body">
+                    <x-input
+                        label="{{ __('Código') }}"
+                        id="code"
+                        name="code"
+                        :value="old('code', $grade->code)"
+                        required
+                    />
+                </div>
+
                 <div class="card-footer text-end">
                     <x-button type="submit">
                         {{ __('Actualizar') }}

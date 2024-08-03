@@ -36,6 +36,7 @@ class GradesController extends Controller
     {
         Grades::create([
             'name' => $request->name,
+            'code' => $request->code,
         ]);
 
         return redirect()
@@ -72,6 +73,7 @@ class GradesController extends Controller
         $grade = Grades::find( $grades_id);
         $grade->update([
             "name" => $request->name,
+            'code' => $request->code,
         ]);
 
         return redirect()

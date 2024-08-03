@@ -23,6 +23,7 @@ use App\Http\Controllers\VarietiesController;
 use App\Http\Controllers\TablesController;
 use App\Http\Controllers\GradesController;
 use App\Http\Controllers\TypeBranchesController;
+use App\Http\Controllers\RemisionesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -62,6 +63,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
+    Route::get('/products/getCodes', [ProductController::class, 'getCodes'])->name('productos.getCodes');
+
+
     Route::resource('/quotations', QuotationController::class);
     Route::resource('/customers', CustomerController::class);
     Route::resource('/suppliers', SupplierController::class);
@@ -72,6 +76,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('/grades', GradesController::class);
     Route::resource('/varieties', VarietiesController::class);
     Route::resource('/typeBranches', TypeBranchesController::class);
+    Route::resource('/remisiones', RemisionesController::class);
 
     // Route Products
     Route::get('products/import/', [ProductImportController::class, 'create'])->name('products.import.view');

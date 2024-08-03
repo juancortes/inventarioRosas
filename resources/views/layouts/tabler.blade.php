@@ -8,6 +8,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name') }}</title>
+    <script src="{{ asset('dist/js/jquery-3.7.1.min.js') }}"></script>
+    <script src="{{ asset('dist/js/demo-theme.min.js') }}"></script>
 
     <!-- CSS files -->
     <link href="{{ asset('dist/css/tabler.min.css') }}" rel="stylesheet" />
@@ -15,7 +17,7 @@
     <link href="{{ asset('dist/css/tabler-payments.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('dist/css/tabler-vendors.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('dist/css/demo.min.css') }}" rel="stylesheet" />
-
+    
     <style>
         @import url('https://rsms.me/inter/inter.css');
 
@@ -38,7 +40,7 @@
 </head>
 
 <body>
-    <script src="{{ asset('dist/js/demo-theme.min.js') }}"></script>
+    <script src="{{ asset('dist/js/jquery-3.7.1.min.js') }}" defer></script>
 
     <div class="page">
         <header class="navbar navbar-expand-md d-print-none">
@@ -392,6 +394,9 @@
                                   </a>
                                   <a class="dropdown-item" href="{{ route('typeBranches.index') }}">
                                       {{ __('Tipo de Ramo') }}
+                                  </a>
+                                  <a class="dropdown-item" href="{{ route('remisiones.index') }}">
+                                      {{ __('Remisiones') }}
                                   </a>
                               </div>
                           </div>

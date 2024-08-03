@@ -22,10 +22,19 @@
 
                 <div class="card-body">
                     <x-input
-                        label="{{ __('Nombre Mesa') }}"
+                        label="{{ __('Mesa') }}"
                         id="name"
                         name="name"
                         :value="old('name', $table->name)"
+                        required
+                    />
+                </div>
+                <div class="card-body">
+                    <x-input
+                        label="{{ __('Código') }}"
+                        id="code"
+                        name="code"
+                        :value="old('code', $table->code)"
                         required
                     />
                 </div>

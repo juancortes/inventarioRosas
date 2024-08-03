@@ -22,10 +22,19 @@
 
                 <div class="card-body">
                     <x-input
-                        label="{{ __('Nombre Tipo Ramo') }}"
+                        label="{{ __('Tipo Ramo') }}"
                         id="name"
                         name="name"
                         :value="old('name', $typeBranche->name)"
+                        required
+                    />
+                </div>
+                <div class="card-body">
+                    <x-input
+                        label="{{ __('Código') }}"
+                        id="code"
+                        name="code"
+                        :value="old('code', $typeBranche->code)"
                         required
                     />
                 </div>

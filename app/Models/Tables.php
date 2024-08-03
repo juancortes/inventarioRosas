@@ -16,6 +16,7 @@ class Tables extends Model
 
     public $fillable = [
         'name',
+        'code'
     ];
 
     protected $casts = [

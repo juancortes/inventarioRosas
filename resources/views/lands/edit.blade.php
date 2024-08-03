@@ -29,6 +29,15 @@
                         required
                     />
                 </div>
+                <div class="card-body">
+                    <x-input
+                        label="{{ __('Código') }}"
+                        id="code"
+                        name="code"
+                        :value="old('code', $lands->code)"
+                        required
+                    />
+                </div>
                 <div class="card-footer text-end">
                     <x-button type="submit">
                         {{ __('Actualizar') }}

@@ -23,6 +23,7 @@ class UpdateLandsRequest extends FormRequest
     {
         return [
             'name' => ['required'],
+            'code' => ['required'],
         ];
     }
 }

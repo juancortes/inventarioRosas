@@ -4,8 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-class Grades extends Model
+
+class Remisiones extends Model
 {
     use HasFactory;
 
@@ -14,8 +16,13 @@ class Grades extends Model
     ];
 
     public $fillable = [
-        'name',
-        'code'
+        'date',
+        'lands_id',
+        'variety',
+        'quantity_stems',
+        'support',
+        'observations',
+        'user_id'
     ];
 
     protected $casts = [
@@ -23,13 +30,18 @@ class Grades extends Model
         'updated_at' => 'datetime',
     ];
 
+    public function land(): BelongsTo
+    {
+        return $this->belongsTo(Lands::class);
+    }
+
     public function products(): HasMany
     {
-        return $this->hasMany(Product::class, 'grades_id', 'id');
+        return $this->hasMany(Product::class, 'table_id', 'id');
     }
 
     public function scopeSearch($query, $value): void
     {
-        $query->where('name', 'like', "%{$value}%");
+        //$query->where('name', 'like', "%{$value}%");
     }
 }

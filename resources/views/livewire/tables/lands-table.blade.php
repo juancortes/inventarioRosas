@@ -50,6 +50,12 @@
                     </a>
                 </th>
                 <th scope="col" class="align-middle text-center">
+                    <a wire:click.prevent="sortBy('code')" href="#" role="button">
+                        {{ __('Código') }}
+                        @include('inclues._sort-icon', ['field' => 'code'])
+                    </a>
+                </th>
+                <th scope="col" class="align-middle text-center">
                     {{ __('Accion') }}
                 </th>
             </tr>
@@ -62,6 +68,9 @@
                     </td>
                     <td class="align-middle text-center">
                         {{ $land->name }}
+                    </td>
+                    <td class="align-middle text-center">
+                        {{ $land->code }}
                     </td>
                     <td class="align-middle text-center" style="width: 15%">
                         <x-button.show class="btn-icon" route="{{ route('lands.show', $land) }}"/>

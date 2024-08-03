@@ -15,7 +15,8 @@ class TypeBranches extends Model
     ];
 
     public $fillable = [
-        'name'
+        'name',
+        'code'
     ];
 
     protected $casts = [

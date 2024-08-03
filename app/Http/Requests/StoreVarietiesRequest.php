@@ -23,6 +23,7 @@ class StoreVarietiesRequest extends FormRequest
     {
         return [
             'name' => 'required|unique:units,name',
+            'code' => 'required|unique:units,name',
         ];
     }
 }

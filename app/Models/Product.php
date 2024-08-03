@@ -95,6 +95,11 @@ class Product extends Model
         return $this->belongsTo(Grades::class);
     }
 
+    public function remision(): BelongsTo
+    {
+        return $this->belongsTo(Remisiones::class);
+    }
+
     protected function buyingPrice(): Attribute
     {
         return Attribute::make(

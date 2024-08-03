@@ -36,6 +36,7 @@ class VarietiesController extends Controller
     {
         Varieties::create([
             'name' => $request->name,
+            'code' => $request->code,
         ]);
 
         return redirect()
@@ -70,6 +71,7 @@ class VarietiesController extends Controller
         $varieties = Varieties::find( $variety_id);
         $varieties->update([
             "name" => $request->name,
+            'code' => $request->code,
         ]);
 
         return redirect()

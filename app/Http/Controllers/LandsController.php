@@ -36,6 +36,7 @@ class LandsController extends Controller
     {
         Lands::create([
             'name' => $request->name,
+            'code' => $request->code,
         ]);
 
         return redirect()
@@ -73,6 +74,7 @@ class LandsController extends Controller
         $lands = Lands::find( $lands_id);
         $lands->update([
             "name" => $request->name,
+            'code' => $request->code,
         ]);
 
         return redirect()

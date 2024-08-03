@@ -15,7 +15,8 @@ class Lands extends Model
     ];
 
     public $fillable = [
-        'name'
+        'name',
+        'code'
     ];
 
     protected $casts = [
@@ -26,6 +27,11 @@ class Lands extends Model
     public function products(): HasMany
     {
         return $this->hasMany(Product::class, 'lands_id', 'id');
+    }
+
+    public function remisiones(): HasMany
+    {
+        return $this->hasMany(Remisiones::class, 'lands_id', 'id');
     }
 
     public function scopeSearch($query, $value): void
