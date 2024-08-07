@@ -58,24 +58,6 @@
                   </h3>
 
                   <div class="row row-cards">
-                    <div class="col-md-12">
-                        <div class="mb-3">
-                            <label for="name" class="form-label">
-                                {{ __('Nombre') }}
-                                <span class="text-danger">*</span>
-                            </label>
-
-                            <input type="text" id="name" name="name"
-                                class="form-control @error('name') is-invalid @enderror"
-                                placeholder="Nombre del Ramo" value="{{ old('name', $product->name) }}">
-
-                            @error('name')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
-                            @enderror
-                        </div>
-                    </div>
 
                     <div class="col-sm-6 col-md-6">
                       <div class="mb-3">

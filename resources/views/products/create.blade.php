@@ -7,7 +7,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+        <h1 class="modal-title fs-5" id="staticBackdropLabel"></h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -18,6 +18,7 @@
                 <x-input name="codigo_barras"
                          id="codigo_barras"
                          label="Código de Barras"
+                         focus
                     />
                 </div>
               </div>
@@ -38,38 +39,9 @@
       <form action="{{ route('products.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="row">
-          <div class="col-lg-4">
-            <div class="card">
-              <div class="card-body">
-                <h3 class="card-title">
-                    {{ __('Imagen del Ramo') }}
-                </h3>
+          
 
-                <img class="img-account-profile mb-2" src="{{ asset('assets/img/products/default.webp') }}" alt="" id="image-preview" />
-
-                <div class="small font-italic text-muted mb-2">
-                    JPG or PNG no mas largo que 2 MB
-                </div>
-
-                <input
-                    type="file"
-                    accept="image/*"
-                    id="image"
-                    name="product_image"
-                    class="form-control @error('product_image') is-invalid @enderror"
-                    onchange="previewImage();"
-                >
-
-                @error('product_image')
-                <div class="invalid-feedback">
-                    {{ $message }}
-                </div>
-                @enderror
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-8">
+          <div class="col-lg-12">
             <div class="card">
               <div class="card-header">
                 <div>
@@ -85,63 +57,14 @@
                 </div>
               </div>
               <div class="card-body">
-                <div class="row row-cards">
-                  <div class="col-md-12">
-                    <x-input name="name"
-                             id="name"
-                             placeholder="Nombre del Ramo"
-                             value="{{ old('name') }}"
-                             label="Nombre del Ramo"
-                    />
-                  </div>
-
-                  <div class="col-sm-6 col-md-6">
-                    <div class="mb-3">
-                      <label for="category_id" class="form-label">
-                          Tipo Empaque
-                          <span class="text-danger">*</span>
-                      </label>
-
-                      @if ($categories->count() === 1)
-                        <select name="category_id" id="category_id"
-                            class="form-select @error('category_id') is-invalid @enderror"
-                            readonly
-                            >
-                          @foreach ($categories as $category)
-                              <option value="{{ $category->id }}" selected>
-                                  {{ $category->name }}
-                              </option>
-                          @endforeach
-                        </select>
-                      @else
-                        <select name="category_id" id="category_id"
-                            class="form-select @error('category_id') is-invalid @enderror"
-                            >
-                            <option selected="" disabled="">
-                                Seleccione un Tipo:
-                            </option>
-
-                            @foreach ($categories as $category)
-                                <option value="{{ $category->id }}" @if(old('category_id') == $category->id) selected="selected" @endif>
-                                    {{ $category->name }}
-                                </option>
-                            @endforeach
-                        </select>
-                      @endif
-
-                      @error('category_id')
-                      <div class="invalid-feedback">
-                        {{ $message }}
-                      </div>
-                      @enderror
-                    </div>
-                  </div>
+                <div class="row row-cards">                  
 
                   <div class="col-sm-6 col-md-6">
                     <x-input type="text"
                              label="Consecutivo"
                              name="consecutive"
                              id="consecutive"
+                             readonly
                              placeholder="Consecutivo"
                              value="{{ old('consecutive') }}"
                     />
@@ -149,13 +72,14 @@
 
                   <div class="col-sm-6 col-md-6">
                     <div class="mb-3">
+                      <input type="hidden" name="lands_id" value="" id="lands_id"> 
                       <label for="lands_id" class="form-label">
                         Finca
                         <span class="text-danger">*</span>
                       </label>
 
                       @if ($lands->count() === 1)
-                        <select name="lands_id" id="lands_id"
+                        <select name="lands_id" id="lands_id1" disabled
                             class="form-select @error('lands_id') is-invalid @enderror"
                             readonly
                             >
@@ -169,7 +93,7 @@
                           @endforeach
                         </select>
                       @else
-                        <select name="lands_id" id="lands_id"
+                        <select name="lands_id" id="lands_id1" disabled
                             class="form-select @error('lands_id') is-invalid @enderror"
                             >
                             <option selected="" >
@@ -198,9 +122,10 @@
                           Variedad
                           <span class="text-danger">*</span>
                       </label>
+                      <input type="hidden" name="varietie_id" value="" id="varietie_id"> 
 
                       @if ($varieties->count() === 1)
-                        <select name="varietie_id" id="varietie_id"
+                        <select name="varietie_id" id="varietie_id1" disabled
                             class="form-select @error('varietie_id') is-invalid @enderror"
                             readonly
                             >
@@ -214,7 +139,7 @@
                           @endforeach
                         </select>
                       @else
-                        <select name="varietie_id" id="varietie_id"
+                        <select name="varietie_id" id="varietie_id1" disabled
                             class="form-select @error('varietie_id') is-invalid @enderror"
                             >
                             <option selected="" >
@@ -243,9 +168,11 @@
                           Tipo de Ramo
                           <span class="text-danger">*</span>
                       </label>
+                      <input type="hidden" name="type_branche_id" value="" id="type_branche_id"> 
+
 
                       @if ($type_branches->count() === 1)
-                        <select name="type_branche_id" id="type_branche_id"
+                        <select name="type_branche_id" id="type_branche_id1" disabled
                             class="form-select @error('type_branche_id') is-invalid @enderror"
                             readonly
                             >
@@ -259,7 +186,7 @@
                           @endforeach
                         </select>
                       @else
-                        <select name="type_branche_id" id="type_branche_id"
+                        <select name="type_branche_id" id="type_branche_id1" disabled
                             class="form-select @error('type_branche_id') is-invalid @enderror"
                             >
                             <option selected="" >
@@ -290,10 +217,13 @@
                       </label>
 
                       @if ($tables->count() === 1)
-                        <select name="table_id" id="table_id"
+                        <select name="table_id" id="table_id" readonly
                             class="form-select @error('table_id') is-invalid @enderror"
                             readonly
                             >
+                            <option selected="" disabled="">
+                                Seleccione una Mesa:
+                            </option>
                           @foreach ($tables as $table)
                               <option value="{{ $table->id }}" selected>
                                   {{ $table->name }}
@@ -301,7 +231,7 @@
                           @endforeach
                         </select>
                       @else
-                        <select name="table_id" id="table_id"
+                        <select name="table_id" id="table_id" readonly 
                             class="form-select @error('table_id') is-invalid @enderror"
                             >
                             <option selected="" disabled="">
@@ -330,14 +260,14 @@
                         {{ __('Grado') }}
                       </label>
 
-                      <select name="grades_id" id="grades_id"
+                      <select name="grades_id" id="grades_id" readonly
                           class="form-select @error('grades_id') is-invalid @enderror"
                           >
                         <option selected="" disabled="">
                             Seleccione un Grado:
                         </option>
                         @foreach ($grades as $grade)
-                            <option value="{{ $grade->id }}" @if(old('grades_id') == $grade->id) selected="selected" @endif>
+                            <option value="{{ $grade->id }}"  @if(old('grades_id') == $grade->id) selected="selected" @endif >
                                 {{ $grade->name }}
                             </option>
                         @endforeach
@@ -366,8 +296,9 @@
                              label="Fecha"
                              name="date"
                              id="date"
+                             readonly
                              placeholder="0"
-                             value="{{ old('date') }}"
+                             value="{{ $fecha }}"
                     />
                   </div>
 
@@ -376,8 +307,9 @@
                              label="Semana"
                              name="week"
                              id="week"
+                             readonly
                              placeholder="Semana"
-                             value="{{ old('week') }}"
+                             value="{{ $week }}"
                     />
                   </div>
 

@@ -6,19 +6,16 @@
             <div class="row g-2 align-items-center">
                 <div class="col">
                     <div class="page-pretitle">
-                        Resumen
+                        Información de 
                     </div>
                     <h2 class="page-title">
-                        Dashboard
+                        Producción
                     </h2>
                 </div>
                 <!-- Page title actions -->
                 <div class="col-auto ms-auto d-print-none">
                     <div class="btn-list">
-                        <a href="{{ route('orders.create') }}" class="btn btn-primary d-none d-sm-inline-block">
-                            <x-icon.plus />
-                            Crear nueva orden
-                        </a>
+                        <h3 >Fecha y hora de corte: <?php echo date('Y-m-d') ?></h3>
                         <a href="{{ route('orders.create') }}" class="btn btn-primary d-sm-none btn-icon"
                             aria-label="Create new report">
                             <x-icon.plus />

@@ -1,5 +1,6 @@
 $(document).ready(function(){
   $("#staticBackdrop").modal('show');
+  $("input:text:visible:first").focus();
   $("#codigo_barras").change(function (e) {
     let codigo      = $("#codigo_barras").val().match(/.{1,2}/g);
     let finca       = codigo[0];
@@ -35,10 +36,15 @@ $(document).ready(function(){
         success: function (data) {
           console.log("SUCCESS : ", data);
           $("#lands_id").val(data.finca);
+          $("#lands_id1").val(data.finca);
           $("#varietie_id").val(data.variedad);
+          $("#varietie_id1").val(data.variedad);
           $("#table_id").val(data.mesa);
+          $("#table_id1").val(data.mesa);
           $("#grades_id").val(data.grado);
+          $("#grades_id1").val(data.grado);
           $("#type_branche_id").val(data.tipo_ramo);
+          $("#type_branche_id1").val(data.tipo_ramo);
           $("#staticBackdrop").modal('hide');
         },
         complete:function(data){

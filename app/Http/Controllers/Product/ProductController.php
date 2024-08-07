@@ -67,6 +67,10 @@ class ProductController extends Controller
           $grades = Grades::get();
       }
 
+      $ddate = date('Y-m-d');
+      $date = new \DateTime($ddate);
+      $week = $date->format("W");
+
       return view('products.create', [
           'categories'    => $categories,
           'units'         => $units,
@@ -75,6 +79,8 @@ class ProductController extends Controller
           'tables'        => $tables,
           'type_branches' => $type_branches,
           'grades'        => $grades,
+          'fecha'         => $ddate,
+          'week'          => $week,
       ]);
     }
 
@@ -101,7 +107,6 @@ class ProductController extends Controller
             ]),
 
             'product_image'  => $image,
-            'name'           => $request->name,
             'category_id'    => $request->category_id,
             'consecutive'    => $request->consecutive,
             'lands_id'       => $request->lands_id,
@@ -119,7 +124,7 @@ class ProductController extends Controller
         ]);
 
 
-        return to_route('products.index')->with('success', 'Ramo ha sido creado!');
+        return to_route('products.create')->with('success', 'Ramo ha sido creado!');
     }
 
     public function show($uuid)
@@ -166,7 +171,6 @@ class ProductController extends Controller
             $image = $request->file('product_image')->store('products', 'public');
         }
 
-        $product->name            = $request->name;
         $product->slug            = Str::slug($request->name, '-');
         $product->category_id     = $request->category_id;
         $product->consecutive     = $request->consecutive;
