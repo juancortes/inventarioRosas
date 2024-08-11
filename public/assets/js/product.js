@@ -1,6 +1,10 @@
 $(document).ready(function(){
   $("#staticBackdrop").modal('show');
   $("input:text:visible:first").focus();
+
+  $("#codigo_barras").focus();
+  document.getElementById("codigo_barras").focus();
+
   $("#codigo_barras").change(function (e) {
     let codigo      = $("#codigo_barras").val().match(/.{1,2}/g);
     let finca       = codigo[0];
@@ -45,7 +49,22 @@ $(document).ready(function(){
           $("#grades_id1").val(data.grado);
           $("#type_branche_id").val(data.tipo_ramo);
           $("#type_branche_id1").val(data.tipo_ramo);
+          $("#quantity").val(data.cantidad);
           $("#staticBackdrop").modal('hide');
+          error = "";
+          if(data.finca == -1)
+            error += " Finca no encontrada. ";
+          if(data.variedad == -2)
+            error += " Variedad no encontrada. ";
+          if(data.mesa == -3)
+            error += " Mesa no encontrada. ";
+          if(data.grado == -4)
+            error += " Grado no encontrada. ";
+          if(data.tipo_ramo == -5)
+            error += " Tipo de Ramo no encontrada. ";
+
+          if(error != "")
+            alert(error);
         },
         complete:function(data){
           // Hide image container

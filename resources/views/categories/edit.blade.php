@@ -7,7 +7,7 @@
             <div class="card-header">
                 <div>
                     <h3 class="card-title">
-                        {{ __('Editar Tipo de Ramo') }}
+                        {{ __('Editar Tipo de Empaque') }}
                     </h3>
                 </div>
 

@@ -18,7 +18,7 @@
                 <x-input name="codigo_barras"
                          id="codigo_barras"
                          label="Código de Barras"
-                         focus
+                         autofocus
                     />
                 </div>
               </div>
@@ -59,18 +59,19 @@
               <div class="card-body">
                 <div class="row row-cards">                  
 
-                  <div class="col-sm-6 col-md-6">
+                  <div class="col-sm-4 col-md-4">
                     <x-input type="text"
                              label="Consecutivo"
                              name="consecutive"
                              id="consecutive"
-                             readonly
                              placeholder="Consecutivo"
                              value="{{ old('consecutive') }}"
+                             autofocus
+                             readonly
                     />
                   </div>
 
-                  <div class="col-sm-6 col-md-6">
+                  <div class="col-sm-4 col-md-4">
                     <div class="mb-3">
                       <input type="hidden" name="lands_id" value="" id="lands_id"> 
                       <label for="lands_id" class="form-label">
@@ -116,7 +117,7 @@
                     </div>
                   </div>
 
-                  <div class="col-sm-6 col-md-6">
+                  <div class="col-sm-4 col-md-4">
                     <div class="mb-3">
                       <label for="varietie_id" class="form-label">
                           Variedad
@@ -162,7 +163,7 @@
                     </div>
                   </div>
 
-                  <div class="col-sm-6 col-md-6">
+                  <div class="col-sm-4 col-md-4">
                     <div class="mb-3">
                       <label for="type_branche_id" class="form-label">
                           Tipo de Ramo
@@ -209,15 +210,15 @@
                     </div>
                   </div>
 
-                  <div class="col-sm-6 col-md-6">
-                    <div class="mb-3">
+                  <div class="col-sm-4 col-md-4">
                       <label for="table_id" class="form-label">
                           Mesa
                           <span class="text-danger">*</span>
                       </label>
+                      <input type="hidden" name="table_id" value="" id="table_id"> 
 
                       @if ($tables->count() === 1)
-                        <select name="table_id" id="table_id" readonly
+                        <select name="table_id1" id="table_id1" disabled
                             class="form-select @error('table_id') is-invalid @enderror"
                             readonly
                             >
@@ -231,7 +232,7 @@
                           @endforeach
                         </select>
                       @else
-                        <select name="table_id" id="table_id" readonly 
+                        <select name="table_id1" id="table_id1" disabled 
                             class="form-select @error('table_id') is-invalid @enderror"
                             >
                             <option selected="" disabled="">
@@ -251,16 +252,16 @@
                         {{ $message }}
                       </div>
                       @enderror
-                    </div>
                   </div>
 
-                  <div class="col-sm-6 col-md-6">
-                    <div class="mb-3">
+                  <div class="col-sm-4 col-md-4">
                       <label class="form-label" for="grades_id">
                         {{ __('Grado') }}
+                        <span class="text-danger">*</span>
                       </label>
+                      <input type="hidden" name="grades_id" value="" id="grades_id"> 
 
-                      <select name="grades_id" id="grades_id" readonly
+                      <select name="grades_id" id="grades_id1" disabled
                           class="form-select @error('grades_id') is-invalid @enderror"
                           >
                         <option selected="" disabled="">
@@ -278,20 +279,20 @@
                           {{ $message }}
                       </div>
                       @enderror
-                    </div>
                   </div>
 
-                  <div class="col-sm-6 col-md-6">
+                  <div class="col-sm-4 col-md-4">
                     <x-input type="number"
                              label="Cantidad de Tallos"
                              name="quantity"
                              id="quantity"
                              placeholder="0"
                              value="{{ old('quantity') }}"
+                             readonly
                     />
                   </div>
 
-                  <div class="col-sm-6 col-md-6">
+                  <div class="col-sm-4 col-md-4">
                     <x-input type="date"
                              label="Fecha"
                              name="date"
@@ -302,7 +303,7 @@
                     />
                   </div>
 
-                  <div class="col-sm-6 col-md-6">
+                  <div class="col-sm-4 col-md-4">
                     <x-input type="text"
                              label="Semana"
                              name="week"

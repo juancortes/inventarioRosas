@@ -3,8 +3,8 @@
 @section('content')
     <div class="page-body">
         @if (!$categories)
-            <x-empty title="No hay categorias encontradas"
-                button_label="{{ __('Add your first Category') }}" button_route="{{ route('categories.create') }}" />
+            <x-empty title="No hay Tipo de empaque"
+                button_label="{{ __('Add your first Tipo de empaqeu') }}" button_route="{{ route('categories.create') }}" />
         @else
             
             <div class="container-xl">

@@ -41,7 +41,7 @@ class LandsController extends Controller
 
         return redirect()
             ->route('lands.index')
-            ->with('success', 'Finca a sido creada!');
+            ->with('Exitoso', 'Finca a sido creada!');
     }
 
     /**
@@ -79,7 +79,7 @@ class LandsController extends Controller
 
         return redirect()
             ->route('lands.index')
-            ->with('success', 'Finca fue actualizada!');
+            ->with('Exitoso', 'Finca fue actualizada!');
     }
 
     /**
@@ -92,6 +92,6 @@ class LandsController extends Controller
 
         return redirect()
             ->route('lands.index')
-            ->with('success', 'Finca fue eliminada!');
+            ->with('Exitoso', 'Finca fue eliminada!');
     }
 }

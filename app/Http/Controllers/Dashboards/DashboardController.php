@@ -7,36 +7,40 @@ use App\Models\Category;
 use App\Models\Order;
 use App\Models\Product;
 use App\Models\Purchase;
+use App\Models\Lands;
+use App\Models\Tables;
 use App\Models\Quotation;
+use App\Models\TypeBranches;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
 {
     public function index()
     {
-        $orders = Order::where("user_id", auth()->id())->count();
         $products = Product::where("user_id", auth()->id())->count();
-
-        $purchases = Purchase::where("user_id", auth()->id())->count();
-        $todayPurchases = Purchase::whereDate('date', today()->format('Y-m-d'))->count();
-        $todayProducts = Product::whereDate('created_at', today()->format('Y-m-d'))->count();
-        $todayQuotations = Quotation::whereDate('created_at', today()->format('Y-m-d'))->count();
-        $todayOrders = Order::whereDate('created_at', today()->format('Y-m-d'))->count();
-
-        $categories = Category::where("user_id", auth()->id())->count();
-        $quotations = Quotation::where("user_id", auth()->id())->count();
-
+        $fincas = Lands::count();
+        $mesas = Tables::count();
+        $tipoRamos = TypeBranches::count();
+        $mesaxRamo = DB::table('products')
+                        ->select('tables.name', DB::raw('COUNT(tables.name) AS cantidad'))
+                        ->join('tables', 'tables.id', '=', 'products.table_id')
+                        ->groupBy('tables.name')
+                        ->get();
+        $fincaxRamo = DB::table('products')
+                        ->select('lands.name', DB::raw('COUNT(lands.name) AS cantidad'))
+                        ->join('lands', 'lands.id', '=', 'products.lands_id')
+                        ->groupBy('lands.name')
+                        ->get();
+        
         return view('dashboard', [
-            'products' => $products,
-            'orders' => $orders,
-            'purchases' => $purchases,
-            'todayPurchases' => $todayPurchases,
-            'todayProducts' => $todayProducts,
-            'todayQuotations' => $todayQuotations,
-            'todayOrders' => $todayOrders,
-            'categories' => $categories,
-            'quotations' => $quotations
+            'products'   => $products,
+            'fincas'     => $fincas,
+            'mesas'      => $mesas,
+            'mesaxRamo'  => $mesaxRamo,
+            'fincaxRamo' => $fincaxRamo,
+            'tipoRamos'  => $tipoRamos
         ]);
     }
 }

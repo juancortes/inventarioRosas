@@ -35,13 +35,14 @@ class TypeBranchesController extends Controller
     public function store(StoreTypeBranchesRequest $request)
     {
         TypeBranches::create([
-            'name' => $request->name,
-            'code' => $request->code,
+            'name'     => $request->name,
+            'code'     => $request->code,
+            'quantity' => $request->quantity,
         ]);
 
         return redirect()
             ->route('typeBranches.index')
-            ->with('success', 'Tipo de Ramo ha sido creada!');
+            ->with('Exitoso', 'Tipo de Ramo ha sido creada!');
     }
 
     /**
@@ -72,13 +73,14 @@ class TypeBranchesController extends Controller
     {
         $typeBranche = TypeBranches::find( $typeBranche_id);
         $typeBranche->update([
-            "name" => $request->name,
-            'code' => $request->code,
+            "name"     => $request->name,
+            'code'     => $request->code,
+            'quantity' => $request->quantity,
         ]);
 
         return redirect()
             ->route('typeBranches.index')
-            ->with('success', 'Tipo Ramo fue actualizada!');
+            ->with('Exitoso', 'Tipo Ramo fue actualizada!');
     }
 
     /**
@@ -91,6 +93,6 @@ class TypeBranchesController extends Controller
 
         return redirect()
             ->route('typeBranches.index')
-            ->with('success', 'Tipo Ramo fue eliminada!');
+            ->with('Exitoso', 'Tipo Ramo fue eliminada!');
     }
 }

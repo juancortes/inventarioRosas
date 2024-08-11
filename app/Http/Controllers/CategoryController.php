@@ -33,7 +33,7 @@ class CategoryController extends Controller
 
         return redirect()
             ->route('categories.index')
-            ->with('success', 'Category has been created!');
+            ->with('Exitoso', 'Tipo de Empaque ha sido created!');
     }
 
     public function show(Category $category)
@@ -59,7 +59,7 @@ class CategoryController extends Controller
 
         return redirect()
             ->route('categories.index')
-            ->with('success', 'Category has been updated!');
+            ->with('Exitoso', 'Tipo de Empaque ha sido updated!');
     }
 
     public function destroy(Category $category)
@@ -68,6 +68,6 @@ class CategoryController extends Controller
 
         return redirect()
             ->route('categories.index')
-            ->with('success', 'Category has been deleted!');
+            ->with('Exitoso', 'Tipo de Empaque ha sido deleted!');
     }
 }

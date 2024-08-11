@@ -41,7 +41,7 @@ class GradesController extends Controller
 
         return redirect()
             ->route('grades.index')
-            ->with('success', 'Grado ha sido creada!');
+            ->with('Exitoso', 'Grado ha sido creada!');
     }
 
     /**
@@ -78,7 +78,7 @@ class GradesController extends Controller
 
         return redirect()
             ->route('grades.index')
-            ->with('success', 'Grado fue actualizada!');
+            ->with('Exitoso', 'Grado fue actualizada!');
     }
 
     /**
@@ -91,6 +91,6 @@ class GradesController extends Controller
 
         return redirect()
             ->route('grades.index')
-            ->with('success', 'Grado fue eliminada!');
+            ->with('Exitoso', 'Grado fue eliminada!');
     }
 }

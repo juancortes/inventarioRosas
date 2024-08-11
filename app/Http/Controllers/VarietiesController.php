@@ -41,7 +41,7 @@ class VarietiesController extends Controller
 
         return redirect()
             ->route('varieties.index')
-            ->with('success', 'Variedad a sido creada!');
+            ->with('Exitoso', 'Variedad a sido creada!');
     }
 
     /**
@@ -76,7 +76,7 @@ class VarietiesController extends Controller
 
         return redirect()
             ->route('varieties.index')
-            ->with('success', 'Variedad fue actualizada!');
+            ->with('Exitoso', 'Variedad fue actualizada!');
     }
 
     /**
@@ -89,6 +89,6 @@ class VarietiesController extends Controller
 
         return redirect()
             ->route('varieties.index')
-            ->with('success', 'Variedad fue eliminada!');
+            ->with('Exitoso', 'Variedad fue eliminada!');
     }
 }

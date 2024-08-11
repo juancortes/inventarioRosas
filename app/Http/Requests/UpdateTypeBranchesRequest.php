@@ -24,6 +24,7 @@ class UpdateTypeBranchesRequest extends FormRequest
         return [
             'name' => 'required|unique:units,name',
             'code' => ['required'],
+            'quantity' => ['required'],
         ];
     }
 }

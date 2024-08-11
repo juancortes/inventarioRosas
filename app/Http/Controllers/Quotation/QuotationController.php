@@ -87,7 +87,7 @@ class QuotationController extends Controller
 
         return redirect()
             ->route('quotations.index')
-            ->with('success', 'Quotation Created!');
+            ->with('Exitoso', 'Quotation Created!');
     }
 
     public function show($uuid)
@@ -130,6 +130,6 @@ class QuotationController extends Controller
 
         return redirect()
             ->route('quotations.index')
-            ->with('success', 'Quotation Completed!');
+            ->with('Exitoso', 'Quotation Completed!');
     }
 }

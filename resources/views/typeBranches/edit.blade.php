@@ -38,6 +38,16 @@
                         required
                     />
                 </div>
+                <div class="card-body">
+                    <x-input type="number"
+                             label="{{ __('Cantidad') }}"
+                             name="quantity"
+                             id="quantity"
+                             placeholder="0"
+                             :value=" old('quantity',$typeBranche->quantity) "
+                             required
+                    />
+                  </div>
                 <div class="card-footer text-end">
                     <x-button type="submit">
                         {{ __('Actualizar') }}

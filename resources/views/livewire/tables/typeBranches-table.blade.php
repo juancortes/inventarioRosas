@@ -40,8 +40,11 @@
         <table wire:loading.remove class="table table-bordered card-table table-vcenter text-nowrap datatable">
             <thead class="thead-light">
             <tr>
-                <th class="align-middle text-center w-1">
-                    {{ __('ID') }}
+                <th scope="col" class="align-middle text-center">
+                    <a wire:click.prevent="sortBy('code')" href="#" role="button">
+                        {{ __('Código') }}
+                        @include('inclues._sort-icon', ['field' => 'code'])
+                    </a>
                 </th>
                 <th scope="col" class="align-middle text-center">
                     <a wire:click.prevent="sortBy('name')" href="#" role="button">
@@ -50,9 +53,9 @@
                     </a>
                 </th>
                 <th scope="col" class="align-middle text-center">
-                    <a wire:click.prevent="sortBy('code')" href="#" role="button">
-                        {{ __('Código') }}
-                        @include('inclues._sort-icon', ['field' => 'code'])
+                    <a wire:click.prevent="sortBy('name')" href="#" role="button">
+                        {{ __('Cantidad') }}
+                        @include('inclues._sort-icon', ['field' => 'quantity'])
                     </a>
                 </th>
                 <th scope="col" class="align-middle text-center">
@@ -64,13 +67,13 @@
             @forelse ($typeBranches as $typeBranche)
                 <tr>
                     <td class="align-middle text-center" style="width: 10%">
-                        {{ $loop->index }}
+                        {{ $typeBranche->code }}
                     </td>
                     <td class="align-middle text-center">
                         {{ $typeBranche->name }}
                     </td>
                     <td class="align-middle text-center">
-                        {{ $typeBranche->code }}
+                        {{ $typeBranche->quantity }}
                     </td>
                     <td class="align-middle text-center" style="width: 15%">
                         <x-button.show class="btn-icon" route="{{ route('typeBranches.show', $typeBranche) }}"/>

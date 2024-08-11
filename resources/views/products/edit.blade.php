@@ -22,35 +22,7 @@
           @csrf
           @method('put')
           <div class="row">
-            <div class="col-lg-4">
-              <div class="card">
-                <div class="card-body">
-                  <h3 class="card-title">
-                      {{ __('Imagen del Ramo') }}
-                  </h3>
-
-                  <img class="img-account-profile mb-2"
-                      src="{{ $product->product_image ? asset('storage/' . $product->product_image) : asset('assets/img/products/default.webp') }}"
-                      alt="" id="image-preview">
-
-                  <div class="small font-italic text-muted mb-2">
-                      JPG or PNG no mas largo que 2 MB
-                  </div>
-
-                  <input type="file" accept="image/*" id="image" name="product_image"
-                      class="form-control @error('product_image') is-invalid @enderror"
-                      onchange="previewImage();">
-
-                  @error('product_image')
-                      <div class="invalid-feedback">
-                          {{ $message }}
-                      </div>
-                  @enderror
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-8">
+            <div class="col-lg-12">
               <div class="card">
                 <div class="card-body">
                   <h3 class="card-title">
@@ -59,51 +31,18 @@
 
                   <div class="row row-cards">
 
-                    <div class="col-sm-6 col-md-6">
-                      <div class="mb-3">
-                        <label for="category_id" class="form-label">
-                          Tipo Empaque
-                          <span class="text-danger">*</span>
-                        </label>
-
-                        <select name="category_id" id="category_id"
-                          class="form-select @error('category_id') is-invalid @enderror">
-                          <option selected="" disabled="">Seleccione Tipo:</option>
-                          @foreach ($categories as $category)
-                            <option value="{{ $category->id }}"
-                                @if (old('category_id', $product->category_id) == $category->id) selected="selected" @endif>
-                                {{ $category->name }}</option>
-                          @endforeach
-                        </select>
-
-                        @error('category_id')
-                          <div class="invalid-feedback">
-                              {{ $message }}
-                          </div>
-                        @enderror
-                      </div>
+                    <div class="col-sm-4 col-md-4">
+                      <x-input type="text"
+                           label="Consecutivo"
+                           name="consecutive"
+                           id="consecutive"
+                           placeholder="Consecutivo"
+                           value="{{ old('consecutive', $product->consecutive) }}"
+                           autofocus
+                           readonly
+                      />
                     </div>
-
-                    <div class="col-sm-6 col-md-6">
-                      <div class="mb-3">
-                        <label for="consecutive" class="form-label">
-                            {{ __('Consecutivo') }}
-                        </label>
-
-                        <input type="text" id="consecutive" name="consecutive"
-                            class="form-control @error('consecutive') is-invalid @enderror"
-                            placeholder="Consecutivo"
-                            value="{{ old('consecutive', $product->consecutive) }}">
-
-                        @error('consecutive')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
-                        @enderror
-                      </div>
-                    </div>
-
-                    <div class="col-sm-6 col-md-6">
+                    <div class="col-sm-4 col-md-4">
                       <div class="mb-3">
                         <label for="lands_id" class="form-label">
                           Finca
@@ -127,8 +66,7 @@
                         @enderror
                       </div>
                     </div>
-
-                    <div class="col-sm-6 col-md-6">
+                    <div class="col-sm-4 col-md-4">
                       <div class="mb-3">
                         <label for="varietie_id" class="form-label">
                           Variedad
@@ -152,8 +90,7 @@
                         @enderror
                       </div>
                     </div>
-
-                    <div class="col-sm-6 col-md-6">
+                    <div class="col-sm-4 col-md-4">
                       <div class="mb-3">
                         <label class="form-label" for="type_branche_id">
                             {{ __('Tipo de Ramo') }}
@@ -180,8 +117,7 @@
                           @enderror
                       </div>
                     </div>
-
-                    <div class="col-sm-6 col-md-6">
+                    <div class="col-sm-4 col-md-4">
                       <div class="mb-3">
                         <label for="table_id" class="form-label">
                           Mesa
@@ -205,8 +141,7 @@
                         @enderror
                       </div>
                     </div>
-
-                    <div class="col-sm-6 col-md-6">
+                    <div class="col-sm-4 col-md-4">
                       <div class="mb-3">
                         <label for="grades_id" class="form-label">
                           Grado
@@ -230,8 +165,7 @@
                         @enderror
                       </div>
                     </div>
-
-                    <div class="col-sm-6 col-md-6">
+                    <div class="col-sm-4 col-md-4">
                         <div class="mb-3">
                             <label for="quantity" class="form-label">
                                 {{ __('Cantidad de Tallos') }}
@@ -240,14 +174,10 @@
                             <input class="form-control" name="quantity" type="text"  value="{{ old('quantity', $product->quantity) }}"  required="true" aria-required="true" style="color: var(--tblr-secondary);background-color: var(--tblr-bg-surface-secondary); opacity: 1;"/>
 
 
-                            {{-- <input type="text" id="quantity" name="quantity"
-                                class="form-control"
-                                min="0" value="{{ old('quantity', $product->quantity) }}"
-                                placeholder="0" disabled > --}}
+                         
                         </div>
                     </div>
-
-                    <div class="col-sm-6 col-md-6">
+                    <div class="col-sm-4 col-md-4">
                         <div class="mb-3">
                             <label for="date" class="form-label">
                                 {{ __('Fecha') }}
@@ -255,6 +185,7 @@
 
                             <input type="date" id="date" name="date"
                                 class="form-control @error('date') is-invalid @enderror"
+                                readonly
                                 placeholder="Fecha"
                                 value="{{ old('date', $product->date) }}">
 
@@ -265,8 +196,7 @@
                             @enderror
                         </div>
                     </div>
-
-                    <div class="col-sm-6 col-md-6">
+                    <div class="col-sm-4 col-md-4">
                         <div class="mb-3">
                             <label for="week" class="form-label">
                                 {{ __('Semana') }}
@@ -274,6 +204,7 @@
 
                             <input type="text" id="week" name="week"
                                 class="form-control @error('week') is-invalid @enderror"
+                                readonly
                                 placeholder="Semana"
                                 value="{{ old('week', $product->week) }}">
 
@@ -284,7 +215,6 @@
                             @enderror
                         </div>
                     </div>
-
                     <div class="col-md-12">
                         <div class="mb-3 mb-0">
                             <label for="notes" class="form-label">
@@ -301,6 +231,7 @@
                             @enderror
                         </div>
                     </div>
+
                   </div>
                 </div>
 

@@ -61,7 +61,7 @@ class ProfileController extends Controller
 
         return redirect()
             ->route('profile.edit')
-            ->with('success', 'Profile has been updated!');
+            ->with('Exitoso', 'Profile has been updated!');
     }
 
     public function settings(Request $request)
@@ -90,7 +90,7 @@ class ProfileController extends Controller
 
         return redirect()
             ->route('profile.store.settings')
-            ->with('success', 'Store Information has been updated!');
+            ->with('Exitoso', 'Store Information has been updated!');
     }
 
     public function store_settings()

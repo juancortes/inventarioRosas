@@ -60,7 +60,7 @@ class RemisionesController extends Controller
         'observations'   => $request->observations,
         'user_id'        => auth()->id()
       ]);
-      return to_route('remisiones.index')->with('success', 'Remisión ha sido creado!');
+      return to_route('remisiones.index')->with('Exitoso', 'Remisión ha sido creado!');
     }
 
     /**
@@ -116,7 +116,7 @@ class RemisionesController extends Controller
 
         return redirect()
             ->route('remisiones.index')
-            ->with('success', 'Remision ha sido actualizado!');
+            ->with('Exitoso', 'Remision ha sido actualizado!');
     }
 
     /**
@@ -129,6 +129,6 @@ class RemisionesController extends Controller
 
         return redirect()
             ->route('remisiones.index')
-            ->with('success', 'Remision fue eliminada!');
+            ->with('Exitoso', 'Remision fue eliminada!');
     }
 }

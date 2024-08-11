@@ -41,7 +41,7 @@ class TablesController extends Controller
 
         return redirect()
             ->route('tables.index')
-            ->with('success', 'Mesa ha sido creada!');
+            ->with('Exitoso', 'Mesa ha sido creada!');
     }
 
     /**
@@ -78,7 +78,7 @@ class TablesController extends Controller
 
         return redirect()
             ->route('tables.index')
-            ->with('success', 'Mesa fue actualizada!');
+            ->with('Exitoso', 'Mesa fue actualizada!');
     }
 
     /**
@@ -91,6 +91,6 @@ class TablesController extends Controller
 
         return redirect()
             ->route('tables.index')
-            ->with('success', 'Mesa fue eliminada!');
+            ->with('Exitoso', 'Mesa fue eliminada!');
     }
 }

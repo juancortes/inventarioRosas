@@ -51,7 +51,7 @@ class CustomerController extends Controller
 
         return redirect()
             ->route('customers.index')
-            ->with('success', 'Nuevo Cliente a sido creado!');
+            ->with('Exitoso', 'Nuevo Cliente a sido creado!');
     }
 
     public function show($uuid)
@@ -102,7 +102,7 @@ class CustomerController extends Controller
 
         return redirect()
             ->route('customers.index')
-            ->with('success', 'Cliente a sido actualizado!');
+            ->with('Exitoso', 'Cliente a sido actualizado!');
     }
 
     public function destroy($uuid)
@@ -116,6 +116,6 @@ class CustomerController extends Controller
 
         return redirect()
             ->back()
-            ->with('success', 'Cliente a sido eliminado!');
+            ->with('Exitoso', 'Cliente a sido eliminado!');
     }
 }

@@ -124,7 +124,7 @@ class ProductController extends Controller
         ]);
 
 
-        return to_route('products.create')->with('success', 'Ramo ha sido creado!');
+        return to_route('products.create')->with('Exitoso', 'Ramo ha sido creado!');
     }
 
     public function show($uuid)
@@ -189,7 +189,7 @@ class ProductController extends Controller
 
         return redirect()
             ->route('products.index')
-            ->with('success', 'Ramo ha sido actualizado!');
+            ->with('Exitoso', 'Ramo ha sido actualizado!');
     }
 
     public function destroy($uuid)
@@ -209,23 +209,24 @@ class ProductController extends Controller
 
         return redirect()
             ->route('products.index')
-            ->with('success', 'Ramo ha sido borrado!');
+            ->with('Exitoso', 'Ramo ha sido borrado!');
     }
 
     public function getCodes()
     {
-        $finca     = Lands::where('code',$_GET['finca'])->firstOrFail();
-        $variedad  = Varieties::where('code',$_GET['variedad'])->firstOrFail();
-        $mesa      = Tables::where('code',$_GET['mesa'])->firstOrFail();
-        $grado     = Grades::where('code',$_GET['grado'])->firstOrFail();
-        $tipo_ramo = TypeBranches::where('code',$_GET['tipo_ramo'])->firstOrFail();
+        $finca     = Lands::where('code',$_GET['finca'])->get();
+        $variedad  = Varieties::where('code',$_GET['variedad'])->get();
+        $mesa      = Tables::where('code',$_GET['mesa'])->get();
+        $grado     = Grades::where('code',$_GET['grado'])->get();
+        $tipo_ramo = TypeBranches::where('code',$_GET['tipo_ramo'])->get();
 
         $data = [
-            "finca"     => $finca->id,
-            "variedad"  => $variedad->id,
-            "mesa"      => $mesa->id,
-            "grado"     => $grado->id,
-            "tipo_ramo" => $tipo_ramo->id,
+            "finca"     => (count($finca) > 0 ) ?     $finca[0]->id : -1,
+            "variedad"  => (count($variedad) > 0 ) ?  $variedad[0]->id : -2,
+            "mesa"      => (count($mesa) > 0 ) ?      $mesa[0]->id : -3,
+            "grado"     => (count($grado) > 0 ) ?     $grado[0]->id : -4,
+            "tipo_ramo" => (count($tipo_ramo) > 0 ) ? $tipo_ramo[0]->id : -5,
+            "cantidad"  => (count($tipo_ramo) > 0 ) ? $tipo_ramo[0]->quantity : 0,
         ];
         return response()->json($data);
     }

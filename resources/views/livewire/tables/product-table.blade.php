@@ -64,29 +64,29 @@
                         {{ __('No.') }}
                     </th>
                     <th scope="col" class="align-middle text-center">
-                        {{ __('Imagen') }}
+                        {{ __('Consecutivo') }}
                     </th>
                     <th scope="col" class="align-middle text-center">
                         <a wire:click.prevent="sortBy('name')" href="#" role="button">
-                            {{ __('Nombre') }}
+                            {{ __('Fecha') }}
                             @include('inclues._sort-icon', ['field' => 'name'])
                         </a>
                     </th>
                     <th scope="col" class="align-middle text-center">
                         <a wire:click.prevent="sortBy('code')" href="#" role="button">
-                            {{ __('Código') }}
+                            {{ __('Finca') }}
                             @include('inclues._sort-icon', ['field' => 'code'])
                         </a>
                     </th>
                     <th scope="col" class="align-middle text-center">
                         <a wire:click.prevent="sortBy('category_id')" href="#" role="button">
-                            {{ __('Categoría') }}
+                            {{ __('Variedad') }}
                             @include('inclues._sort-icon', ['field' => 'category_id'])
                         </a>
                     </th>
                     <th scope="col" class="align-middle text-center">
                         <a wire:click.prevent="sortBy('quantity')" href="#" role="button">
-                            {{ __('Cantidad') }}
+                            {{ __('Tipo de Ramo') }}
                             @include('inclues._sort-icon', ['field' => 'quantity'])
                         </a>
                     </th>
@@ -102,24 +102,21 @@
                             {{ $loop->iteration }}
                         </td>
                         <td class="align-middle text-center">
-                            <img style="width: 90px;"
-                                src="{{ $product->product_image ? asset('storage/' . $product->product_image) : asset('assets/img/products/default.webp') }}"
-                                alt="">
+                            {{ $product->consecutive }}
                         </td>
                         <td class="align-middle text-center">
-                            {{ $product->name }}
+                            {{ $product->date }}
                         </td>
                         <td class="align-middle text-center">
-                            {{ $product->code }}
+                            {{ $product->land ? $product->land->name : '--' }}
                         </td>
                         <td class="align-middle text-center">
-                            {{ $product->category ? $product->category->name : '--' }}
+                            {{ $product->varietie_id }}
                         </td>
                         <td class="align-middle text-center">
-                            {{ $product->quantity }}
+                            {{ $product->type_branche_id }}
                         </td>
                         <td class="align-middle text-center" style="width: 10%">
-                            <x-button.show class="btn-icon" route="{{ route('products.show', $product->uuid) }}" />
                             <x-button.edit class="btn-icon" route="{{ route('products.edit', $product->uuid) }}" />
                             <x-button.delete class="btn-icon" route="{{ route('products.destroy', $product->uuid) }}"
                                 onclick="return confirm('Are you sure to delete product {{ $product->name }} ?')" />
