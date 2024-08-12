@@ -69,7 +69,7 @@ class Product extends Model
         return $this->belongsTo(BranchStems::class);
     }
 
-    public function type_branche(): BelongsTo
+    public function typeBranche(): BelongsTo
     {
         return $this->belongsTo(TypeBranches::class);
     }
@@ -79,17 +79,17 @@ class Product extends Model
         return $this->belongsTo(Tables::class);
     }
 
-    public function land(): BelongsTo
+    public function lands(): BelongsTo
     {
         return $this->belongsTo(Lands::class);
     }
 
-    public function Variety(): BelongsTo
+    public function varietie(): BelongsTo
     {
         return $this->belongsTo(Varieties::class);
     }
 
-    public function grade(): BelongsTo
+    public function grades(): BelongsTo
     {
         return $this->belongsTo(Grades::class);
     }

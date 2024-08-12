@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\User\StoreUserRequest;
 use App\Http\Requests\User\UpdateUserRequest;
+use Str;
 
 class UserController extends Controller
 {
@@ -27,7 +28,13 @@ class UserController extends Controller
 
     public function store(StoreUserRequest $request)
     {
-        $user = User::create($request->all());
+        $user = User::create([
+            "uuid" => Str::uuid(),
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => $request->password,
+
+        ]);
 
         /**
          * Handle upload an image

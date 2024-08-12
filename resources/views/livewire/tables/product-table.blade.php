@@ -60,16 +60,16 @@
         <table wire:loading.remove class="table table-bordered card-table table-vcenter text-nowrap datatable">
             <thead class="thead-light">
                 <tr>
-                    <th class="align-middle text-center w-1">
-                        {{ __('No.') }}
+                    <th scope="col" class="align-middle text-center">
+                        <a wire:click.prevent="sortBy('consecutive')" href="#" role="button">
+                            {{ __('Consecutivo') }}
+                            @include('inclues._sort-icon', ['field' => 'consecutive'])
+                        </a>
                     </th>
                     <th scope="col" class="align-middle text-center">
-                        {{ __('Consecutivo') }}
-                    </th>
-                    <th scope="col" class="align-middle text-center">
-                        <a wire:click.prevent="sortBy('name')" href="#" role="button">
+                        <a wire:click.prevent="sortBy('date')" href="#" role="button">
                             {{ __('Fecha') }}
-                            @include('inclues._sort-icon', ['field' => 'name'])
+                            @include('inclues._sort-icon', ['field' => 'date'])
                         </a>
                     </th>
                     <th scope="col" class="align-middle text-center">
@@ -99,22 +99,19 @@
                 @forelse ($products as $product)
                     <tr>
                         <td class="align-middle text-center">
-                            {{ $loop->iteration }}
-                        </td>
-                        <td class="align-middle text-center">
                             {{ $product->consecutive }}
                         </td>
                         <td class="align-middle text-center">
                             {{ $product->date }}
                         </td>
                         <td class="align-middle text-center">
-                            {{ $product->land ? $product->land->name : '--' }}
+                            {{ $product->lands ? $product->lands->name : '--' }}
                         </td>
                         <td class="align-middle text-center">
-                            {{ $product->varietie_id }}
+                            {{ $product->varietie ? $product->varietie->name : '--' }}
                         </td>
                         <td class="align-middle text-center">
-                            {{ $product->type_branche_id }}
+                            {{ $product->typeBranche ? $product->typeBranche->name : '--' }}
                         </td>
                         <td class="align-middle text-center" style="width: 10%">
                             <x-button.edit class="btn-icon" route="{{ route('products.edit', $product->uuid) }}" />

@@ -20,7 +20,7 @@
     <link href="{{ asset('dist/css/inter.css') }}" rel="stylesheet" />
     
     <style>
-
+        
         :root {
             --tblr-font-sans-serif: 'Inter Var', -apple-system, BlinkMacSystemFont, San Francisco, Segoe UI, Roboto, Helvetica Neue, sans-serif;
         }
