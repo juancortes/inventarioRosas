@@ -6,6 +6,7 @@ use App\Http\Requests\StoreremisionesRequest;
 use App\Http\Requests\UpdateremisionesRequest;
 use App\Models\Remisiones;
 use App\Models\Lands;
+use App\Models\Varieties;
 use Illuminate\Http\Request;
 
 class RemisionesController extends Controller
@@ -28,13 +29,19 @@ class RemisionesController extends Controller
     public function create(Request $request)
     {
       $lands         = Lands::get(['id', 'name']);
+      $varieties         = Varieties::get(['id', 'name']);
 
       if ($request->has('lands')) {
           $lands = Lands::get();
       }
 
+      if ($request->has('varieties')) {
+          $varieties = Lands::get();
+      }
+
       return view('remisiones.create',[
         'lands'         => $lands,
+        'varieties'         => $varieties,
       ]);
     }
 

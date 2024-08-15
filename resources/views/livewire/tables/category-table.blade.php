@@ -6,8 +6,24 @@
             </h3>
         </div>
 
-        <div class="card-actions">
-            <x-action.create route="{{ route('categories.create') }}" />
+        <div class="card-actions btn-group">
+            <div class="dropdown">
+                <a href="#" class="btn-action dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+                    <x-icon.vertical-dots />
+                </a>
+                <div class="dropdown-menu dropdown-menu-end" style="">
+                    <a href="{{ route('categories.create') }}" class="dropdown-item">
+                        <x-icon.plus />
+                        {{ __('Crear Tipo de Empaque') }}
+                    </a>
+                    
+                    <a href="{{ route('categories.export.store') }}" class="dropdown-item">
+                        <x-icon.plus />
+                        {{ __('Exportar Tipo de Empaque') }}
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -41,8 +57,11 @@
         <table wire:loading.remove class="table table-bordered card-table table-vcenter text-nowrap datatable">
             <thead class="thead-light">
                 <tr>
-                    <th class="align-middle text-center w-1">
-                        {{ __('ID') }}
+                    <th scope="col" class="align-middle text-center d-none d-sm-table-cell">
+                        <a wire:click.prevent="sortBy('code')" href="#" role="button">
+                            {{ __('Código') }}
+                            @include('inclues._sort-icon', ['field' => 'code'])
+                        </a>
                     </th>
                     <th scope="col" class="align-middle text-center">
                         <a wire:click.prevent="sortBy('name')" href="#" role="button">
@@ -52,14 +71,8 @@
                     </th>
                     <th scope="col" class="align-middle text-center d-none d-sm-table-cell">
                         <a wire:click.prevent="sortBy('slug')" href="#" role="button">
-                            {{ __('Slug') }}
-                            @include('inclues._sort-icon', ['field' => 'slug'])
-                        </a>
-                    </th>
-                    <th scope="col" class="align-middle text-center d-none d-sm-table-cell">
-                        <a wire:click.prevent="sortBy('slug')" href="#" role="button">
-                            {{ __('Cantidad de Ramos') }}
-                            @include('inclues._sort-icon', ['field' => 'products'])
+                            {{ __('Cantidad de Tallos') }}
+                            @include('inclues._sort-icon', ['field' => 'quantity'])
                         </a>
                     </th>
                     <th scope="col" class="align-middle text-center d-none d-sm-table-cell">
@@ -76,17 +89,14 @@
             <tbody>
                 @forelse ($categories as $category)
                     <tr>
-                        <td class="align-middle text-center" style="width: 10%">
-                            {{ $loop->index }}
+                        <td class="align-middle text-center d-none d-sm-table-cell">
+                            {{ $category->code }}
                         </td>
                         <td class="align-middle text-center">
                             {{ $category->name }}
                         </td>
                         <td class="align-middle text-center d-none d-sm-table-cell">
-                            {{ $category->slug }}
-                        </td>
-                        <td class="align-middle text-center d-none d-sm-table-cell">
-                            {{ $category->products->count() }}
+                            {{ $category->quantity }}
                         </td>
                         <td class="align-middle text-center d-none d-sm-table-cell" style="width: 15%">
                             {{ $category->created_at ? $category->created_at->format('d-m-Y') : '--' }}

@@ -22,6 +22,8 @@ class Category extends Model
         'slug',
         'short_code',
         "user_id",
+        "code",
+        "quantity",
     ];
 
     protected $casts = [

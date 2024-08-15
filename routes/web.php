@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\Category\CategoryController;
+use App\Http\Controllers\Category\CategoryExportController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\Dashboards\DashboardController;
 use App\Http\Controllers\InvoiceController;
@@ -69,7 +70,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('/quotations', QuotationController::class);
     Route::resource('/customers', CustomerController::class);
     Route::resource('/suppliers', SupplierController::class);
-    Route::resource('/categories', CategoryController::class);
     Route::resource('/units', UnitController::class);
     Route::resource('/lands', LandsController::class);
     Route::resource('/tables', TablesController::class);
@@ -77,6 +77,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('/varieties', VarietiesController::class);
     Route::resource('/typeBranches', TypeBranchesController::class);
     Route::resource('/remisiones', RemisionesController::class);
+
+    // Route Categories
+    Route::get('categories/export/', [CategoryExportController::class, 'create'])->name('categories.export.store');
+    Route::resource('/categories', CategoryController::class);
 
     // Route Products
     Route::get('products/import/', [ProductImportController::class, 'create'])->name('products.import.view');

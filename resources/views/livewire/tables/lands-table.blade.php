@@ -40,9 +40,6 @@
         <table wire:loading.remove class="table table-bordered card-table table-vcenter text-nowrap datatable">
             <thead class="thead-light">
             <tr>
-                <th class="align-middle text-center w-1">
-                    {{ __('ID') }}
-                </th>
                 <th scope="col" class="align-middle text-center">
                     <a wire:click.prevent="sortBy('name')" href="#" role="button">
                         {{ __('Nombre') }}
@@ -63,9 +60,6 @@
             <tbody>
             @forelse ($lands as $land)
                 <tr>
-                    <td class="align-middle text-center" style="width: 10%">
-                        {{ $loop->index }}
-                    </td>
                     <td class="align-middle text-center">
                         {{ $land->name }}
                     </td>

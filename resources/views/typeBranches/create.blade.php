@@ -33,7 +33,7 @@
                              value="{{ old('quantity') }}"
                              required
                     />
-                  </div>
+                </div>
                 <div class="card-footer text-end">
                     <x-button type="submit">
                         {{ __('Crear') }}

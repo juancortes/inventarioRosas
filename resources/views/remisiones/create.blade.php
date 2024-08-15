@@ -84,12 +84,48 @@
                   </div>
 
                   <div class="col-sm-6 col-md-6">
-                    <x-input name="variety"
-                             id="variety"
-                             placeholder="Variedad"
-                             value="{{ old('name') }}"
-                             label="Variedad"
-                    />
+                    <div class="mb-3">
+                      <label for="variety" class="form-label">
+                        Variedad
+                        <span class="text-danger">*</span>
+                      </label>
+
+                      @if ($varieties->count() === 1)
+                        <select name="variety" id="variety"
+                            class="form-select @error('variety') is-invalid @enderror"
+                            readonly
+                            >
+                            <option selected="" >
+                                Seleccione una Variedad:
+                            </option>
+                          @foreach ($varieties as $variety)
+                              <option value="{{ $variety->id }}" >
+                                  {{ $variety->name }}
+                              </option>
+                          @endforeach
+                        </select>
+                      @else
+                        <select name="variety" id="variety"
+                            class="form-select @error('variety') is-invalid @enderror"
+                            >
+                            <option selected="" >
+                                Seleccione una Variedad:
+                            </option>
+
+                            @foreach ($lands as $land)
+                                <option value="{{ $land->id }}" @if(old('variety') == $land->id) selected="selected" @endif>
+                                    {{ $land->name }}
+                                </option>
+                            @endforeach
+                        </select>
+                      @endif
+
+                      @error('variety')
+                      <div class="invalid-feedback">
+                        {{ $message }}
+                      </div>
+                      @enderror
+                    </div>
                   </div>
 
                   <div class="col-sm-6 col-md-6">

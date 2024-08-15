@@ -19,6 +19,19 @@
                     <div class="card-body">
                         <livewire:name />
                     </div>
+                    <div class="card-body">
+                        <livewire:code />
+                    </div>
+                    <div class="col-sm-4 col-md-4">
+                    <x-input type="number"
+                             label="Cantidad"
+                             name="quantity"
+                             id="quantity"
+                             placeholder="0"
+                             value="{{ old('quantity') }}"
+                             required
+                    />
+                </div>
                     <div class="card-footer text-end">
                         <x-button type="submit">
                             {{ __('Crear') }}

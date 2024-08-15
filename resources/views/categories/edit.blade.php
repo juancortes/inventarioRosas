@@ -27,6 +27,25 @@
                         required
                     />
                 </div>
+                <div class="card-body">
+                    <x-input
+                        label="{{ __('Código') }}"
+                        id="code"
+                        name="code"
+                        :value="old('code', $category->code)"
+                        required
+                    />
+                </div>
+                <div class="card-body">
+                    <x-input type="number"
+                             label="{{ __('Cantidad') }}"
+                             name="quantity"
+                             id="quantity"
+                             placeholder="0"
+                             :value=" old('quantity',$category->quantity) "
+                             required
+                    />
+                </div>
                 <div class="card-footer text-end">
                     <x-button type="submit">
                         {{ __('Actualizar') }}

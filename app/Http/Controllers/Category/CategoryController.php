@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Category;
 
+use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Http\Requests\Category\StoreCategoryRequest;
 use App\Http\Requests\Category\UpdateCategoryRequest;
@@ -26,9 +27,11 @@ class CategoryController extends Controller
     public function store(StoreCategoryRequest $request)
     {
         Category::create([
-            "user_id"=>auth()->id(),
-            "name" => $request->name,
-            "slug" => Str::slug($request->name)
+            "user_id"  =>auth()->id(),
+            "name"     => $request->name,
+            "code"     => $request->code,
+            "quantity" => $request->quantity,
+            "slug"     => Str::slug($request->name)
         ]);
 
         return redirect()
@@ -53,8 +56,10 @@ class CategoryController extends Controller
     public function update(UpdateCategoryRequest $request, Category $category)
     {
         $category->update([
-            "name" => $request->name,
-            "slug" => Str::slug($request->name)
+            "name"     => $request->name,
+            "code"     => $request->code,
+            "quantity" => $request->quantity,
+            "slug"     => Str::slug($request->name)
         ]);
 
         return redirect()
