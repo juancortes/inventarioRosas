@@ -6,8 +6,24 @@
             </h3>
         </div>
 
-        <div class="card-actions">
-            <x-action.create route="{{ route('lands.create') }}" />
+        <div class="card-actions btn-group">
+            <div class="dropdown">
+                <a href="#" class="btn-action dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+                    <x-icon.vertical-dots />
+                </a>
+                <div class="dropdown-menu dropdown-menu-end" style="">
+                    <a href="{{ route('lands.create') }}" class="dropdown-item">
+                        <x-icon.plus />
+                        {{ __('Crear Finca') }}
+                    </a>
+                    
+                    <a href="{{ route('lands.export.store') }}" class="dropdown-item">
+                        <x-icon.plus />
+                        {{ __('Exportar Finca') }}
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 

@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Lands;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreLandsRequest;
 use App\Http\Requests\UpdateLandsRequest;
 use App\Models\Lands;

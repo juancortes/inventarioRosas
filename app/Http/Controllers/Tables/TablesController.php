@@ -1,7 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Tables;
 
+use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreLandsRequest;
 use App\Http\Requests\StoreTablesRequest;
 use App\Http\Requests\UpdateTablesRequest;
 use App\Models\Tables;

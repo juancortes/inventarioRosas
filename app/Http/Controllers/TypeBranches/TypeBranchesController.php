@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\TypeBranches;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreTypeBranchesRequest;
 use App\Http\Requests\UpdateTypeBranchesRequest;
 use App\Models\TypeBranches;

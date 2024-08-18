@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Varieties;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreVarietiesRequest;
 use App\Http\Requests\UpdateVarietiesRequest;
 use App\Models\Varieties;

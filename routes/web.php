@@ -19,11 +19,16 @@ use App\Http\Controllers\Quotation\QuotationController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\UnitController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\LandsController;
-use App\Http\Controllers\VarietiesController;
-use App\Http\Controllers\TablesController;
-use App\Http\Controllers\GradesController;
-use App\Http\Controllers\TypeBranchesController;
+use App\Http\Controllers\Lands\LandsController;
+use App\Http\Controllers\Lands\LandsExportController;
+use App\Http\Controllers\Varieties\VarietiesController;
+use App\Http\Controllers\Varieties\VarietiesExportController;
+use App\Http\Controllers\Tables\TablesController;
+use App\Http\Controllers\Tables\TablesExportController;
+use App\Http\Controllers\Grades\GradesController;
+use App\Http\Controllers\Grades\GradesExportController;
+use App\Http\Controllers\TypeBranches\TypeBranchesController;
+use App\Http\Controllers\TypeBranches\TypeBranchesExportController;
 use App\Http\Controllers\RemisionesController;
 use Illuminate\Support\Facades\Route;
 
@@ -71,12 +76,27 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('/customers', CustomerController::class);
     Route::resource('/suppliers', SupplierController::class);
     Route::resource('/units', UnitController::class);
-    Route::resource('/lands', LandsController::class);
-    Route::resource('/tables', TablesController::class);
-    Route::resource('/grades', GradesController::class);
-    Route::resource('/varieties', VarietiesController::class);
-    Route::resource('/typeBranches', TypeBranchesController::class);
     Route::resource('/remisiones', RemisionesController::class);
+    
+    // Route typeBranches
+    Route::get('typeBranches/export/', [TypeBranchesExportController::class, 'create'])->name('typeBranches.export.store');
+    Route::resource('/typeBranches', TypeBranchesController::class);
+
+    // Route varieties
+    Route::get('varieties/export/', [VarietiesExportController::class, 'create'])->name('varieties.export.store');
+    Route::resource('/varieties', VarietiesController::class);
+
+    // Route grades
+    Route::get('grades/export/', [GradesExportController::class, 'create'])->name('grades.export.store');
+    Route::resource('/grades', GradesController::class);
+
+    // Route tables
+    Route::get('tables/export/', [TablesExportController::class, 'create'])->name('tables.export.store');
+    Route::resource('/tables', TablesController::class);
+
+    // Route lands
+    Route::get('lands/export/', [LandsExportController::class, 'create'])->name('lands.export.store');
+    Route::resource('/lands', LandsController::class);
 
     // Route Categories
     Route::get('categories/export/', [CategoryExportController::class, 'create'])->name('categories.export.store');
