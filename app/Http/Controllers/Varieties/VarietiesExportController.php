@@ -17,12 +17,14 @@ class VarietiesExportController extends Controller
         $variety_array[] = array(
             'Código',
             'Nombre',
+            'Freedom',
         );
 
         foreach ($varieties as $variety) {
             $variety_array[] = array(
                 'Código' => $variety->code,
                 'Nombre' => $variety->name,
+                'Freedom' => $variety->freedom == true ? 'Si':'No',
             );
         }
 

@@ -16,7 +16,8 @@ class Varieties extends Model
 
     protected $fillable = [
         'name',
-        'code'
+        'code',
+        'freedom'
     ];
 
     protected $casts = [

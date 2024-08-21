@@ -72,18 +72,6 @@
                         </a>
                     </th>
                     <th scope="col" class="align-middle text-center">
-                        <a wire:click.prevent="sortBy('variety')" href="#" role="button">
-                            {{ __('Variedad') }}
-                            @include('inclues._sort-icon', ['field' => 'variety'])
-                        </a>
-                    </th>
-                    <th scope="col" class="align-middle text-center">
-                        <a wire:click.prevent="sortBy('quantity_stems')" href="#" role="button">
-                            {{ __('Cantidad de tallos') }}
-                            @include('inclues._sort-icon', ['field' => 'quantity_stems'])
-                        </a>
-                    </th>
-                    <th scope="col" class="align-middle text-center">
                         {{ __('Accion') }}
                     </th>
                 </tr>
@@ -105,12 +93,6 @@
                         </td>
                         <td class="align-middle text-center">
                             {{ $remision->land ? $remision->land->name : '--' }}
-                        </td>
-                        <td class="align-middle text-center">
-                            {{ $remision->variety }}
-                        </td>
-                        <td class="align-middle text-center">
-                            {{ $remision->quantity_stems }}
                         </td>
                         <td class="align-middle text-center" style="width: 10%">
                             <x-button.show class="btn-icon" route="{{ route('remisiones.show', $remision) }}" />

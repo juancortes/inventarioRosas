@@ -27,11 +27,13 @@ class DashboardController extends Controller
                         ->select('tables.name', DB::raw('COUNT(tables.name) AS cantidad'))
                         ->join('tables', 'tables.id', '=', 'products.table_id')
                         ->groupBy('tables.name')
+                        ->whereRaw('products.created_at::date = now()::date')
                         ->get();
         $fincaxRamo = DB::table('products')
                         ->select('lands.name', DB::raw('COUNT(lands.name) AS cantidad'))
                         ->join('lands', 'lands.id', '=', 'products.lands_id')
                         ->groupBy('lands.name')
+                        ->whereRaw('products.created_at::date = now()::date')
                         ->get();
         
         return view('dashboard', [

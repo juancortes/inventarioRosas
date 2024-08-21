@@ -24,6 +24,16 @@
                 <div class="card-body">
                     <livewire:code />                   
                 </div>
+                <div class="col-sm-4 col-md-4">
+                    <label for="freedom"> Freedom</label>
+                    <input type="checkbox"
+                             label="Freedom"
+                             name="freedom"
+                             id="freedom"
+                             value="{{ old('freedom') }}"
+                            
+                    />
+                </div>
                 <div class="card-footer text-end">
                     <x-button type="submit">
                         {{ __('Crear') }}

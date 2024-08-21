@@ -22,11 +22,10 @@ class UpdateremisionesRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'date'         => 'required|string',
-            'support'      => 'image|file|max:2048',
-            'lands_id'     => 'required|integer',
-            'variety'      => 'required|string',
-            'observations' => 'nullable|max:1000'
+            'date'           => 'required|string',
+            'support'        => 'image|file|max:2048',
+            'lands_id'       => 'required|integer',
+            'observations'   => 'nullable|max:1000'
         ];
     }
 }

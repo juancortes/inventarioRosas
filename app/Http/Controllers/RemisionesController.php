@@ -7,6 +7,7 @@ use App\Http\Requests\UpdateremisionesRequest;
 use App\Models\Remisiones;
 use App\Models\Lands;
 use App\Models\Varieties;
+use App\Models\DetalleRemisiones;
 use Illuminate\Http\Request;
 
 class RemisionesController extends Controller
@@ -50,6 +51,25 @@ class RemisionesController extends Controller
      */
     public function store(StoreremisionesRequest $request)
     {
+      $val = true;
+      $variety = "";
+      foreach ($request->variety as $key => $value) {
+        if($variety != $request->variety)
+        {
+          $variety = $request->variety;
+        }
+        else
+        {
+          $val = false;
+        }
+      }
+
+      if(!$val)
+      {
+        return redirect()
+            ->route('remisiones.create')
+            ->with('Error', 'Variedad no puede estar duplicada!');
+      }
       /**
        * Handle upload file
        */
@@ -58,15 +78,22 @@ class RemisionesController extends Controller
         $support = $request->file('support')->store('remisiones', 'public');
       }
 
-      Remisiones::create([
+      $remision = Remisiones::create([
         'support'        => $support,
         'date'           => $request->date,
         'lands_id'       => $request->lands_id,
-        'variety'        => $request->variety,
-        'quantity_stems' => $request->quantity_stems,
         'observations'   => $request->observations,
         'user_id'        => auth()->id()
       ]);
+
+      foreach ($request->variety as $key => $value) {
+        DetalleRemisiones::create([
+          'remision_id'    => $remision->id,
+          'variety_id'     => $value,
+          'quantity_stems' => $request->quantity_stems[$key]
+        ]);
+      }
+
       return to_route('remisiones.index')->with('Exitoso', 'Remisión ha sido creado!');
     }
 

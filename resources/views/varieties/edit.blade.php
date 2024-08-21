@@ -38,6 +38,16 @@
                         required
                     />
                 </div>
+                <div class="col-sm-4 col-md-4">
+                    <label for="freedom"> Freedom</label>
+                    <input type="checkbox"
+                             label="Freedom"
+                             name="freedom"
+                             id="freedom"
+                             {{  ($varieties->freedom == 1 ? ' checked' : '') }}
+                            
+                    />
+                </div>
                 <div class="card-footer text-end">
                     <x-button type="submit">
                         {{ __('Actualizar') }}

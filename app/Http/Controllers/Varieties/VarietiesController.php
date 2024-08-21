@@ -36,8 +36,9 @@ class VarietiesController extends Controller
     public function store(StoreVarietiesRequest $request)
     {
         Varieties::create([
-            'name' => $request->name,
-            'code' => $request->code,
+            'name'    => $request->name,
+            'code'    => $request->code,
+            'freedom' => $request->freedom,
         ]);
 
         return redirect()
@@ -71,8 +72,9 @@ class VarietiesController extends Controller
     {
         $varieties = Varieties::find( $variety_id);
         $varieties->update([
-            "name" => $request->name,
-            'code' => $request->code,
+            "name"    => $request->name,
+            'code'    => $request->code,
+            'freedom' => $request->freedom,
         ]);
 
         return redirect()
