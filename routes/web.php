@@ -30,6 +30,8 @@ use App\Http\Controllers\Grades\GradesExportController;
 use App\Http\Controllers\TypeBranches\TypeBranchesController;
 use App\Http\Controllers\TypeBranches\TypeBranchesExportController;
 use App\Http\Controllers\RemisionesController;
+use App\Http\Controllers\SaldosRemisiones\SaldosRemisionesController;
+use App\Http\Controllers\SaldosRemisiones\SaldosRemisionesExportController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -78,6 +80,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('/units', UnitController::class);
     Route::resource('/remisiones', RemisionesController::class);
     
+    // Route saldosRemisiones
+    Route::get('saldosRemisiones/export/', [SaldosRemisionesExportController::class, 'create'])->name('saldosRemisiones.export.store');
+    Route::resource('/saldosRemisiones', SaldosRemisionesController::class);
+    Route::get('/saldosRemisiones/getRemisionData', [SaldosRemisionesController::class, 'getRemisionData'])->name('saldosRemisiones.getRemisionData');
+
     // Route typeBranches
     Route::get('typeBranches/export/', [TypeBranchesExportController::class, 'create'])->name('typeBranches.export.store');
     Route::resource('/typeBranches', TypeBranchesController::class);

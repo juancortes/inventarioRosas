@@ -30,7 +30,7 @@ class RemisionesController extends Controller
     public function create(Request $request)
     {
       $lands         = Lands::get(['id', 'name']);
-      $varieties         = Varieties::get(['id', 'name']);
+      $varieties     = Varieties::get(['id', 'name']);
 
       if ($request->has('lands')) {
           $lands = Lands::get();
@@ -41,8 +41,8 @@ class RemisionesController extends Controller
       }
 
       return view('remisiones.create',[
-        'lands'         => $lands,
-        'varieties'         => $varieties,
+        'lands'     => $lands,
+        'varieties' => $varieties,
       ]);
     }
 
@@ -53,6 +53,7 @@ class RemisionesController extends Controller
     {
       $val = true;
       $variety = "";
+
       foreach ($request->variety as $key => $value) {
         if($variety != $request->variety)
         {
@@ -60,7 +61,8 @@ class RemisionesController extends Controller
         }
         else
         {
-          $val = false;
+            if($variety == $value)
+                $val = false;
         }
       }
 

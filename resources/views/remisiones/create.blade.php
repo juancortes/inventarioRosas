@@ -102,9 +102,9 @@
                                   Seleccione una Variedad:
                               </option>
 
-                              @foreach ($lands as $land)
-                                  <option value="{{ $land->id }}" @if(old('variety') == $land->id) selected="selected" @endif>
-                                      {{ $land->name }}
+                              @foreach ($varieties as $variety)
+                                  <option value="{{ $variety->id }}" @if(old('variety') == $variety->id) selected="selected" @endif>
+                                      {{ $variety->name }}
                                   </option>
                               @endforeach
                             </select>
