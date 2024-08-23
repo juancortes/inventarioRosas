@@ -1,19 +1,8 @@
 $(document).ready(function(){
 	$("#lands_id").change(function () {
-		let table = "<table class='table'>";
-		table += "<thead>";
-		table += "<tr>";
-		table += "<th>Remision</th>"
-		table += "<th>Variedad</th>"
-		table += "<th>Producción</th>"
-		table += "<th>Devolucion</th>"
-		table += "<th>Valor</th>"
-		table += "<th>Valor a Pagar</th>"
-		table += "</tr>";
-		table += "</thead>";
-		table += "<tbody>";
+		
 
-		var obj = {
+		let obj = {
 	       id: $("#lands_id").val()
 	    }; 
 
@@ -29,33 +18,48 @@ $(document).ready(function(){
 	          $("#loader").show();
 	        },
 	        success: function (data) {
-	          console.log("SUCCESS : ", data);
-	          $("#lands_id").val(data.finca);
-	          $("#lands_id1").val(data.finca);
-	          $("#varietie_id").val(data.variedad);
-	          $("#varietie_id1").val(data.variedad);
-	          $("#table_id").val(data.mesa);
-	          $("#table_id1").val(data.mesa);
-	          $("#grades_id").val(data.grado);
-	          $("#grades_id1").val(data.grado);
-	          $("#type_branche_id").val(data.tipo_ramo);
-	          $("#type_branche_id1").val(data.tipo_ramo);
-	          $("#quantity").val(data.cantidad);
-	          $("#staticBackdrop").modal('hide');
-	          error = "";
-	          if(data.finca == -1)
-	            error += " Finca no encontrada. ";
-	          if(data.variedad == -2)
-	            error += " Variedad no encontrada. ";
-	          if(data.mesa == -3)
-	            error += " Mesa no encontrada. ";
-	          if(data.grado == -4)
-	            error += " Grado no encontrada. ";
-	          if(data.tipo_ramo == -5)
-	            error += " Tipo de Ramo no encontrada. ";
-
-	          if(error != "")
-	            alert(error);
+          	console.log("SUCCESS : ", data);
+          	let table = "<table class='table'>";
+						table += "<thead>";
+						table += "<tr>";
+						table += "<th>Remision</th>"
+						table += "<th>Variedad</th>"
+						table += "<th>N° Tallos Remision</th>"
+						table += "<th>Producción</th>"
+						table += "<th>Devolucion</th>"
+						table += "<th>Valor</th>"
+						table += "<th>Valor a Pagar</th>"
+						table += "</tr>";
+						table += "</thead>";
+						table += "<tbody>";
+        		table += "<tr>";
+	          data.forEach((item) => {
+							if(item.freedom === true)
+							{
+								table += "<td>"+ $("#lands_id option:selected").text() +"</td>";
+								table += "<td>FREEDOM</td>";
+								table += "<td>"+ item.cantidad +"</td>";
+								table += "<td><input type='text' id='produccion_freedom' name='produccion_freedom'></td>";
+								table += "<td><input type='text' id='devolucion_freedom' name='devolucion_freedom'></td>";
+								table += "<td><input type='text' id='valor_freedom' name='valor_freedom'></td>";
+								table += "<td><input type='text' id='valor_pagar_freedom' name='valor_pagar_freedom'></td>";
+							}
+							else
+							{
+								table += "<td>"+ $("#lands_id option:selected").text() +"</td>";
+								table += "<td>COLOR</td>";
+								table += "<td>"+ item.cantidad +"</td>";
+								table += "<td><input type='text' id='produccion_color' name='produccion_color'></td>";
+								table += "<td><input type='text' id='devolucion_color' name='devolucion_color'></td>";
+								table += "<td><input type='text' id='valor_color' name='valor_color'></td>";
+								table += "<td><input type='text' id='valor_pagar_color' name='valor_pagar_color'></td>";
+							}
+							table += "</tr>";
+	          });	 
+	          table += "</tbody>";
+						table += "<table>"; 
+						$("#div_tabla_saldos").html("");
+						$("#div_tabla_saldos").html(table);   
 	        },
 	        complete:function(data){
 	          // Hide image container
@@ -67,10 +71,8 @@ $(document).ready(function(){
 	        }
 	    });
 
-		table += "</tbody>";
-		table += "<table>";
+		
 
-		$("#div_tabla_saldos").html("");
-		$("#div_tabla_saldos").html(table);
+		
 	});
 });

@@ -82,7 +82,13 @@ class SaldosRemisionesController extends Controller
     public function getRemisionData()
     {
       $id = $_GET['id'];
-
-      $detalle = DetalleRemisiones::select([''])
+      $detalle = DB::table('detalle_remisiones')
+                    ->select('varieties.freedom',DB::raw('SUM(detalle_remisiones.quantity_stems) AS cantidad'))
+                    ->join('varieties', 'varieties.id', '=', 'detalle_remisiones.variety_id')
+                    ->groupBy('varieties.freedom')
+                    ->whereRaw('detalle_remisiones.remision_id = ?',$id)
+                    ->get();
+     
+      return response()->json($detalle);
     }
 }

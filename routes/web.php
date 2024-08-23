@@ -81,9 +81,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('/remisiones', RemisionesController::class);
     
     // Route saldosRemisiones
+    Route::get('/saldosRemisiones/getRemisionData', [SaldosRemisionesController::class, 'getRemisionData'])->name('saldosRemisiones.getRemisionData');
     Route::get('saldosRemisiones/export/', [SaldosRemisionesExportController::class, 'create'])->name('saldosRemisiones.export.store');
     Route::resource('/saldosRemisiones', SaldosRemisionesController::class);
-    Route::get('/saldosRemisiones/getRemisionData', [SaldosRemisionesController::class, 'getRemisionData'])->name('saldosRemisiones.getRemisionData');
 
     // Route typeBranches
     Route::get('typeBranches/export/', [TypeBranchesExportController::class, 'create'])->name('typeBranches.export.store');
