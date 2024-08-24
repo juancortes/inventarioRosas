@@ -40,7 +40,7 @@ $(document).ready(function(){
 						table += "<td>"+ $("#remision_id option:selected").text() +"</td>";
 						table += "<td>FREEDOM</td>";
 						table += "<td>"+ item.cantidad +"</td>";
-						if($("#tipo").val() == 0 || data.produccion_freedom == "undefined")
+						if($("#tipo").val() == 0 || data.produccion_freedom == undefined)
 						{
 							table += "<td><input type='text' id='produccion_freedom' name='produccion_freedom'></td>";
 							table += "<td><input type='text' id='devolucion_freedom' name='devolucion_freedom'></td>";
@@ -60,7 +60,7 @@ $(document).ready(function(){
 						table += "<td>"+ $("#remision_id option:selected").text() +"</td>";
 						table += "<td>COLOR</td>";
 						table += "<td>"+ item.cantidad +"</td>";
-						if($("#tipo").val() == 0 || data.produccion_freedom == "undefined")
+						if($("#tipo").val() == 0 || data.produccion_freedom == undefined)
 						{
 							table += "<td><input type='text' id='produccion_color' name='produccion_color'></td>";
 							table += "<td><input type='text' id='devolucion_color' name='devolucion_color'></td>";
