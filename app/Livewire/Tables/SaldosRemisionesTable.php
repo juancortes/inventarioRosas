@@ -14,7 +14,7 @@ class SaldosRemisionesTable extends Component
 
     public $search = '';
 
-    public $sortField = 'name';
+    public $sortField = 'id';
 
     public $sortAsc = false;
 

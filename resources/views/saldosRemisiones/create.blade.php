@@ -5,7 +5,7 @@
   <div class="container-xl">
     <x-alert/>
     <div class="row row-cards">
-      <form action="{{ route('remisiones.store') }}" method="POST" enctype="multipart/form-data">
+      <form action="{{ route('saldosRemisiones.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="row">
           
@@ -20,7 +20,7 @@
                 </div>
 
                 <div class="card-actions">
-                    <a href="{{ route('remisiones.index') }}" class="btn-action">
+                    <a href="{{ route('saldosRemisiones.index') }}" class="btn-action">
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M18 6l-12 12"></path><path d="M6 6l12 12"></path></svg>
                     </a>
                 </div>
@@ -28,44 +28,45 @@
               <div class="card-body">
                 <div class="row row-cards">
 
+                  <input type="hidden" id="tipo" value="1">
                   <div class="col-sm-6 col-md-6">
                     <div class="mb-3">
-                      <label for="lands_id" class="form-label">
-                        Finca
+                      <label for="remision_id" class="form-label">
+                        Remision
                         <span class="text-danger">*</span>
                       </label>
 
-                      @if ($lands->count() === 1)
-                        <select name="lands_id" id="lands_id"
-                            class="form-select @error('lands_id') is-invalid @enderror"
+                      @if ($remisiones->count() === 1)
+                        <select name="remision_id" id="remision_id"
+                            class="form-select @error('remision_id') is-invalid @enderror"
                             readonly
                             >
                             <option selected="" >
-                                Seleccione una Finca:
+                                Seleccione una Remision:
                             </option>
-                          @foreach ($lands as $land)
-                              <option value="{{ $land->id }}" >
-                                  {{ $land->finca }}
+                          @foreach ($remisiones as $remision)
+                              <option value="{{ $remision->id }}" >
+                                  {{ $remision->finca }}
                               </option>
                           @endforeach
                         </select>
                       @else
-                        <select name="lands_id" id="lands_id"
-                            class="form-select @error('lands_id') is-invalid @enderror"
+                        <select name="remision_id" id="remision_id"
+                            class="form-select @error('remision_id') is-invalid @enderror"
                             >
                             <option selected="" >
-                                Seleccione una Finca:
+                                Seleccione una Remision:
                             </option>
 
-                            @foreach ($lands as $land)
-                                <option value="{{ $land->id }}" @if(old('lands_id') == $land->id) selected="selected" @endif>
-                                    {{ $land->finca }}
+                            @foreach ($remisiones as $remision)
+                                <option value="{{ $remision->id }}" @if(old('remision_id') == $remision->id) selected="selected" @endif>
+                                    {{ $remision->finca }}
                                 </option>
                             @endforeach
                         </select>
                       @endif
 
-                      @error('lands_id')
+                      @error('remision_id')
                       <div class="invalid-feedback">
                         {{ $message }}
                       </div>

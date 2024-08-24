@@ -17,14 +17,15 @@ class SaldosRemisiones extends Model
     ];
 
     protected $fillable = [
+        'remision_id',
         'produccion_freedom',
         'produccion_color',
         'devolucion_freedom',
         "devolucion_color",
-        "valor_freedom",
-        "valor_color",
-        "valor_pagar_freedom",
-        "valor_pagar_color",
+        'valor_freedom',
+        'valor_color',
+        'valor_pagar_freedom',
+        'valor_pagar_color',
     ];
 
     protected $casts = [

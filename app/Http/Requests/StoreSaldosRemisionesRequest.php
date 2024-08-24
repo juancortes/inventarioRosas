@@ -11,7 +11,7 @@ class StoreSaldosRemisionesRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,16 @@ class StoreSaldosRemisionesRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'remision_id'         => 'required|integer',
+            'produccion_freedom'  => 'required|integer',
+            'produccion_color'    => 'required|integer',
+            'devolucion_freedom'  => 'required|integer',
+            'devolucion_color'    => 'required|integer',
+            'valor_freedom'       => 'required|integer',
+            'valor_color'         => 'required|integer',
+            'valor_pagar_freedom' => 'required|integer',
+            'valor_pagar_color'   => 'required|integer',
+            
         ];
     }
 }

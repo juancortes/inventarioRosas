@@ -29,13 +29,13 @@ class SaldosRemisionesController extends Controller
      */
     public function create()
     {
-      $lands = DB::table('remisiones')
-                ->select('remisiones.id', DB::raw("date ||' - ' || lands.name as finca"))
-                ->join('lands','remisiones.lands_id', '=', 'lands.id')
-                ->get();
+      $remisiones = DB::table('remisiones')
+                    ->select('remisiones.id', DB::raw("date ||' - ' || lands.name as finca"))
+                    ->join('lands','remisiones.lands_id', '=', 'lands.id')
+                    ->get();
 
       return view('saldosRemisiones.create',[
-        'lands' => $lands,
+        'remisiones' => $remisiones,
       ]);
     }
 
@@ -44,7 +44,21 @@ class SaldosRemisionesController extends Controller
      */
     public function store(StoreSaldosRemisionesRequest $request)
     {
-        //
+      SaldosRemisiones::create([
+          'remision_id'         => $request->remision_id,
+          'produccion_freedom'  => $request->produccion_freedom,
+          'produccion_color'    => $request->produccion_color,
+          'devolucion_freedom'  => $request->devolucion_freedom,
+          'devolucion_color'    => $request->devolucion_color,
+          'valor_freedom'       => $request->valor_freedom,
+          'valor_color'         => $request->valor_color,
+          'valor_pagar_freedom' => $request->valor_pagar_freedom,
+          'valor_pagar_color'   => $request->valor_pagar_color,
+      ]);
+
+      return redirect()
+          ->route('saldosRemisiones.index')
+          ->with('Exitoso', 'Saldos creados!');
     }
 
     /**
@@ -58,17 +72,41 @@ class SaldosRemisionesController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(SaldosRemisiones $saldosRemisiones)
+    public function edit( $id)
     {
-        //
+        $saldosRemision = SaldosRemisiones::find( $id);
+        $remisiones = DB::table('remisiones')
+                    ->select('remisiones.id', DB::raw("date ||' - ' || lands.name as finca"))
+                    ->join('lands','remisiones.lands_id', '=', 'lands.id')
+                    ->get();
+        return view('saldosRemisiones.edit', [
+            'saldosRemision' => $saldosRemision,
+            'remisiones'     => $remisiones,
+            'editar'     => $remisiones,
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateSaldosRemisionesRequest $request, SaldosRemisiones $saldosRemisiones)
+    public function update(UpdateSaldosRemisionesRequest $request, $id)
     {
-        //
+        $saldosRemision = SaldosRemisiones::find( $id);
+        $saldosRemision->update([
+          'remision_id'         => $request->remision_id,
+          'produccion_freedom'  => $request->produccion_freedom,
+          'produccion_color'    => $request->produccion_color,
+          'devolucion_freedom'  => $request->devolucion_freedom,
+          'devolucion_color'    => $request->devolucion_color,
+          'valor_freedom'       => $request->valor_freedom,
+          'valor_color'         => $request->valor_color,
+          'valor_pagar_freedom' => $request->valor_pagar_freedom,
+          'valor_pagar_color'   => $request->valor_pagar_color,
+        ]);
+
+        return redirect()
+            ->route('saldosRemisiones.index')
+            ->with('Exitoso', 'Saldos fue actualizada!');
     }
 
     /**
@@ -81,14 +119,30 @@ class SaldosRemisionesController extends Controller
 
     public function getRemisionData()
     {
-      $id = $_GET['id'];
+      $id      = $_GET['id'];
+      $data    = [];
       $detalle = DB::table('detalle_remisiones')
                     ->select('varieties.freedom',DB::raw('SUM(detalle_remisiones.quantity_stems) AS cantidad'))
                     ->join('varieties', 'varieties.id', '=', 'detalle_remisiones.variety_id')
                     ->groupBy('varieties.freedom')
                     ->whereRaw('detalle_remisiones.remision_id = ?',$id)
                     ->get();
+        
+        $data["detalle"] = $detalle;
+
+        if($_GET['editar'] == "1")
+        {
+            $saldosRemision = SaldosRemisiones::where('saldos_remisiones.remision_id',$_GET['id'])->first();
+            $data["produccion_freedom"]  = $saldosRemision->produccion_freedom;
+            $data["produccion_color"]    = $saldosRemision->produccion_color;
+            $data["devolucion_freedom"]  = $saldosRemision->devolucion_freedom;
+            $data["devolucion_color"]    = $saldosRemision->devolucion_color;
+            $data["valor_freedom"]       = $saldosRemision->valor_freedom;
+            $data["valor_color"]         = $saldosRemision->valor_color;
+            $data["valor_pagar_freedom"] = $saldosRemision->valor_pagar_freedom;
+            $data["valor_pagar_color"]   = $saldosRemision->valor_pagar_color;
+        }
      
-      return response()->json($detalle);
+      return response()->json($data);
     }
 }
