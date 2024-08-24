@@ -18,7 +18,7 @@
   <div class="page-body">
     <div class="container-xl">
       <div class="row row-cards">
-        <form action="{{ route('saldosRemisiones.update', $saldosRemision->id) }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('saldosRemisiones.update', $saldosRemision->id) }}" method="POST">
           @csrf
           @method('put')
           <div class="row">

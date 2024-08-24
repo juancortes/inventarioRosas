@@ -91,6 +91,8 @@ class SaldosRemisionesController extends Controller
      */
     public function update(UpdateSaldosRemisionesRequest $request, $id)
     {
+        echo "<pre>ddd";
+        exit;
         $saldosRemision = SaldosRemisiones::find( $id);
         $saldosRemision->update([
           'remision_id'         => $request->remision_id,
