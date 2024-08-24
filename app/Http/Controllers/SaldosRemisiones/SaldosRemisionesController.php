@@ -134,7 +134,9 @@ class SaldosRemisionesController extends Controller
 
         if($_GET['editar'] == "1")
         {
-            $saldosRemision = SaldosRemisiones::where('saldos_remisiones.remision_id',$_GET['id'])->first();
+          $saldosRemision = SaldosRemisiones::where('saldos_remisiones.remision_id',$_GET['id'])->first();
+          if(isset($saldosRemision))
+          {
             $data["produccion_freedom"]  = $saldosRemision->produccion_freedom;
             $data["produccion_color"]    = $saldosRemision->produccion_color;
             $data["devolucion_freedom"]  = $saldosRemision->devolucion_freedom;
@@ -143,6 +145,7 @@ class SaldosRemisionesController extends Controller
             $data["valor_color"]         = $saldosRemision->valor_color;
             $data["valor_pagar_freedom"] = $saldosRemision->valor_pagar_freedom;
             $data["valor_pagar_color"]   = $saldosRemision->valor_pagar_color;
+          }
         }
      
       return response()->json($data);

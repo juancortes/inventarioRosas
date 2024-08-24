@@ -72,6 +72,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::get('/products/getCodes', [ProductController::class, 'getCodes'])->name('productos.getCodes');
+    Route::get('/saldosRemisiones/getRemisionData', [SaldosRemisionesController::class, 'getRemisionData'])->name('saldosRemisiones.getRemisionData');
 
 
     Route::resource('/quotations', QuotationController::class);
@@ -81,7 +82,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('/remisiones', RemisionesController::class);
     
     // Route saldosRemisiones
-    Route::get('/saldosRemisiones/getRemisionData', [SaldosRemisionesController::class, 'getRemisionData'])->name('saldosRemisiones.getRemisionData');
     Route::get('saldosRemisiones/export/', [SaldosRemisionesExportController::class, 'create'])->name('saldosRemisiones.export.store');
     Route::resource('/saldosRemisiones', SaldosRemisionesController::class);
 
