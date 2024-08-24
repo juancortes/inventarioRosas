@@ -250,7 +250,6 @@ class ProductController extends Controller
                     ->join('grades','products.grades_id', '=', 'grades.id')
                     ->get();
         return view('products.informeProduccion', [
-            'informe' => $informe,
         ]);
     }
 }

@@ -117,8 +117,17 @@ class Product extends Model
 
     public function scopeSearch($query, $value): void
     {
-        $query->where('name', 'like', "%{$value}%")
-            ->orWhere('code', 'like', "%{$value}%");
+        $query->join('lands','products.lands_id', '=', 'lands.id')
+            ->join('varieties','products.varietie_id', '=', 'varieties.id')
+            ->join('type_branches','products.type_branche_id', '=','type_branches.id')
+            ->join('tables','products.table_id', '=', 'tables.id')
+            ->join('grades','products.grades_id', '=', 'grades.id')
+            ->where('lands.name', 'ilike', "%{$value}%")
+            ->orWhere('varieties.name', 'ilike', "%{$value}%")
+            ->orWhere('type_branches.name', 'ilike', "%{$value}%")
+            ->orWhere('type_branches.quantity', 'ilike', "%{$value}%")
+            ->orWhere('grades.name', 'ilike', "%{$value}%")
+            ->orWhere('tables.name', 'ilike', "%{$value}%");
     }
      /**
      * Get the user that owns the Category

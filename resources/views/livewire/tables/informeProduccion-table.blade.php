@@ -2,7 +2,7 @@
     <div class="card-header">
         <div>
             <h3 class="card-title">
-                {{ __('Ramos') }}
+                {{ __('Informe') }}
             </h3>
         </div>
 

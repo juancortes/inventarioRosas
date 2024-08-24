@@ -14,7 +14,7 @@ class InformeProduccionTable extends Component
 
     public $search = '';
 
-    public $sortField = 'name';
+    public $sortField = 'products.id';
 
     public $sortAsc = true;
 
