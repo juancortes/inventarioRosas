@@ -72,6 +72,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::get('/products/getCodes', [ProductController::class, 'getCodes'])->name('productos.getCodes');
+    Route::get('/products/informeProduccion', [ProductController::class, 'informeProduccion'])->name('informeProduccion');
+
     Route::get('/saldosRemisiones/getRemisionData', [SaldosRemisionesController::class, 'getRemisionData'])->name('saldosRemisiones.getRemisionData');
 
 

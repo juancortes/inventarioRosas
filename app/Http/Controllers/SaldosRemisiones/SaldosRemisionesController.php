@@ -79,6 +79,7 @@ class SaldosRemisionesController extends Controller
                     ->select('remisiones.id', DB::raw("date ||' - ' || lands.name as finca"))
                     ->join('lands','remisiones.lands_id', '=', 'lands.id')
                     ->get();
+                    
         return view('saldosRemisiones.edit', [
             'saldosRemision' => $saldosRemision,
             'remisiones'     => $remisiones,

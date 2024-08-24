@@ -16,6 +16,7 @@ use App\Models\Grades;
 use Haruncpi\LaravelIdGenerator\IdGenerator;
 use Illuminate\Http\Request;
 use Picqer\Barcode\BarcodeGeneratorHTML;
+use Illuminate\Support\Facades\DB;
 use Str;
 
 class ProductController extends Controller
@@ -229,5 +230,27 @@ class ProductController extends Controller
             "cantidad"  => (count($tipo_ramo) > 0 ) ? $tipo_ramo[0]->quantity : 0,
         ];
         return response()->json($data);
+    }
+
+    public function informeProduccion()
+    {
+        $informe = DB::table('products')
+                    ->select(DB::raw("products.created_at as fecha_creacion"),
+                             DB::raw("lands.name as finca"),
+                             DB::raw("varieties.name as variedad"),
+                             DB::raw("type_branches.name as variedad"),
+                             DB::raw("tables.name as mesa"),
+                             DB::raw("grades.name as grados"),
+                             DB::raw("type_branches.quantity as cantidad_ramos")
+                            )
+                    ->join('lands','products.lands_id', '=', 'lands.id')
+                    ->join('varieties','products.varietie_id', '=', 'varieties.id')
+                    ->join('type_branches','products.type_branche_id', '=','type_branches.id')
+                    ->join('tables','products.table_id', '=', 'tables.id')
+                    ->join('grades','products.grades_id', '=', 'grades.id')
+                    ->get();
+        return view('products.informeProduccion', [
+            'informe' => $informe,
+        ]);
     }
 }
