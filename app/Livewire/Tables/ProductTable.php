@@ -14,7 +14,7 @@ class ProductTable extends Component
 
     public $search = '';
 
-    public $sortField = 'id';
+    public $sortField = 'products.id';
 
     public $sortAsc = false;
 
