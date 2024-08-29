@@ -215,6 +215,7 @@ class ProductController extends Controller
 
     public function getCodes()
     {
+        $rosa      = Product::where(["consecutive" => $_GET['consecutivo'], "date"=> date('Y-m-d')])->get();
         $finca     = Lands::where('code',$_GET['finca'])->get();
         $variedad  = Varieties::where('code',$_GET['variedad'])->get();
         $mesa      = Tables::where('code',$_GET['mesa'])->get();
@@ -222,12 +223,13 @@ class ProductController extends Controller
         $tipo_ramo = TypeBranches::where('code',$_GET['tipo_ramo'])->get();
 
         $data = [
-            "finca"     => (count($finca) > 0 ) ?     $finca[0]->id : -1,
-            "variedad"  => (count($variedad) > 0 ) ?  $variedad[0]->id : -2,
-            "mesa"      => (count($mesa) > 0 ) ?      $mesa[0]->id : -3,
-            "grado"     => (count($grado) > 0 ) ?     $grado[0]->id : -4,
-            "tipo_ramo" => (count($tipo_ramo) > 0 ) ? $tipo_ramo[0]->id : -5,
-            "cantidad"  => (count($tipo_ramo) > 0 ) ? $tipo_ramo[0]->quantity : 0,
+            "finca"       => (count($finca) > 0 ) ?     $finca[0]->id : -1,
+            "variedad"    => (count($variedad) > 0 ) ?  $variedad[0]->id : -2,
+            "mesa"        => (count($mesa) > 0 ) ?      $mesa[0]->id : -3,
+            "grado"       => (count($grado) > 0 ) ?     $grado[0]->id : -4,
+            "tipo_ramo"   => (count($tipo_ramo) > 0 ) ? $tipo_ramo[0]->id : -5,
+            "cantidad"    => (count($tipo_ramo) > 0 ) ? $tipo_ramo[0]->quantity : 0,
+            "consecutive" => (count($rosa) > 0 ) ? -6 : $_GET['consecutivo'],
         ];
         return response()->json($data);
     }

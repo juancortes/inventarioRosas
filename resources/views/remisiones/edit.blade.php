@@ -22,35 +22,7 @@
           @csrf
           @method('put')
           <div class="row">
-            <div class="col-lg-4">
-              <div class="card">
-                <div class="card-body">
-                  <h3 class="card-title">
-                      {{ __('Soporte') }}
-                  </h3>
-
-                  <img class="img-account-profile mb-2"
-                      src="{{ $remision->support ? asset('storage/' . $remision->support) : asset('assets/img/remisiones/default.webp') }}"
-                      alt="" id="image-preview">
-
-                  <div class="small font-italic text-muted mb-2">
-                      JPG or PNG no mas largo que 2 MB
-                  </div>
-
-                  <input type="file" accept="image/*" id="image" name="support"
-                      class="form-control @error('support') is-invalid @enderror"
-                      onchange="previewImage();">
-
-                  @error('support')
-                      <div class="invalid-feedback">
-                          {{ $message }}
-                      </div>
-                  @enderror
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-8">
+            <div class="col-lg-12">
               <div class="card">
                 <div class="card-body">
                   <h3 class="card-title">
@@ -58,7 +30,7 @@
                   </h3>
 
                   <div class="row row-cards">
-                    <div class="col-md-12">
+                    <div class="col-md-6">
                         <div class="mb-3">
                             <label for="date" class="form-label">
                                 {{ __('Fecha') }}
@@ -102,42 +74,50 @@
                       </div>
                     </div>
 
-                    <div class="col-sm-6 col-md-6">
-                      <div class="mb-3">
-                        <label for="variety" class="form-label">
-                            {{ __('Variedad') }}
-                        </label>
+                    <div id="table_rows">
+                      <table class="table" id="table-data">
+                        <thead>
+                          <tr>
+                            <th>Variedad</th>
+                            <th>Cantidad</th>
+                            <th>Opción</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          @foreach ($detalleRem as $detalle)
+                            <tr class="tr_clone">
+                              <td>
+                                <select name="variety[]" id="variety"
+                                class="form-select @error('variety') is-invalid @enderror"
+                                >
+                                  <option selected="" value="">
+                                      Seleccione una Variedad:
+                                  </option>
 
-                        <input type="text" id="variety" name="variety"
-                            class="form-control @error('variety') is-invalid @enderror"
-                            placeholder="Variedad"
-                            value="{{ old('variety', $remision->variety) }}">
-
-                        @error('variety')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
-                        @enderror
-                      </div>
-                    </div>                   
-
-                    <div class="col-sm-6 col-md-6">
-                      <div class="mb-3">
-                        <label for="quantity_stems" class="form-label">
-                            {{ __('Cantidad de Tallos') }}
-                        </label>
-
-                        <input type="number" id="quantity_stems" name="quantity_stems"
-                            class="form-control @error('quantity_stems') is-invalid @enderror"
-                            placeholder="Cantidad de Tallos"
-                            value="{{ old('quantity_stems', $remision->quantity_stems) }}">
-
-                        @error('quantity_stems')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
-                        @enderror
-                      </div>
+                                  @foreach ($varieties as $variety)
+                                      <option value="{{ $variety->id }}" @if(old('variety', $detalle->variety_id) == $variety->id) selected="selected" @endif>
+                                          {{ $variety->name }}
+                                      </option>
+                                  @endforeach
+                                </select>
+                              </td>
+                              <td>
+                                <input type="number"
+                                 class="form-control" 
+                                 name="quantity_stems[]"
+                                 id="quantity_stems"
+                                 placeholder="0"
+                                 value="{{$detalle->quantity_stems}}" 
+                                />
+                              </td>
+                              <td>
+                                <input type="button" name="add" value="Adicionar" class="addBtn btn btn-info">
+                                <input type="button" name="delete" value="Eliminar" class="removeBtn btn btn-info">
+                              </td>
+                            </tr>
+                          @endforeach
+                        </tbody>
+                      </table>
                     </div>
 
                     <div class="col-md-12">
@@ -179,4 +159,5 @@
 
 @pushonce('page-scripts')
   <script src="{{ asset('assets/js/img-preview.js') }}"></script>
+    <script src="{{ asset('assets/js/resource.js') }}"></script>
 @endpushonce

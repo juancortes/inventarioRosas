@@ -1,7 +1,37 @@
 $(document).ready(function(){
-  $("#staticBackdrop").modal('show');
-  $("input:text:visible:first").focus();
 
+  alertify.genericDialog || alertify.dialog('genericDialog',function(){
+    return {
+        main:function(content){
+            this.setContent(content);
+        },
+        setup:function(){
+            return {
+                focus:{
+                    element:function(){
+                        return this.elements.body.querySelector(this.get('selector'));
+                    },
+                    select:true
+                },
+                options:{
+                    basic:true,
+                    maximizable:false,
+                    resizable:false,
+                    padding:false
+                }
+            };
+        },
+        settings:{
+            selector:undefined
+        }
+    };
+});
+//force focusing password box
+alertify.genericDialog ($('#loginForm')[0]).set('selector', 'input[id="codigo_barras"]');
+
+  //$("#staticBackdrop").modal('show');
+  $("input:text:visible:first").focus();
+  $("#codigo_barras").trigger('onclick');
   $("#codigo_barras").focus();
   document.getElementById("codigo_barras").focus();
 
@@ -17,13 +47,13 @@ $(document).ready(function(){
       consecutivo += codigo[i]
     }
 
-    $("#consecutive").val(consecutivo);
 
     var obj = {
        finca: finca,                 
        variedad: variedad,
        mesa: mesa,                 
        grado: grado,                 
+       consecutivo: consecutivo,                 
        tipo_ramo: tipo_ramo
     }; 
     $.ajax({
@@ -39,18 +69,7 @@ $(document).ready(function(){
         },
         success: function (data) {
           console.log("SUCCESS : ", data);
-          $("#lands_id").val(data.finca);
-          $("#lands_id1").val(data.finca);
-          $("#varietie_id").val(data.variedad);
-          $("#varietie_id1").val(data.variedad);
-          $("#table_id").val(data.mesa);
-          $("#table_id1").val(data.mesa);
-          $("#grades_id").val(data.grado);
-          $("#grades_id1").val(data.grado);
-          $("#type_branche_id").val(data.tipo_ramo);
-          $("#type_branche_id1").val(data.tipo_ramo);
-          $("#quantity").val(data.cantidad);
-          $("#staticBackdrop").modal('hide');
+          
           error = "";
           if(data.finca == -1)
             error += " Finca no encontrada. ";
@@ -62,9 +81,28 @@ $(document).ready(function(){
             error += " Grado no encontrada. ";
           if(data.tipo_ramo == -5)
             error += " Tipo de Ramo no encontrada. ";
+          if(data.consecutive == -6)
+            error += " Consecutivo ya tomado. ";
 
           if(error != "")
             alert(error);
+          else
+          {
+            $("#lands_id").val(data.finca);
+            $("#lands_id1").val(data.finca);
+            $("#varietie_id").val(data.variedad);
+            $("#varietie_id1").val(data.variedad);
+            $("#table_id").val(data.mesa);
+            $("#table_id1").val(data.mesa);
+            $("#grades_id").val(data.grado);
+            $("#grades_id1").val(data.grado);
+            $("#type_branche_id").val(data.tipo_ramo);
+            $("#type_branche_id1").val(data.tipo_ramo);
+            $("#quantity").val(data.cantidad);
+            $("#staticBackdrop").modal('hide');
+            $("#consecutive").val(consecutivo);
+            alertify.genericDialog().destroy();
+          }
         },
         complete:function(data){
           // Hide image container
@@ -76,8 +114,10 @@ $(document).ready(function(){
         }
     });
 
+  $("#codigo_barras").focus();
     
      
   });
+  $("#codigo_barras").focus();
 });
 

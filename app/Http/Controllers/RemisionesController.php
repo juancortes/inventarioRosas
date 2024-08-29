@@ -116,10 +116,14 @@ class RemisionesController extends Controller
      */
     public function edit($remision_id)
     {
-        $remision = Remisiones::find( $remision_id);
-        
+        $remision   = Remisiones::find( $remision_id);
+        $varieties  = Varieties::get(['id', 'name']);
+        $detalleRem = DetalleRemisiones::where('remision_id', $remision_id)
+                                    ->get();
         return view('remisiones.edit', [
-            'remision' => $remision,
+            'remision'   => $remision,
+            'varieties'  => $varieties,
+            'detalleRem' => $detalleRem,
             'lands'      => Lands::get(['id', 'name']),
         ]);
     }
@@ -130,7 +134,7 @@ class RemisionesController extends Controller
     public function update(UpdateremisionesRequest $request, $remision_id)
     {
         $remision = Remisiones::find( $remision_id);
-        $remision->update($request->except('support'));
+        
 
         $image = $remision->support;
         if ($request->hasFile('support')) {
@@ -145,10 +149,18 @@ class RemisionesController extends Controller
         $remision->support        = $image;
         $remision->date           = $request->date;
         $remision->lands_id       = $request->lands_id;
-        $remision->variety        = $request->variety    ;
-        $remision->quantity_stems = $request->quantity_stems;
         $remision->observations   = $request->observations;
         $remision->save();
+
+        $detalleRem = DetalleRemisiones::where('remision_id', $remision->id)->delete();
+
+        foreach ($request->variety as $key => $value) {
+            DetalleRemisiones::create([
+              'remision_id'    => $remision->id,
+              'variety_id'     => $value,
+              'quantity_stems' => $request->quantity_stems[$key]
+            ]);
+        }
 
         return redirect()
             ->route('remisiones.index')
