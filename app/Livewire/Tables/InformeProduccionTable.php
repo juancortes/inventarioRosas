@@ -12,7 +12,9 @@ class InformeProduccionTable extends Component
 
     public $perPage = 5;
 
-    public $search = '';
+    public $searchFechaInicial = '';
+    public $searchFechaFinal = '';
+    public $searchVariedad = '';
 
     public $sortField = 'products.id';
 
@@ -35,7 +37,7 @@ class InformeProduccionTable extends Component
     {
         return view('livewire.tables.informeProduccion-table', [
             'products' => Product::with(['lands', 'varietie','typeBranche','table','grades'])
-                ->search($this->search)
+                ->search2($this->searchFechaInicial, $this->searchFechaFinal, $this->searchVariedad)
                 ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
                 ->paginate($this->perPage)
         ]);

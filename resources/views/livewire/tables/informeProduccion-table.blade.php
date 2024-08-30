@@ -32,9 +32,19 @@
                 entradas
             </div>
             <div class="ms-auto text-secondary">
-                Buscar:
+                Fecha Inicial:
                 <div class="ms-2 d-inline-block">
-                    <input type="text" wire:model.live="search" class="form-control form-control-sm"
+                    <input type="date" wire:model.live="searchFechaInicial" class="form-control form-control-sm"
+                        aria-label="Buscar invoice">
+                </div>
+                Fecha Final:
+                <div class="ms-2 d-inline-block">
+                    <input type="date" wire:model.live="searchFechaFinal" class="form-control form-control-sm"
+                        aria-label="Buscar invoice">
+                </div>
+                Variedad:
+                <div class="ms-2 d-inline-block">
+                    <input type="text" wire:model.live="searchVariedad" class="form-control form-control-sm"
                         aria-label="Buscar invoice">
                 </div>
             </div>
@@ -48,9 +58,9 @@
             <thead class="thead-light">
                 <tr>
                     <th scope="col" class="align-middle text-center">
-                        <a wire:click.prevent="sortBy('consecutive')" href="#" role="button">
-                            {{ __('Fecha Creación') }}
-                            @include('inclues._sort-icon', ['field' => 'consecutive'])
+                        <a wire:click.prevent="sortBy('date')" href="#" role="button">
+                            {{ __('Fecha') }}
+                            @include('inclues._sort-icon', ['field' => 'date'])
                         </a>
                     </th>
                     <th scope="col" class="align-middle text-center">
@@ -95,7 +105,7 @@
                 @forelse ($products as $product)
                     <tr>
                         <td class="align-middle text-center">
-                            {{ date('Y-m-d', strtotime($product->created_at)) }}
+                            {{ date('Y-m-d', strtotime($product->date)) }}
                         </td>
                         <td class="align-middle texdate('d-m-Y', strtotime($user->from_date))t-center">
                             {{ $product->lands ? $product->lands->name : '--' }}

@@ -115,6 +115,50 @@ class Product extends Model
         );
     }
 
+    public function scopeSearch2($query, $fehcaInicial, $fechaFinal, $variedad): void
+    {
+        $query->join('lands','products.lands_id', '=', 'lands.id')
+            ->join('varieties','products.varietie_id', '=', 'varieties.id')
+            ->join('type_branches','products.type_branche_id', '=','type_branches.id')
+            ->join('tables','products.table_id', '=', 'tables.id')
+            ->join('grades','products.grades_id', '=', 'grades.id');
+            /*->where('lands.name', 'ilike', "%{$value}%")
+            ->orWhere('varieties.name', 'ilike', "%{$value}%")
+            ->orWhere('type_branches.name', 'ilike', "%{$value}%")
+            ->orWhere('type_branches.quantity', 'ilike', "%{$value}%")
+            ->orWhere('grades.name', 'ilike', "%{$value}%")
+            ->orWhere('tables.name', 'ilike', "%{$value}%");*/
+
+        if(isset($fehcaInicial) && $fehcaInicial != "")
+        {
+            if($variedad == "")
+            {
+                if($fechaFinal == "")
+                    $query->where('date','=',$fehcaInicial);
+                else 
+                    $query->whereBetween('date', [$fehcaInicial, $fechaFinal]);
+            }
+            else
+            {
+                if($fechaFinal == "")
+                {
+                    $query->where('date','=',$fehcaInicial);
+                    $query->where('varieties.name', 'ilike', "%{$variedad}%");
+                }
+                else 
+                {
+                    $query->whereBetween('date', [$fehcaInicial, $fechaFinal]);
+                    $query->where('varieties.name', 'ilike', "%{$variedad}%");
+                }
+            }
+        }
+        else
+        {
+            if($variedad != "")
+                $query->where('varieties.name', 'ilike', "%{$variedad}%");
+        }
+    }
+
     public function scopeSearch($query, $value): void
     {
         $query->join('lands','products.lands_id', '=', 'lands.id')
