@@ -169,7 +169,7 @@
                           </span>
                       </a>
                   </li>
-
+                @if(Gate::allows('isAdmin')) 
                   <li
                       class="nav-item dropdown {{ request()->is('suppliers*', 'customers*') ? 'active' : null }}">
                       <a class="nav-link dropdown-toggle" href="#navbar-base" data-bs-toggle="dropdown"
@@ -203,7 +203,8 @@
                           </div>
                       </div>
                   </li>
-
+                @endif
+                @if(Gate::allows('isAdmin')) 
                   <li
                       class="nav-item dropdown {{ request()->is('suppliers*', 'customers*') ? 'active' : null }}">
                       <a class="nav-link dropdown-toggle" href="#navbar-base" data-bs-toggle="dropdown"
@@ -234,7 +235,9 @@
                           </div>
                       </div>
                   </li>
+                @endif
 
+                @if(Gate::allows('isAdmin')) 
                   <li
                       class="nav-item dropdown {{ request()->is('suppliers*', 'customers*') ? 'active' : null }}">
                       <a class="nav-link dropdown-toggle" href="#navbar-base" data-bs-toggle="dropdown"
@@ -268,7 +271,9 @@
                           </div>
                       </div>
                   </li>
+                @endif
 
+                @if(Gate::allows('isAdmin')) 
                   <li
                       class="nav-item dropdown {{ request()->is('users*', 'categories*', 'units*') ? 'active' : null }}">
                       <a class="nav-link dropdown-toggle" href="#navbar-base" data-bs-toggle="dropdown"
@@ -314,7 +319,9 @@
                           </div>
                       </div>
                   </li>
+                @endif
 
+                @if(Gate::allows('isAdmin')) 
                   <li
                       class="nav-item dropdown {{ request()->is('suppliers*', 'customers*') ? 'active' : null }}">
                       <a class="nav-link dropdown-toggle" href="#navbar-base" data-bs-toggle="dropdown"
@@ -345,6 +352,7 @@
                           </div>
                       </div>
                   </li>
+                @endif
                 </ul>
 
                   

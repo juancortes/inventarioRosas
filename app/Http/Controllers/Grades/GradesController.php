@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Grades;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreGradesRequest;
 use App\Http\Requests\UpdateGradesRequest;
+use Illuminate\Support\Facades\Gate;
 use App\Models\Grades;
+
 
 class GradesController extends Controller
 {
@@ -17,9 +19,14 @@ class GradesController extends Controller
         $grades = Grades::select(['id', 'name'])
             ->get();
 
-        return view('grades.index', [
-            'grades' => $grades,
-        ]);
+        if (Gate::allows('isAdmin')) {
+            return view('grades.index', [
+                'grades' => $grades,
+            ]);
+        } else {
+            abort(401);
+        }
+        
     }
 
     /**
@@ -27,7 +34,12 @@ class GradesController extends Controller
      */
     public function create()
     {
-        return view('grades.create');
+        if (Gate::allows('isAdmin'))
+        {
+            return view('grades.create');
+        } else {
+            abort(401);
+        }
     }
 
     /**
@@ -60,10 +72,15 @@ class GradesController extends Controller
      */
     public function edit($grades_id)
     {
-        $grade = Grades::find( $grades_id);
-        return view('grades.edit', [
-            'grade' => $grade
-        ]);
+        if (Gate::allows('isAdmin'))
+        {
+            $grade = Grades::find( $grades_id);
+            return view('grades.edit', [
+                'grade' => $grade
+            ]);
+        } else {
+            abort(401);
+        }
     }
 
     /**
@@ -87,11 +104,16 @@ class GradesController extends Controller
      */
     public function destroy($grades_id)
     {
-        $grade = Grades::find( $grades_id);
-        $grade->delete();
+        if (Gate::allows('isAdmin')) 
+        {
+            $grade = Grades::find( $grades_id);
+            $grade->delete();
 
-        return redirect()
-            ->route('grades.index')
-            ->with('Exitoso', 'Grado fue eliminada!');
+            return redirect()
+                ->route('grades.index')
+                ->with('Exitoso', 'Grado fue eliminada!');
+        } else {
+            abort(401);
+        }
     }
 }

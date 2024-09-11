@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Role;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\User\StoreUserRequest;
@@ -23,7 +24,9 @@ class UserController extends Controller
 
     public function create()
     {
-        return view('users.create');
+        return view('users.create',[
+          'roles' => Role::get(['id', 'name']),
+        ]);
     }
 
     public function store(StoreUserRequest $request)
@@ -33,6 +36,7 @@ class UserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => $request->password,
+            'role_id' => $request->role_id,
 
         ]);
 
@@ -63,8 +67,10 @@ class UserController extends Controller
 
     public function edit(User $user)
     {
+
         return view('users.edit', [
-            'user' => $user
+          'user'  => $user,
+          'roles' => Role::get(['id', 'name']),
         ]);
     }
 

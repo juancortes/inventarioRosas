@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Itstructure\LaRbac\Interfaces\RbacUserInterface;
 use Itstructure\LaRbac\Traits\Administrable;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class User extends Authenticatable implements MustVerifyEmail, RbacUserInterface
 {
@@ -25,7 +26,7 @@ class User extends Authenticatable implements MustVerifyEmail, RbacUserInterface
         "store_address",
         "store_phone",
         "store_email",
-        "roles"
+        "role_id"
     ];
 
     protected $hidden = [
@@ -38,6 +39,16 @@ class User extends Authenticatable implements MustVerifyEmail, RbacUserInterface
         'created_at' => 'datetime',
         'updated_at' => 'datetime'
     ];
+
+    /**
+     * Get the user that owns the Category
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function roles(): BelongsTo
+    {
+        return $this->belongsTo(Role::class, 'role_id', 'id');
+    }
 
     public function scopeSearch($query, $value): void
     {

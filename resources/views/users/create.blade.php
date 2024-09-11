@@ -107,6 +107,27 @@
                                             @enderror
                                         </div>
 
+                                        <div class="mb-3">
+                                          <label for="role_id" class="form-label">
+                                            Role
+                                            <span class="text-danger">*</span>
+                                          </label>
+
+                                          <select name="role_id" id="role_id" 
+                                              class="form-select @error('role_id') is-invalid @enderror"
+                                              readonly
+                                              >
+                                              <option selected="" >
+                                                  Seleccione un Role:
+                                              </option>
+                                            @foreach ($roles as $role)
+                                                <option value="{{ $role->id }}" >
+                                                    {{ $role->name }}
+                                                </option>
+                                            @endforeach
+                                          </select>
+                                        </div>
+
                                         {{---
                                         <div class="mb-3">
                                             <label for="username" class="form-label">

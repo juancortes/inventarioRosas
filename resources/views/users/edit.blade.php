@@ -63,6 +63,24 @@
                                             <x-input name="name" :value="old('name', $user->name)" required="true"/>
 
                                             <x-input name="email" :value="old('name', $user->email)" label="Email" required="true"/>
+                                            
+                                            <label class="small mb-1" for="role_id">
+                                                {{ __('Role') }}
+                                                <span class="text-danger">*</span>
+                                            </label>
+
+                                            <select class="form-select form-control-solid @error('role_id') is-invalid @enderror" id="role_id" name="role_id">
+                                                <option selected="" disabled="">
+                                                    Seleccione un Role:
+                                                </option>
+
+                                                @foreach ($roles as $role)
+                                                    <option value="{{ $role->id }}" 
+                                                    @if ($role->id == $user->role_id) selected="selected" @endif>
+                                                        {{ $role->name }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
                                         </div>
                                     </div>
                                 </div>
