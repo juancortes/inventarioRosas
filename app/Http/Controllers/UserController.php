@@ -35,7 +35,7 @@ class UserController extends Controller
             "uuid" => Str::uuid(),
             'name' => $request->name,
             'email' => $request->email,
-            'password' => $request->password,
+            'password' => Hash::make($request->password),
             'role_id' => $request->role_id,
 
         ]);
@@ -120,7 +120,7 @@ class UserController extends Controller
         ]);
 
         # Update the new Password
-        User::where('username', $username)->update([
+        $val= User::where('name', $username)->update([
             'password' => Hash::make($validated['password'])
         ]);
 
