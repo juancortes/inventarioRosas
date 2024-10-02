@@ -95,7 +95,7 @@
                     </th>
                     <th scope="col" class="align-middle text-center">
                         <a wire:click.prevent="sortBy('quantity')" href="#" role="button">
-                            {{ __('Cantidad') }}
+                            {{ __('Cantidad de Tallos') }}
                             @include('inclues._sort-icon', ['field' => 'quantity'])
                         </a>
                     </th>
@@ -142,7 +142,7 @@
                 @endforelse
                 <tr>
                     <td colspan="6" class="align-middle text-center">
-                        Total
+                        Total Cantidad de Tallos
                     </td>
                     <td class="align-middle text-center">
                         {{ $cantidad }}
