@@ -102,7 +102,13 @@
                 </tr>
             </thead>
             <tbody>
+                @php
+                    $cantidad = 0;
+                @endphp
                 @forelse ($products as $product)
+                    @php
+                        $cantidad += $product->typeBranche ? $product->typeBranche->quantity : 0;
+                    @endphp
                     <tr>
                         <td class="align-middle text-center">
                             {{ date('Y-m-d', strtotime($product->date)) }}
@@ -126,6 +132,7 @@
                             {{ $product->typeBranche ? $product->typeBranche->quantity : '--' }}
                         </td>
                     </tr>
+                    
                 @empty
                     <tr>
                         <td class="align-middle text-center" colspan="7">
@@ -133,6 +140,14 @@
                         </td>
                     </tr>
                 @endforelse
+                <tr>
+                    <td colspan="6" class="align-middle text-center">
+                        Total
+                    </td>
+                    <td class="align-middle text-center">
+                        {{ $cantidad }}
+                    </td>
+                </tr>
             </tbody>
         </table>
     </div>
